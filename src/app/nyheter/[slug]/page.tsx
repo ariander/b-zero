@@ -6,6 +6,8 @@ import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { CustomPortableText } from "@/components/CustomPortableText";
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 export async function generateMetadata(
     { params }: { params: Promise<{ slug: string }> },
     parent: ResolvingMetadata

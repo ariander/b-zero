@@ -7,6 +7,8 @@ import { CustomPortableText } from "@/components/CustomPortableText";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { RaceGallery } from "@/components/RaceGallery";
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 export async function generateMetadata(
     { params }: { params: Promise<{ slug: string }> },
     parent: ResolvingMetadata

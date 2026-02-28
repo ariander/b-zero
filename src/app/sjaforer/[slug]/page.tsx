@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, User, CalendarCheck, Wrench, FlagCheckered } from "@phosphor-icons/react/dist/ssr";
 import { CustomPortableText } from "@/components/CustomPortableText";
+
+export const revalidate = 60; // Revalidate at most every 60 seconds
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function DriverPage({ params }: { params: Promise<{ slug: string }> }) {

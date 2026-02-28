@@ -5,6 +5,8 @@ import { ArrowRight, Image as ImageIcon } from '@phosphor-icons/react/dist/ssr'
 import { urlFor } from "@/sanity/lib/image";
 import YearTimeline, { Race } from "@/components/YearTimeline";
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 // Define types based on our Sanity schema
 interface Post {
     _id: string;

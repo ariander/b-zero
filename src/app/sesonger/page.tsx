@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { FlagCheckered, FilePdf, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 export interface Race {
     _id: string;
     title: string;

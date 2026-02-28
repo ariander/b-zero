@@ -4,6 +4,8 @@ import Link from "next/link";
 import { User } from "@phosphor-icons/react/dist/ssr";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 export default async function DriversPage() {
     const drivers = await getDrivers();
 
