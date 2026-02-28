@@ -112,7 +112,8 @@ export async function getSeasons() {
         slug,
         logo { asset->{ url } },
         trackMap { asset->{ url } },
-        thumbnail { asset->{ url } }
+        thumbnail { asset->{ url } },
+        websiteUrl
       }
     }
   `);
@@ -181,7 +182,8 @@ export async function getRaceBySlug(slug: string) {
         logo { asset->{ url } },
         trackMap { asset->{ url } },
         thumbnail { asset->{ url } },
-        mapsLink
+        mapsLink,
+        websiteUrl
       },
       report,
       links[] {

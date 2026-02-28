@@ -171,27 +171,52 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     {race.track && (
                         <section className="bg-slate-100 text-slate-800 p-4 rounded-2xl shadow-md">
                             <div className="flex flex-col items-center justify-center text-center">
-                                {(race.track.trackMap?.asset?.url || race.track.logo?.asset?.url) && (
-                                    <>
-                                        {race.track.trackMap?.asset?.url && (
-                                            <div className="relative w-full aspect-square mb-0">
-                                                <Image src={race.track.trackMap.asset.url} alt={`Banekart ${race.track.name}`} fill className="object-contain" />
-                                            </div>
+                                {race.track.websiteUrl ? (
+                                    <a href={race.track.websiteUrl} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center justify-center w-full">
+                                        {(race.track.trackMap?.asset?.url || race.track.logo?.asset?.url) && (
+                                            <>
+                                                {race.track.trackMap?.asset?.url && (
+                                                    <div className="relative w-full aspect-square mb-0 group-hover:scale-[1.02] transition-transform">
+                                                        <Image src={race.track.trackMap.asset.url} alt={`Banekart ${race.track.name}`} fill className="object-contain" />
+                                                    </div>
+                                                )}
+                                                {race.track.logo?.asset?.url && (
+                                                    <div className="relative w-3/4 h-24 px-16 mb-4 shrink-0 group-hover:scale-[1.02] transition-transform">
+                                                        <Image src={race.track.logo.asset.url} alt={race.track.name} fill className="object-contain" />
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
-                                        {race.track.logo?.asset?.url && (
-                                            <div className="relative w-3/4 h-24 px-16 mb-4 shrink-0">
-                                                <Image src={race.track.logo.asset.url} alt={race.track.name} fill className="object-contain" />
-                                            </div>
+
+                                        {!race.track.logo?.asset?.url && (
+                                            <h2 className="text-2xl font-conthrax uppercase tracking-wider text-brand-red mb-6 group-hover:text-red-700 transition-colors">{race.track.name}</h2>
+                                        )}
+                                    </a>
+                                ) : (
+                                    <>
+                                        {(race.track.trackMap?.asset?.url || race.track.logo?.asset?.url) && (
+                                            <>
+                                                {race.track.trackMap?.asset?.url && (
+                                                    <div className="relative w-full aspect-square mb-0">
+                                                        <Image src={race.track.trackMap.asset.url} alt={`Banekart ${race.track.name}`} fill className="object-contain" />
+                                                    </div>
+                                                )}
+                                                {race.track.logo?.asset?.url && (
+                                                    <div className="relative w-3/4 h-24 px-16 mb-4 shrink-0">
+                                                        <Image src={race.track.logo.asset.url} alt={race.track.name} fill className="object-contain" />
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
+
+                                        {!race.track.logo?.asset?.url && (
+                                            <h2 className="text-2xl font-conthrax uppercase tracking-wider text-brand-red mb-6">{race.track.name}</h2>
                                         )}
                                     </>
                                 )}
 
-                                {!race.track.logo?.asset?.url && (
-                                    <h2 className="text-2xl font-conthrax uppercase tracking-wider text-brand-red mb-6">{race.track.name}</h2>
-                                )}
-
                                 {race.track.mapsLink && !race.track.mapsLink.includes('<iframe') && (
-                                    <div className="w-full mt-2">
+                                    <div className="w-full mt-2 relative z-10">
                                         <a href={race.track.mapsLink} target="_blank" rel="noopener noreferrer" className="w-full bg-white hover:bg-slate-50 text-slate-800 font-bold py-3 px-4 rounded-xl transition border border-slate-300 hover:border-slate-400 uppercase font-conthrax tracking-wider text-xs flex items-center justify-center gap-2 shadow-sm">
                                             Finn veien til banen
                                         </a>

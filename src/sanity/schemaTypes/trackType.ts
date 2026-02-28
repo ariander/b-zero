@@ -51,6 +51,12 @@ export const trackType = defineType({
             type: 'text',
             rows: 3,
         }),
+        defineField({
+            name: 'websiteUrl',
+            title: 'Hjemmeside',
+            description: 'Valgfritt. Lenke til banens offisielle hjemmeside.',
+            type: 'url',
+        }),
     ],
     preview: {
         select: {
