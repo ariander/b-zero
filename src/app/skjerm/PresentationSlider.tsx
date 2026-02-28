@@ -137,6 +137,20 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                     </div>
                 );
             })}
+
+            {/* Global Overlay: Logo and URL */}
+            <div className="absolute top-8 right-8 lg:top-12 lg:right-16 z-40 flex flex-col items-end gap-2 drop-shadow-lg opacity-90 transition-opacity">
+                <Image
+                    src="/B-ZERO-logo.svg"
+                    alt="B-Zero Racing"
+                    width={240}
+                    height={70}
+                    className="brightness-0 invert h-12 lg:h-16 w-auto"
+                />
+                <span className="text-white font-conthrax text-sm lg:text-base tracking-widest uppercase opacity-80">
+                    www.b-zeroracing.com
+                </span>
+            </div>
         </div>
     );
 }
