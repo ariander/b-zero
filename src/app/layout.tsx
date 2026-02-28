@@ -16,8 +16,24 @@ const conthrax = localFont({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.b-zeroracing.com'),
   title: 'B-Zero Racing',
-  description: 'Norges råeste og billigste asfaltracing-klasse.',
+  description: 'Norges råeste og billigste racing- og rallyklasse.',
+  openGraph: {
+    title: 'B-Zero Racing',
+    description: 'Norges råeste og billigste racing- og rallyklasse.',
+    siteName: 'B-Zero Racing',
+    images: [
+      {
+        url: '/C1-24h-190428-146.JPG',
+        width: 1200,
+        height: 630,
+        alt: 'B-Zero Racing',
+      }
+    ],
+    locale: 'nb_NO',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

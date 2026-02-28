@@ -4,7 +4,43 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Images, Notebook, Link as LinkIcon, CaretRight, CalendarBlank } from "@phosphor-icons/react/dist/ssr";
 import { CustomPortableText } from "@/components/CustomPortableText";
+import type { Metadata, ResolvingMetadata } from 'next';
 import { RaceGallery } from "@/components/RaceGallery";
+
+export async function generateMetadata(
+    { params }: { params: Promise<{ slug: string }> },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const resolvedParams = await params;
+    const race = await getRaceBySlug(resolvedParams.slug);
+
+    if (!race) {
+        return {
+            title: 'Løp ikke funnet | B-Zero Racing',
+        }
+    }
+
+    let description = 'Informasjon om løp for B-Zero Racing.';
+    if (race.report) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        description = race.report?.filter((block: any) => block._type === 'block' && block.children).map((block: any) => block.children.map((child: any) => child.text).join('')).join(' ').substring(0, 160);
+    } else if (race.track?.name) {
+        description = `Løp på ${race.track.name} i sesong ${race.season}.`;
+    }
+
+    const previousImages = (await parent).openGraph?.images || []
+    const imageUrl = race.mainImage?.asset?.url || race.track?.thumbnail?.asset?.url
+
+    return {
+        title: `${race.title} | B-Zero Racing`,
+        description: description + (description.length >= 160 ? '...' : ''),
+        openGraph: {
+            title: race.title,
+            description: description + (description.length >= 160 ? '...' : ''),
+            images: imageUrl ? [imageUrl, ...previousImages] : previousImages,
+        },
+    }
+}
 
 export default async function RacePage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;

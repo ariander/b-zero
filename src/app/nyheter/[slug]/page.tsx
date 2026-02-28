@@ -3,7 +3,38 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import type { Metadata, ResolvingMetadata } from 'next';
 import { CustomPortableText } from "@/components/CustomPortableText";
+
+export async function generateMetadata(
+    { params }: { params: Promise<{ slug: string }> },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const resolvedParams = await params;
+    const post = await getPostBySlug(resolvedParams.slug);
+
+    if (!post) {
+        return {
+            title: 'Nyhet ikke funnet | B-Zero Racing',
+        }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const description = post.body?.filter((block: any) => block._type === 'block' && block.children).map((block: any) => block.children.map((child: any) => child.text).join('')).join(' ').substring(0, 160) || 'Les nyheten på B-Zero Racing.';
+
+    const previousImages = (await parent).openGraph?.images || []
+    const imageUrl = post.mainImage?.asset?.url
+
+    return {
+        title: `${post.title} | B-Zero Racing`,
+        description: description + (description.length >= 160 ? '...' : ''),
+        openGraph: {
+            title: post.title,
+            description: description + (description.length >= 160 ? '...' : ''),
+            images: imageUrl ? [imageUrl, ...previousImages] : previousImages,
+        },
+    }
+}
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;
