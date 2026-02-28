@@ -106,14 +106,14 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                 </div>
 
                                 {driver.bio && (
-                                    <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed max-w-3xl pt-8 line-clamp-6">
+                                    <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed max-w-2xl pt-8 line-clamp-6">
                                         <PortableText value={driver.bio} />
                                     </div>
                                 )}
                             </div>
 
                             {/* Right Side: Portrait */}
-                            <div className="relative w-1/3 h-[70vh] flex items-center justify-center z-20">
+                            <div className="relative w-1/3 h-[60vh] flex items-center justify-center z-20">
                                 {driver.profileImage ? (
                                     <div className={`relative w-full h-full max-w-[600px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform origin-center ${shouldAnimateZoom ? "animate-slow-zoom" : ""}`}>
                                         <Image
@@ -138,18 +138,29 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                 );
             })}
 
-            {/* Global Overlay: Logo and URL */}
-            <div className="absolute top-8 right-8 lg:top-12 lg:right-16 z-40 flex flex-col items-end gap-2 drop-shadow-lg opacity-90 transition-opacity">
-                <Image
-                    src="/B-ZERO-logo.svg"
-                    alt="B-Zero Racing"
-                    width={240}
-                    height={70}
-                    className="brightness-0 invert h-12 lg:h-16 w-auto"
-                />
-                <span className="text-white font-conthrax text-sm lg:text-base tracking-widest uppercase opacity-80">
-                    www.b-zeroracing.com
-                </span>
+            {/* Global Overlay: Logo, URL and QR */}
+            <div className="absolute top-8 right-8 lg:top-12 lg:right-16 z-40 flex items-center gap-6 drop-shadow-lg opacity-90 transition-opacity">
+                <div className="flex flex-col items-end gap-2">
+                    <Image
+                        src="/B-ZERO-logo.svg"
+                        alt="B-Zero Racing"
+                        width={240}
+                        height={70}
+                        className="brightness-0 invert h-10 lg:h-12 w-auto"
+                    />
+                    <span className="text-white font-conthrax text-sm lg:text-base tracking-widest uppercase opacity-80">
+                        www.b-zeroracing.com
+                    </span>
+                </div>
+                <div className="bg-white p-2 rounded-xl shadow-lg flex items-center justify-center shrink-0">
+                    <Image
+                        src="/qr.svg"
+                        alt="QR Kode til B-Zero Racing"
+                        width={80}
+                        height={80}
+                        className="w-16 h-16 lg:w-20 lg:h-20"
+                    />
+                </div>
             </div>
         </div>
     );
