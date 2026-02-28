@@ -36,6 +36,8 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
         <div className="relative w-full h-full bg-black overflow-hidden select-none">
             {drivers.map((driver, index) => {
                 const isActive = index === currentIndex;
+                const isPrevious = index === (currentIndex - 1 + drivers.length) % drivers.length;
+                const shouldAnimateZoom = isActive || isPrevious;
 
                 return (
                     <div
@@ -48,7 +50,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                         {/* Background Car Image */}
                         {driver.carImage ? (
                             <div
-                                className={`absolute inset-0 w-full h-full transform origin-center ${isActive ? "animate-slow-zoom" : ""
+                                className={`absolute inset-0 w-full h-full transform origin-center ${shouldAnimateZoom ? "animate-slow-zoom" : ""
                                     }`}
                             >
                                 <Image
@@ -71,8 +73,8 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                         <div className="absolute inset-0 flex items-center justify-between px-20vw px-16 lg:px-32">
 
                             {/* Floating start number behind text on the left */}
-                            {driver.startNumber && isActive && (
-                                <div className="absolute left-8 lg:left-4 top-1/2 -translate-y-1/2 z-10 opacity-[0.1] animate-slow-zoom pointer-events-none">
+                            {driver.startNumber && (isActive || isPrevious) && (
+                                <div className={`absolute left-8 lg:left-4 top-1/2 -translate-y-1/2 z-10 opacity-[0.1] pointer-events-none ${shouldAnimateZoom ? "animate-slow-zoom" : ""}`}>
                                     <span className="text-[40rem] lg:text-[50rem] leading-none font-conthrax text-white">{driver.startNumber}</span>
                                 </div>
                             )}
@@ -113,7 +115,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                             {/* Right Side: Portrait */}
                             <div className="relative w-1/3 h-[70vh] flex items-center justify-center z-20">
                                 {driver.profileImage ? (
-                                    <div className={`relative w-full h-full max-w-[600px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform origin-center ${isActive ? "animate-slow-zoom" : ""}`}>
+                                    <div className={`relative w-full h-full max-w-[600px] aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform origin-center ${shouldAnimateZoom ? "animate-slow-zoom" : ""}`}>
                                         <Image
                                             src={urlFor(driver.profileImage).width(800).height(1000).url()}
                                             alt={`Portrett av ${driver.name}`}
