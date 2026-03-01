@@ -74,7 +74,7 @@ export default async function SesongerPage() {
 
     return (
         <div className="max-w-6xl mx-auto px-6 py-12 pb-24">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16 lg:mb-24 items-start">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16 items-start">
                 <div className="flex-1">
                     <h1 className="text-4xl font-conthrax text-slate-100 mb-8 uppercase border-b-4 border-brand-red inline-block pb-2">
                         Terminliste
@@ -102,7 +102,7 @@ export default async function SesongerPage() {
                 <div className="space-y-16">
                     {sortedSeasons.map(season => (
                         <section key={season} className="relative w-full">
-                            <h2 className="text-3xl md:my-4 md:-mx-4 bg-slate-900/90 backdrop-blur border border-slate-600 mb-6 flex flex-col flex-row md:items-center rounded-2xl justify-between gap-8 relative md:sticky md:top-[82px] z-30 p-4 shadow-lg">
+                            <h2 className="text-3xl md:my-6 md:-mx-4 bg-slate-900/90 backdrop-blur border border-slate-600 mb-6 flex flex-col flex-row md:items-center rounded-2xl justify-between gap-8 relative md:sticky md:top-[82px] z-30 p-4 shadow-lg">
                                 <span className="text-white font-conthrax w-fit">{season}</span>
                                 {seasonDocMap[season]?.documents && seasonDocMap[season].documents.length > 0 ? (
                                     <div className="flex justify-end flex-wrap gap-4">

@@ -62,7 +62,7 @@ export default function OmOssPage() {
                         {/* Dan René Larsen */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition duration-300 group">
                             <div className="w-20 h-20 bg-slate-100 rounded-full mb-4 flex items-center justify-center overflow-hidden border-2 border-slate-200">
-                                <Image src="/Dan Rene Larsen.jpg" alt="Dan René Larsen" width={200} height={200} className="object-cover w-full h-full" />
+                                <Image src="/DanReneLarsen.jpg" alt="Dan René Larsen" width={200} height={200} className="object-cover w-full h-full" />
                             </div>
                             <h3 className="text-xl font-conthrax text-slate-900 mb-1 transition-colors">Dan René Larsen</h3>
                             <p className="text-slate-400 font-bold uppercase tracking-wider text-xs mb-4">Leder & Generell Kontakt</p>
@@ -82,7 +82,7 @@ export default function OmOssPage() {
                         {/* Jon Renström */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition duration-300 group">
                             <div className="w-20 h-20 bg-slate-100 rounded-full mb-4 flex items-center justify-center overflow-hidden border-2 border-slate-200">
-                                <Image src="/Contact Jon Ren.jpg" alt="Jon Renstrøm" width={200} height={200} className="object-cover w-full h-full" />
+                                <Image src="/JonRenstrom.jpg" alt="Jon Renstrøm" width={200} height={200} className="object-cover w-full h-full" />
                             </div>
                             <h3 className="text-xl font-conthrax text-slate-900 mb-1 transition-colors">Jon Renstrøm</h3>
                             <p className="text-slate-400 font-bold uppercase tracking-wider text-xs mb-4">Teknisk Leder</p>
