@@ -17,7 +17,7 @@ export default function OmOssPage() {
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
 
                 {/* Main Content: Historie */}
-                <div className="lg:col-span-2">
+                <div className="lg:col-span-2 order-2 lg:order-1">
                     <h2 className="text-2xl font-conthrax text-slate-200 mb-6">
                         Historien bak B-Zero
                     </h2>
@@ -52,7 +52,7 @@ export default function OmOssPage() {
                 </div>
 
                 {/* Sidebar: Kontaktpersoner */}
-                <div className="lg:col-span-1">
+                <div className="lg:col-span-1 order-1 lg:order-2">
                     <h2 className="text-2xl font-conthrax text-slate-200 mb-6">
                         Kontaktpersoner
                     </h2>
