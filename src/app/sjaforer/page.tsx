@@ -21,7 +21,7 @@ export default async function DriversPage() {
             </header>
 
             {drivers.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-16">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 mb-16">
                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {drivers.map((driver: any) => (
                         <Link
@@ -48,17 +48,17 @@ export default async function DriversPage() {
                                 )}
 
                                 {driver.startNumber && (
-                                    <div className="absolute top-4 right-4 bg-brand-red text-white py-1 transition-transform group-hover:scale-110 duration-500 px-3 pt-2 font-conthrax rounded-full shadow-lg border border-red-500/50 flex flex-col items-center justify-center z-10">
-                                        <span className="text-2xl leading-none">{driver.startNumber}</span>
+                                    <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-brand-red text-white py-0.5 md:py-1 transition-transform group-hover:scale-110 duration-500 px-2 pt-1 md:px-3 md:pt-2 font-conthrax rounded-full shadow-lg border border-red-500/50 flex flex-col items-center justify-center z-10">
+                                        <span className="text-xl md:text-2xl leading-none">{driver.startNumber}</span>
                                     </div>
                                 )}
                             </div>
 
-                            <div className="absolute bottom-0 left-0 right-0 p-6 pt-12">
-                                <h2 className="text-xl md:text-2xl font-conthrax text-white mb-1 group-hover:text-brand-red transition-colors drop-shadow-md">
+                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 pt-8 md:pt-12">
+                                <h2 className="text-lg md:text-2xl font-conthrax text-white mb-0.5 md:mb-1 group-hover:text-brand-red transition-colors drop-shadow-md">
                                     {driver.name}
                                 </h2>
-                                <p className="text-white/60 font-medium text-sm drop-shadow-md">
+                                <p className="text-white/60 font-medium text-xs md:text-sm drop-shadow-md">
                                     {driver.carMake || "Ukjent bil"}
                                 </p>
                             </div>
