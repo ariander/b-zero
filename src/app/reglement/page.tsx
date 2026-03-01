@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ReglementPage() {
     return (
-        <div className="bg-slate-900 min-h-screen">
+        <div className="bg-neutral-950 min-h-screen">
             <div className="max-w-6xl mx-auto px-6 py-12 pb-24">
                 <h1 className="text-4xl font-conthrax text-slate-100 mb-8 uppercase border-b-4 border-brand-red inline-block pb-2">
                     Reglement &amp; Dokumenter

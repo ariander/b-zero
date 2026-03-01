@@ -38,7 +38,7 @@ export default async function NyheterPage() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="bg-slate-900 min-h-screen">
+        <div className="bg-neutral-950 min-h-screen">
             <div className="max-w-6xl mx-auto px-6 py-12">
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Main Content: News */}

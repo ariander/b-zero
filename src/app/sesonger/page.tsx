@@ -73,7 +73,7 @@ export default async function SesongerPage() {
     // const currentYearRaces = groupedRaces[currentYear] || [];
 
     return (
-        <div className="bg-slate-900 min-h-screen">
+        <div className="bg-neutral-950 min-h-screen">
             <div className="max-w-6xl mx-auto px-6 py-12 pb-24">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-16 items-start">
                     <div className="flex-1">
