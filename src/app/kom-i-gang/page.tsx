@@ -35,13 +35,13 @@ export default function KomIGangPage() {
             <main className="max-w-4xl mx-auto px-6 py-16 space-y-24">
 
                 {/* Quick Navigation Links */}
-                <nav className="flex flex-wrap justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-12 -mt-4">
-                    <a href="#filosofi" className="bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Filosofi</a>
-                    <a href="#bygge-bil" className="bg-white hover:border-brand-red border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-brand-red transition">Bygge bil</a>
-                    <a href="#lisenser" className="bg-white hover:border-blue-500 border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-blue-500 transition">Lisenser</a>
-                    <a href="#sikkerhetsutstyr" className="bg-white hover:border-green-500 border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-green-500 transition">Utstyr</a>
-                    <a href="#arshjulet" className="bg-white hover:border-amber-500 border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-amber-500 transition">Årshjul</a>
-                    <a href="#linker" className="bg-white hover:border-slate-400 border border-transparent shadow-sm px-5 py-2.5 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-slate-900 transition">Linker</a>
+                <nav className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-12 -mt-4">
+                    <a href="#filosofi" className="w-full sm:w-auto text-center bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Filosofi</a>
+                    <a href="#bygge-bil" className="w-full sm:w-auto text-center bg-white hover:border-brand-red border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-brand-red transition">Bygge bil</a>
+                    <a href="#lisenser" className="w-full sm:w-auto text-center bg-white hover:border-blue-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-blue-500 transition">Lisenser</a>
+                    <a href="#sikkerhetsutstyr" className="w-full sm:w-auto text-center bg-white hover:border-green-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-green-500 transition">Utstyr</a>
+                    <a href="#arshjulet" className="w-full sm:w-auto text-center bg-white hover:border-amber-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-amber-500 transition">Årshjul</a>
+                    <a href="#linker" className="w-full sm:w-auto text-center bg-white hover:border-slate-400 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-slate-900 transition">Linker</a>
                 </nav>
 
                 {/* Section: Filosofi */}
