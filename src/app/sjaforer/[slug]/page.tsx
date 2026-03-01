@@ -61,9 +61,26 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                             )}
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
-                            {driver.name}
-                        </h1>
+                        <div className="flex items-center gap-5 md:block">
+                            {/* Mobile Profile Image (Visible only on small screens) */}
+                            <div className="md:hidden shrink-0 w-24 sm:w-28 aspect-4/5 rounded-xl overflow-hidden border-2 border-slate-900 shadow-xl bg-slate-800 relative z-20">
+                                {driver.profileImage?.asset?._ref || driver.profileImage?.asset?.url ? (
+                                    <Image
+                                        src={driver.profileImage.asset.url || urlFor(driver.profileImage).width(400).height(500).url()}
+                                        alt={driver.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center bg-slate-100">
+                                        <User size={32} className="text-slate-300" />
+                                    </div>
+                                )}
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
+                                {driver.name}
+                            </h1>
+                        </div>
                     </div>
 
                     {/* Profile Image floating over the hero bottom edge */}
@@ -85,24 +102,6 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
             </div>
 
             <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-12 md:mt-12 relative z-10">
-
-                {/* Mobile Profile Image (Visible only on small screens) */}
-                <div className="md:hidden flex justify-center -mt-24 relative z-20 mb-4">
-                    <div className="w-40 aspect-4/5 rounded-2xl overflow-hidden border-4 border-slate-900 shadow-xl bg-slate-800 relative">
-                        {driver.profileImage?.asset?._ref || driver.profileImage?.asset?.url ? (
-                            <Image
-                                src={driver.profileImage.asset.url || urlFor(driver.profileImage).width(400).height(500).url()}
-                                alt={driver.name}
-                                fill
-                                className="object-cover"
-                            />
-                        ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                                <User size={48} className="text-slate-300" />
-                            </div>
-                        )}
-                    </div>
-                </div>
 
                 {/* Main Content Column */}
                 <div className="lg:col-span-2 space-y-12">
