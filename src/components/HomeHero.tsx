@@ -12,6 +12,13 @@ export interface UpcomingRace {
     links?: { title: string, url: string, fileUrl?: string }[];
 }
 
+const kenBurnsAnimations = [
+    'animate-slow-zoom-in',
+    'animate-slow-pan-right',
+    'animate-slow-zoom-out',
+    'animate-slow-pan-left'
+];
+
 const heroImages = [
     '/hero-images/B-Zero Racing Gallery (1).jpg',
     '/hero-images/B-Zero Racing Gallery 2BZR230611.jpg',
@@ -91,7 +98,10 @@ export function HomeHero({ upcomingRacing, upcomingRally }: HomeHeroProps) {
             {/* Background Images */}
             {heroImages.map((src, index) => {
                 const isActive = index === currentIndex;
+                const isPrevious = index === (currentIndex - 1 + heroImages.length) % heroImages.length;
+                const shouldAnimateZoom = isActive || isPrevious;
                 const isReady = index !== 0 || isFirstImageLoaded;
+                const animClass = kenBurnsAnimations[index % kenBurnsAnimations.length];
 
                 return (
                     <Image
@@ -103,8 +113,7 @@ export function HomeHero({ upcomingRacing, upcomingRally }: HomeHeroProps) {
                         onLoad={() => {
                             if (index === 0) setIsFirstImageLoaded(true);
                         }}
-                        className={`object-cover transition-opacity duration-2000 ease-in-out ${isActive && isReady ? 'opacity-100' : 'opacity-0'
-                            }`}
+                        className={`object-cover transition-opacity duration-2000 ease-in-out ${isActive && isReady ? 'opacity-100' : 'opacity-0'} ${shouldAnimateZoom ? animClass : ''}`}
                     />
                 );
             })}

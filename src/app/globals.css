@@ -40,13 +40,43 @@
   --delay-500: 500ms;
   --delay-700: 700ms;
 
-  @keyframes slow-zoom {
+  @keyframes slow-zoom-in {
     from {
       transform: scale(1);
     }
 
     to {
       transform: scale(1.15);
+    }
+  }
+
+  @keyframes slow-zoom-out {
+    from {
+      transform: scale(1.15);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slow-pan-right {
+    from {
+      transform: scale(1.1) translateX(-2%);
+    }
+
+    to {
+      transform: scale(1.1) translateX(2%);
+    }
+  }
+
+  @keyframes slow-pan-left {
+    from {
+      transform: scale(1.1) translateX(2%);
+    }
+
+    to {
+      transform: scale(1.1) translateX(-2%);
     }
   }
 
@@ -74,7 +104,12 @@
     }
   }
 
-  --animate-slow-zoom: slow-zoom 20s linear forwards;
+  --animate-slow-zoom: slow-zoom-in 20s linear forwards;
+  --animate-slow-zoom-in: slow-zoom-in 20s linear forwards;
+  --animate-slow-zoom-out: slow-zoom-out 20s linear forwards;
+  --animate-slow-pan-right: slow-pan-right 20s linear forwards;
+  --animate-slow-pan-left: slow-pan-left 20s linear forwards;
+
   --animate-float: float 8s ease-in-out infinite;
   --animate-progress-bar: progress-bar 20s linear forwards;
 }
