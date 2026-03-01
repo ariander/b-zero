@@ -43,7 +43,7 @@ export default async function NyheterPage() {
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Main Content: News */}
                     <div className="flex-1">
-                        <h1 className="text-4xl font-conthrax text-slate-100 mb-8 uppercase border-b-4 border-brand-red inline-block pb-2">
+                        <h1 className="text-3xl md:text-4xl font-conthrax text-slate-100 mb-8 uppercase border-b-4 border-brand-red inline-block pb-2">
                             Siste Nytt
                         </h1>
 

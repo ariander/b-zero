@@ -13,7 +13,7 @@ export default async function DriversPage() {
         <div className="bg-neutral-950 min-h-screen">
             <div className="max-w-6xl mx-auto px-6 py-12 pb-24">
                 <header className="mb-16">
-                    <h1 className="text-4xl md:text-4xl font-conthrax text-slate-100 mb-6 uppercase tracking-wider">
+                    <h1 className="text-3xl md:text-4xl font-conthrax text-slate-100 mb-6 uppercase tracking-wider">
                         Sjåfører <span className="text-brand-red block">& Team</span>
                     </h1>
                     <p className="text-xl md:text-xl text-neutral-300 font-normal max-w-3xl">

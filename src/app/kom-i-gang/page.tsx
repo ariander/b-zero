@@ -32,16 +32,16 @@ export default function KomIGangPage() {
             </section>
 
             {/* Main Content Area */}
-            <main className="max-w-4xl mx-auto px-6 py-16 space-y-24">
+            <main className="max-w-4xl mx-auto px-6 py-10 md:py-16 space-y-16">
 
                 {/* Quick Navigation Links */}
                 <nav className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-12 -mt-4">
-                    <a href="#filosofi" className="w-full sm:w-auto text-center bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Filosofi</a>
-                    <a href="#bygge-bil" className="w-full sm:w-auto text-center bg-white hover:border-brand-red border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-brand-red transition">Bygge bil</a>
-                    <a href="#lisenser" className="w-full sm:w-auto text-center bg-white hover:border-blue-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-blue-500 transition">Lisenser</a>
-                    <a href="#sikkerhetsutstyr" className="w-full sm:w-auto text-center bg-white hover:border-green-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-green-500 transition">Utstyr</a>
-                    <a href="#arshjulet" className="w-full sm:w-auto text-center bg-white hover:border-amber-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-amber-500 transition">Årshjul</a>
-                    <a href="#linker" className="w-full sm:w-auto text-center bg-white hover:border-slate-400 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-xs sm:text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-slate-900 transition">Linker</a>
+                    <a href="#filosofi" className="w-full sm:w-auto text-center bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Filosofi</a>
+                    <a href="#bygge-bil" className="w-full sm:w-auto text-center bg-white hover:border-brand-red border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-brand-red transition">Bygge bil</a>
+                    <a href="#lisenser" className="w-full sm:w-auto text-center bg-white hover:border-blue-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-blue-500 transition">Lisenser</a>
+                    <a href="#sikkerhetsutstyr" className="w-full sm:w-auto text-center bg-white hover:border-green-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-green-500 transition">Utstyr</a>
+                    <a href="#arshjulet" className="w-full sm:w-auto text-center bg-white hover:border-amber-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-amber-500 transition">Årshjul</a>
+                    <a href="#linker" className="w-full sm:w-auto text-center bg-white hover:border-slate-400 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-slate-900 transition">Linker</a>
                 </nav>
 
                 {/* Section: Filosofi */}
@@ -50,7 +50,7 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <Lightning size={32} weight="fill" className="text-purple-500" />
                         </div>
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Klassens Filosofi</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Klassens Filosofi</h2>
                     </div>
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
                         <p className="text-xl text-slate-700 leading-relaxed font-semibold mb-6">
@@ -78,11 +78,11 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <Wrench size={32} className="text-brand-red" weight="fill" />
                         </div>
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Bygg en racerbil</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Bygg en racerbil</h2>
                     </div>
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-6">
-                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo.
+                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
                         </p>
                         <div className="bg-slate-50 border-l-4 border-brand-red p-6 rounded-lg mb-8">
                             <h3 className="font-bold text-slate-900 mb-2">Hovedforskjellen på Racing og Rally-oppsett</h3>
@@ -225,7 +225,7 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <IdentificationBadge size={32} className="text-blue-500" weight="fill" />
                         </div>
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Lisenser du må ha</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Lisenser du må ha</h2>
                     </div>
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Personlig Lisens */}
@@ -270,7 +270,7 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <ShieldCheck size={32} className="text-green-500" weight="fill" />
                         </div>
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Personlig Sikkerhetsutstyr</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Personlig Sikkerhetsutstyr</h2>
                     </div>
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-8">
@@ -319,7 +319,7 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <CalendarPlus size={32} className="text-amber-500" weight="fill" />
                         </div>
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Årshjulet</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Årshjulet</h2>
                     </div>
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-8">
@@ -360,7 +360,7 @@ export default function KomIGangPage() {
                 <section id="linker" className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-8">
                         <LinkIcon size={32} className="text-slate-400" weight="bold" />
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Praktiske Linker</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Praktiske Linker</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                         <a href="https://bilsportboka.no" target="_blank" rel="noreferrer" className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-red transition group">
@@ -379,7 +379,7 @@ export default function KomIGangPage() {
 
                     <div className="flex items-center gap-4 mt-20 mb-8">
                         <ShoppingCart size={32} className="text-brand-red" weight="fill" />
-                        <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Nettbutikker & Utstyr</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Nettbutikker & Utstyr</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <a href="https://rpcwebshop.no/#!/b-zero" target="_blank" rel="noreferrer" className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-red transition group">
