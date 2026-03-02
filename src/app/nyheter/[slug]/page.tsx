@@ -33,7 +33,9 @@ export async function generateMetadata(
         openGraph: {
             title: post.title,
             description: description + (description.length >= 160 ? '...' : ''),
-            images: imageUrl ? [imageUrl, ...previousImages] : previousImages,
+            type: 'article',
+            publishedTime: post.publishedAt,
+            images: imageUrl ? [{ url: imageUrl }, ...previousImages] : previousImages,
         },
     }
 }

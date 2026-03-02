@@ -39,7 +39,8 @@ export async function generateMetadata(
         openGraph: {
             title: race.title,
             description: description + (description.length >= 160 ? '...' : ''),
-            images: imageUrl ? [imageUrl, ...previousImages] : previousImages,
+            type: 'article',
+            images: imageUrl ? [{ url: imageUrl }, ...previousImages] : previousImages,
         },
     }
 }
@@ -100,7 +101,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                 Racing
                             </span>
                         )}
-                        <span className="flex items-center gap-2 text-neutral-300 font-conthrax text-sm tracking-wider ml-auto">
+                        <span className="flex items-center gap-2 text-neutral-300 font-conthrax text-sm tracking-wider md:ml-auto">
                             <CalendarBlank size={18} />
                             {(() => {
                                 const start = new Date(race.date);
@@ -141,7 +142,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                 <div className="bg-blue-50 text-blue-600 p-3 rounded-xl">
                                     <Notebook size={28} weight="fill" />
                                 </div>
-                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">
+                                <h2 className="text-xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">
                                     {new Date(race.date) > new Date() ? "Beskrivelse" : "Løpsrapport"}
                                 </h2>
                             </div>
@@ -154,11 +155,11 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     {/* Gallery Section */}
                     {race.gallery && race.gallery.length > 0 && (
                         <section>
-                            <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-200 pb-4">
-                                <div className="bg-brand-red/10 text-brand-red p-3 rounded-xl">
+                            <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-800 pb-4">
+                                <div className="bg-brand-red/20 text-brand-red p-3 rounded-xl">
                                     <Images size={28} weight="fill" />
                                 </div>
-                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">Galleri ({race.gallery.length})</h2>
+                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-300">Galleri ({race.gallery.length})</h2>
                             </div>
                             <RaceGallery images={race.gallery} />
                         </section>
