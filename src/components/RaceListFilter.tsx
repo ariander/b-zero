@@ -112,10 +112,10 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
     }
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-8">
 
             {/* Filter Controls */}
-            <div className="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 p-6 md:p-8 rounded-3xl shadow-xl flex flex-col lg:flex-row gap-6 lg:items-center justify-between sticky top-[72px] z-40">
+            <div className="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 p-2 md:p-4 -mx-4 rounded-3xl shadow-xl flex flex-col lg:flex-row gap-6 lg:items-center justify-between z-40">
 
                 {/* Search */}
                 <div className="relative flex-1 max-w-md">
@@ -136,25 +136,23 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
                     <div className="flex bg-slate-950/50 p-1.5 rounded-2xl border border-slate-700/50 relative">
                         <button
                             onClick={() => setCategoryFilter('all')}
-                            className={`flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-conthrax uppercase tracking-wider transition-all duration-300 relative z-10 ${categoryFilter === 'all' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'all' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
                             Alle
                         </button>
                         <button
                             onClick={() => setCategoryFilter('racing')}
-                            className={`flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-conthrax uppercase tracking-wider transition-all duration-300 relative z-10 ${categoryFilter === 'racing' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'racing' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
-                            <CarProfile size={18} weight={categoryFilter === 'racing' ? 'fill' : 'regular'} />
                             Racing
                         </button>
                         <button
                             onClick={() => setCategoryFilter('rally')}
-                            className={`flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-conthrax uppercase tracking-wider transition-all duration-300 relative z-10 ${categoryFilter === 'rally' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'rally' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
-                            <Target size={18} weight={categoryFilter === 'rally' ? 'fill' : 'regular'} />
                             Rally
                         </button>
 
@@ -215,7 +213,7 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
                 <div className="space-y-16">
                     {sortedSeasons.map(season => (
                         <section key={season} className="relative w-full">
-                            <h2 className="text-3xl md:my-6 md:-mx-4 bg-slate-900/90 backdrop-blur border border-slate-600 mb-6 flex flex-col md:flex-row md:items-center rounded-2xl justify-between gap-8 relative xl:sticky xl:top-[160px] z-30 p-4 shadow-lg isolate">
+                            <h2 className="text-3xl md:my-6 md:-mx-4 bg-slate-900/90 backdrop-blur border border-slate-600 mb-6 flex flex-col md:flex-row md:items-center rounded-2xl justify-between gap-8 relative xl:sticky xl:top-[80px] z-30 p-4 shadow-lg isolate">
                                 <span className="text-white font-conthrax w-fit">{season}</span>
                                 {seasonDocMap[season]?.documents && seasonDocMap[season].documents.length > 0 ? (
                                     <div className="flex justify-end flex-wrap gap-4">
