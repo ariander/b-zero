@@ -232,7 +232,14 @@ export async function getDriverBySlug(slug: string) {
       carImage,
       debutYear,
       profileImage,
-      bio
+      bio,
+      "gallery": gallery[] {
+        asset->{
+          ...,
+          metadata { lqip }
+        },
+        alt
+      }
     }
   `,
     { slug }

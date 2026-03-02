@@ -2,8 +2,9 @@ import { getDriverBySlug } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, User, CalendarCheck, Wrench, FlagCheckered } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, User, CalendarCheck, Wrench, FlagCheckered, Images } from "@phosphor-icons/react/dist/ssr";
 import { CustomPortableText } from "@/components/CustomPortableText";
+import { RaceGallery } from "@/components/RaceGallery";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
 import { urlFor } from "@/sanity/lib/image";
@@ -63,7 +64,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
 
                         <div className="flex items-center gap-5 md:block">
                             {/* Mobile Profile Image (Visible only on small screens) */}
-                            <div className="md:hidden shrink-0 w-24 sm:w-28 aspect-4/5 rounded-xl overflow-hidden border-2 border-slate-900 shadow-xl bg-slate-800 relative z-20">
+                            <div className="md:hidden shrink-0 w-32 sm:w-36 aspect-square rounded-xl overflow-hidden mb-4 shadow-xl bg-slate-800 relative z-20">
                                 {driver.profileImage?.asset?._ref || driver.profileImage?.asset?.url ? (
                                     <Image
                                         src={driver.profileImage.asset.url || urlFor(driver.profileImage).width(400).height(500).url()}
@@ -176,6 +177,19 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                             )}
                         </div>
                     </section>
+
+                    {/* Gallery Section */}
+                    {driver.gallery && driver.gallery.length > 0 && (
+                        <section className="mt-16">
+                            <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-800 pb-4">
+                                <div className="bg-brand-red/20 text-brand-red p-3 rounded-xl">
+                                    <Images size={28} weight="fill" />
+                                </div>
+                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-300">Galleri ({driver.gallery.length})</h2>
+                            </div>
+                            <RaceGallery images={driver.gallery} />
+                        </section>
+                    )}
                 </div>
             </div>
         </article>

@@ -74,6 +74,31 @@ export const driverType = defineType({
             type: 'array',
             of: [{ type: 'block' }],
         }),
+        defineField({
+            name: 'gallery',
+            title: 'Galleri',
+            type: 'array',
+            description: 'Legg til bilder for å vise et galleri på sjåførens profil.',
+            of: [
+                {
+                    type: 'image',
+                    options: {
+                        hotspot: true,
+                    },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternativ tekst',
+                            description: 'Viktig for universell utforming og SEO (Eks: Bilde av bilen i sladd)',
+                        }
+                    ]
+                }
+            ],
+            options: {
+                layout: 'grid',
+            },
+        }),
     ],
     preview: {
         select: {
