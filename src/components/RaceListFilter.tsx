@@ -133,24 +133,24 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
 
                 <div className="flex flex-col sm:flex-row gap-6 lg:items-center">
                     {/* Category Tabs */}
-                    <div className="flex bg-slate-950/50 p-1.5 rounded-2xl border border-slate-700/50 relative">
+                    <div className="grid grid-cols-3 bg-slate-950/50 p-1.5 rounded-2xl border border-slate-700/50 relative">
                         <button
                             onClick={() => setCategoryFilter('all')}
-                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'all' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex items-center justify-center px-2 sm:px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'all' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
                             Alle
                         </button>
                         <button
                             onClick={() => setCategoryFilter('racing')}
-                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'racing' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex items-center justify-center px-2 sm:px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'racing' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
                             Racing
                         </button>
                         <button
                             onClick={() => setCategoryFilter('rally')}
-                            className={`flex flex-1 items-center justify-center px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'rally' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                            className={`flex items-center justify-center px-2 sm:px-5 py-2.5 rounded-xl text-sm font-conthrax transition-all duration-300 relative z-10 ${categoryFilter === 'rally' ? 'text-white' : 'text-slate-400 hover:text-slate-200'
                                 }`}
                         >
                             Rally
@@ -158,11 +158,11 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
 
                         {/* Animated background pill component */}
                         <div
-                            className="absolute inset-y-1.5 w-[calc(33.333%-4px)] bg-brand-red rounded-xl shadow-md transition-transform duration-300 ease-out z-0"
+                            className="absolute inset-y-1.5 left-1.5 w-[calc(33.333%-4px)] bg-brand-red rounded-xl shadow-md transition-transform duration-300 ease-out z-0"
                             style={{
-                                transform: `translateX(${categoryFilter === 'all' ? '4px' :
-                                    categoryFilter === 'racing' ? 'calc(100% + 6px)' :
-                                        'calc(200% + 8px)'
+                                transform: `translateX(${categoryFilter === 'all' ? '0' :
+                                    categoryFilter === 'racing' ? '100%' :
+                                        '200%'
                                     })`
                             }}
                         />
