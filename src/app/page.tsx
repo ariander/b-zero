@@ -4,6 +4,8 @@ import { HomeHero } from '@/components/HomeHero'
 import { getLatestPost, getUpcomingRaces } from '@/sanity/lib/client'
 import Image from 'next/image'
 
+export const revalidate = 60; // Revalidate at most every 60 seconds
+
 export default async function Home() {
   const latestPost = await getLatestPost()
   const upcomingRaces = await getUpcomingRaces()
