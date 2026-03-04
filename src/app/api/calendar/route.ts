@@ -34,7 +34,7 @@ export async function GET() {
             ];
 
             return {
-                title: race.title,
+                title: race.title ? `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'}: ${race.title}` : `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'} Løp`,
                 start: startArray,
                 end: endArray,
                 description: `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'}\n\nLes mer om løpet på: https://b-zeroracing.com/sesonger/${race.slug.current}`,
