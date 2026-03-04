@@ -9,7 +9,7 @@ import CountyNavigation from './CountyNavigation';
 
 export const metadata = {
     title: 'Finn Årskontrollør | B-Zero Racing',
-    description: 'Finn teknisk årskontrollør for din B-Zero racerbil i ditt fylke.',
+    description: 'Finn teknisk årskontrollør tilknyttet Norges Bilsportforbund for din B-Zero racerbil i ditt fylke.',
 };
 
 interface Inspector {
@@ -70,12 +70,12 @@ export default function InspectorsPage() {
 
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <ClipboardText size={64} className="text-brand-red mx-auto mb-6" />
-                    <h1 className="text-4xl md:text-5xl font-conthrax uppercase tracking-wider mb-6">
+                    <h1 className="text-2xl md:text-4xl font-conthrax uppercase tracking-wider mb-6">
                         Årskontrollører
                     </h1>
                     <p className="text-xl text-slate-300 font-light leading-relaxed">
                         Alle biler i B-Zero må være utstyrt med vognbok og lisens.
-                        Finn din nærmeste tekniske årskontrollør i listen under for å avtale inspeksjon av veltebur, redningsutstyr og bilens generelle tekniske stand.
+                        Finn din nærmeste tekniske årskontrollør tilknyttet Norges Bilsportforbund i listen under for å avtale inspeksjon av bilen.
                     </p>
                 </div>
             </section>

@@ -49,18 +49,41 @@ export default function CountyNavigation({ counties }: Props) {
                 ))}
             </div>
 
-            {/* Mobile Navigation (Tabs alternative) */}
-            <div className="lg:hidden col-span-full flex overflow-x-auto pb-4 gap-2 snap-x scrollbar-hide -mx-6 px-6">
-                {counties.map((county) => (
-                    <a
-                        key={`mob-nav-${county.id}`}
-                        href={`#${county.id}`}
-                        onClick={(e) => handleScroll(e, county.id)}
-                        className="shrink-0 snap-start bg-white border border-slate-200 px-5 py-2.5 rounded-full text-sm font-conthrax uppercase text-slate-700 hover:border-brand-red hover:text-brand-red whitespace-nowrap shadow-sm transition-all"
+            {/* Mobile Navigation (Dropdown) */}
+            <div className="lg:hidden col-span-full mb-8 z-20">
+                <label htmlFor="county-select" className="sr-only">Velg fylke</label>
+                <div className="relative">
+                    <select
+                        id="county-select"
+                        className="w-full appearance-none bg-white border border-slate-200 text-slate-700 py-3 pr-10 pl-4 rounded-xl font-conthrax uppercase text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-brand-red transition-all"
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            if (val) {
+                                // Simulate anchor scroll
+                                const element = document.getElementById(val);
+                                if (element) {
+                                    history.pushState(null, '', `#${val}`);
+                                    const yOffset = -120;
+                                    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                }
+                                // Reset the select visually so it acts like a jump menu, or leave it to show current
+                            }
+                        }}
                     >
-                        {county.name} ({county.count})
-                    </a>
-                ))}
+                        <option value="">-- Velg Fylke --</option>
+                        {counties.map((county) => (
+                            <option key={`mob-nav-${county.id}`} value={county.id}>
+                                {county.name} ({county.count})
+                            </option>
+                        ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </>
     );
