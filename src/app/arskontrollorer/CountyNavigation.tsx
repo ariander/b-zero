@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 interface County {
     name: string;
     count: number;
@@ -13,36 +11,6 @@ interface Props {
 }
 
 export default function CountyNavigation({ counties }: Props) {
-    const [activeId, setActiveId] = useState<string>(counties[0]?.id || '');
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Find visible entries
-                // Use intersection ratio or simply the first one that is intersecting
-                const intersecting = entries.filter((entry) => entry.isIntersecting);
-                if (intersecting.length > 0) {
-                    // Pick the one that is intersecting to update the active ID
-                    setActiveId(intersecting[0].target.id);
-                }
-            },
-            {
-                // Trigger when the element is in the middle of the viewport
-                rootMargin: '-20% 0px -40% 0px',
-                threshold: 0,
-            }
-        );
-
-        counties.forEach((county) => {
-            const element = document.getElementById(county.id);
-            if (element) {
-                observer.observe(element);
-            }
-        });
-
-        return () => observer.disconnect();
-    }, [counties]);
-
     // Handle scroll to element with offset to account for sticky headers
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
@@ -71,26 +39,24 @@ export default function CountyNavigation({ counties }: Props) {
                         key={`nav-${county.id}`}
                         href={`#${county.id}`}
                         onClick={(e) => handleScroll(e, county.id)}
-                        data-active={activeId === county.id}
-                        className="block w-full text-left px-4 py-3 rounded-xl hover:bg-white hover:text-brand-red hover:shadow-sm transition-all font-medium text-slate-700 data-[active=true]:bg-brand-red data-[active=true]:text-white group"
+                        className="block w-full text-left px-4 py-3 rounded-xl hover:bg-slate-200 hover:text-brand-red hover:shadow-sm transition-all font-medium text-slate-700 group"
                     >
                         {county.name}
-                        <span className="float-right text-xs opacity-50 bg-slate-200 px-2 py-0.5 rounded-full text-slate-800 group-data-[active=true]:bg-white/20 group-data-[active=true]:text-white group-data-[active=true]:opacity-100 transition-colors">
+                        <span className="float-right text-xs opacity-50 bg-slate-200 group-hover:bg-slate-300 px-2 py-0.5 rounded-full text-slate-800 transition-colors">
                             {county.count}
                         </span>
                     </a>
                 ))}
             </div>
 
-            {/* Mobile Navigation (Sticky) */}
-            <div className="lg:hidden col-span-full sticky top-20 z-40 bg-slate-100/90 backdrop-blur-md flex overflow-x-auto py-4 gap-2 snap-x scrollbar-hide -mx-6 px-6 border-b border-slate-200 shadow-sm mb-4">
+            {/* Mobile Navigation (Tabs alternative) */}
+            <div className="lg:hidden col-span-full flex overflow-x-auto pb-4 gap-2 snap-x scrollbar-hide -mx-6 px-6">
                 {counties.map((county) => (
                     <a
                         key={`mob-nav-${county.id}`}
                         href={`#${county.id}`}
                         onClick={(e) => handleScroll(e, county.id)}
-                        data-active={activeId === county.id}
-                        className="shrink-0 snap-start bg-white border border-slate-200 px-5 py-2.5 rounded-full text-sm font-conthrax uppercase text-slate-700 hover:border-brand-red hover:text-brand-red whitespace-nowrap shadow-sm data-[active=true]:bg-brand-red data-[active=true]:text-white data-[active=true]:border-brand-red transition-all"
+                        className="shrink-0 snap-start bg-white border border-slate-200 px-5 py-2.5 rounded-full text-sm font-conthrax uppercase text-slate-700 hover:border-brand-red hover:text-brand-red whitespace-nowrap shadow-sm transition-all"
                     >
                         {county.name} ({county.count})
                     </a>
