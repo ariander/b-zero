@@ -1,5 +1,6 @@
 import { getSeasons, getSeasonDocuments } from "@/sanity/lib/client";
 import RaceListFilter from "@/components/RaceListFilter";
+import SubscribeCalendarButton from "@/components/SubscribeCalendarButton";
 import { CalendarPlus } from "@phosphor-icons/react/dist/ssr";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
@@ -65,14 +66,7 @@ export default async function SesongerPage() {
                         <p className="text-sm text-slate-400 mb-4">
                             Synkroniser kalenderen din automatisk med fremtidige løp og endringer i terminlisten.
                         </p>
-                        <a
-                            href="/api/calendar"
-                            title="Abonner på løpskalenderen fra B-Zero Racing"
-                            className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-brand-red hover:bg-red-600 text-white rounded-xl transition-all font-medium text-sm shadow-md hover:shadow-lg group"
-                        >
-                            <CalendarPlus size={20} className="group-hover:scale-110 transition-transform" />
-                            <span>Legg til i kalender</span>
-                        </a>
+                        <SubscribeCalendarButton />
                     </div>
                 </div>
 
