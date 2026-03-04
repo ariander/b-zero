@@ -39,7 +39,7 @@ export default function CountyNavigation({ counties }: Props) {
                         key={`nav-${county.id}`}
                         href={`#${county.id}`}
                         onClick={(e) => handleScroll(e, county.id)}
-                        className="block w-full text-left px-4 py-3 rounded-xl hover:bg-slate-200 hover:text-brand-red hover:shadow-sm transition-all font-medium text-slate-700 group"
+                        className="block w-full text-left px-4 py-3 rounded-xl hover:bg-white hover:text-brand-red hover:shadow-sm transition-all font-medium text-slate-700 group"
                     >
                         {county.name}
                         <span className="float-right text-xs opacity-50 bg-slate-200 group-hover:bg-slate-300 px-2 py-0.5 rounded-full text-slate-800 transition-colors">

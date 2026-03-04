@@ -61,7 +61,7 @@ export default function InspectorsPage() {
             <div className="bg-black text-white relative border-b-4 border-brand-red overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/C1-24h-190428-146.JPG"
+                        src="/teknisk-c1.avif"
                         alt="B-Zero Hero"
                         fill
                         priority
