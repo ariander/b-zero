@@ -32,7 +32,7 @@ export function RaceGallery({ images }: GalleryProps) {
                 {validImages.map((image, i) => (
                     <div
                         key={image.asset._id || i}
-                        className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 group cursor-pointer border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300"
+                        className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 group cursor-pointer border border-slate-600 shadow-sm hover:shadow-lg transition-all duration-300"
                         onClick={() => setIndex(i)}
                     >
                         <Image

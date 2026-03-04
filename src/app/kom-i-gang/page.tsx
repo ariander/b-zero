@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, WarningCircle, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
-import { AccordionItem } from '@/components/Accordion'
+import BuildGuideTabs from '@/components/BuildGuideTabs'
 
 export const metadata = {
     title: 'Kom i gang - B-Zero Racing',
@@ -78,145 +78,14 @@ export default function KomIGangPage() {
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <Wrench size={32} className="text-brand-red" weight="fill" />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Bygg en racerbil</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Bygge en B-Zero</h2>
                     </div>
-                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
-                        <p className="text-lg text-slate-600 leading-relaxed font-light mb-6">
-                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
-                        </p>
-                        <div className="bg-slate-50 border-l-4 border-brand-red p-6 rounded-lg mb-8">
-                            <h3 className="font-bold text-slate-900 mb-2">Hovedforskjellen på Racing og Rally-oppsett</h3>
-                            <p className="text-slate-600 font-light text-sm">
-                                Bilen i seg selv forblir svært lik, men rally krever et annet understellsoppsett (dempere/fjærer) for å håndtere hopp og grus, samt noen beskyttelsesplater under motoren. Buret må også tåle de spesifikke rally-kravene.
-                            </p>
-                        </div>
-                        <div className="mt-8 space-y-4">
-                            <AccordionItem title="1. Demontering og Forberedelser" isOpen={true}>
-                                <p>Det første steget er å fjerne alt unødvendig interiør fra bilen. Dette sparer vekt og klargjør kupeen for sveising av veltebur.</p>
-                                <ul>
-                                    <li>Fjern seter, matter, taktrekk og plastdeksler. Dashboardet kan bli stående, men må ofte tilpasses noe for at buret skal passere.</li>
-                                    <li>Fjern lydisolering/asfaltmatter fra gulvet (bruk feks tørris og hammer, eller varmepistol og skrape).</li>
-                                    <li>Sørg for at områdene der buret skal sveises inn i karosseriet er skrapt helt rene for lakk og tektyl.</li>
-                                </ul>
-                            </AccordionItem>
 
-                            <AccordionItem title="2. Sikkerhetsbur (Veltebur)">
-                                <p>Sikkerhetsburet er bilens viktigste konstruksjon. Det beskytter sjåføren ved rundvelt og sidekollisjoner, samtidig som det stiver opp karosseriet betydelig.</p>
-                                <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded mb-4 mt-4">
-                                    <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-1"><WarningCircle size={20} /> Viktig Norsk Regel!</h4>
-                                    <p className="text-amber-800 text-sm">I Norge <strong>SKAL</strong> alle nybygde biler ha <strong>sveiset bur</strong> i henhold til NBF sitt reglement. (De aller første bilene som ble bygget i Norge benyttet skrudde bur som i britiske C1, og disse er unntatt regelen, men bygger du ny i dag: sveis!).</p>
-                                </div>
-                                <p>Anbefalt leverandør for bur og ferdige kit er RPC Webshop, som selger bur spesifikt utformet for disse bilene og disse reglene.</p>
-                                <a href="/B-Zero%20Bur%20Installation.pdf" target="_blank" className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-slate-900 text-white font-semibold rounded hover:bg-slate-800 transition">
-                                    <LinkIcon size={16} /> Se eksempel på burinstallasjon (PDF)
-                                </a>
-                            </AccordionItem>
+                    <p className="text-lg text-slate-600 leading-relaxed font-light mb-8 max-w-3xl">
+                        Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg ut i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
+                    </p>
 
-                            <AccordionItem title="3. Norske særregler (Hva du IKKE trenger eller fritt kan velge)">
-                                <p>Regelverket vårt i Norge (B-Zero) er basert på det britiske C1-reglementet, men vi har noen praktiske tilpasninger for våre forhold. Følgende gjelder i Norge:</p>
-                                <ul>
-                                    <li><strong>Brannslukker:</strong> Ikke påkrevd! (Men hvis du først velger å montere en, <em>må</em> den være FIA-godkjent og montert iht. reglement).</li>
-                                    <li><strong>&quot;C1 Racing radio receiver&quot;:</strong> Ikke påkrevd hos oss.</li>
-                                    <li><strong>Katalysator:</strong> Denne kan du lovlig tømme (fjerne innmaten i).</li>
-                                    <li><strong>Ekstra tåkelys bak (Rear fog light):</strong> Ikke påkrevd. Vi bruker det originale tåkelyset bilen er utstyrt med.</li>
-                                    <li><strong>Bremseklosser:</strong> I Norge har vi fritt valg av bremseklosser! (I f.eks. UK må man benytte en spesifikk type).</li>
-                                </ul>
-                            </AccordionItem>
-
-                            <AccordionItem title="4. Påkrevde Spesialdetaljer & Beskyttelsesplater">
-                                <p>Bortsett fra veltebur, enhetsdekk og racingsete/sele, er det et par kritiske detaljer som MÅ monteres før løp:</p>
-
-                                <h4 className="font-bold text-slate-900 mt-6 mb-2">Hovedstrømbryter / Kill Switch</h4>
-                                <p>Det må monteres en hovedstrømbryter som kobler ut batteriet og stopper motoren (kutter tenning). Denne skal kunne opereres fra både innsiden (av fører i stolen) og utsiden av bilen via wire-trekk ved frontruta.</p>
-                                <p><em>Tips for montering (Left Hand Drive):</em> Siden bilene våre er venstrerattede, er wire-trekket typisk plassert på venstre side foran frontruten. Sjekk PDF-en under for nøyaktig koblingsskjema for hvilke ledninger som skal kuttes og kobles mot motstanderen.</p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                    <Image src="/External-Master-Switch-Pulls-450x450.jpg" alt="Master Switch Pull" width={450} height={450} className="rounded-xl border border-slate-200" />
-                                </div>
-                                <a href="/B-Zero%20Hovedstr%C3%B8mbryter.pdf" target="_blank" className="inline-flex items-center gap-2 px-4 py-2 mt-4 mb-8 bg-slate-900 text-white font-semibold rounded hover:bg-slate-800 transition">
-                                    <LinkIcon size={16} /> Guide: Montering av Hovedstrømbryter (PDF)
-                                </a>
-
-                                <h4 className="font-bold text-slate-900 mt-6 mb-2">Slepekroker (Tow hooks)</h4>
-                                <p>Bilen må utstyres med tydelig markerte slepeløkker/kroker både foran og bak, slik at funksjonærene raskt kan trekke deg sikkerhet hvis du havner av banen. Plaststrips duger ikke her.</p>
-
-                                <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bensintank (Fuel tank guard)</h4>
-                                <p>I asfaltløp (racing) <em>skal</em> det monteres beskyttelsesplate for bensintanken.</p>
-                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2">
-                                    <strong>Installasjon:</strong> Plasser beskyttelsen slik at den ligger over de langsgående skinnene. Du må kanskje justere litt på karosserikitten og brette ut kantene for å få den til å smette over skinnene. Den bakre kanten skal ligge tett inntil gummipluggen for reservehjulsbrønnen, men ikke dekke over den. Borr opp 2 x 6.3mm hull gjennom brønnhullet ved bruke beskytteren som guide. Fest med 2x M6 button head skruer og nyloc-muttere. Bor deretter 2 x 3.5mm hull inn i de langsgående skinnene (bruk igjen beskytteren som guide) og fest med de medfølgende selvborrende skruene.
-                                </div>
-                                <Image src="/Fuel Tank Protector.jpg" alt="Fuel Tank Protector" width={800} height={400} className="rounded-xl border border-slate-200" />
-
-                                <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bremse- og bensinrør (Brake & fuel pipe guard)</h4>
-                                <p>Påkrevd på asfalt! For Rally skal det i tillegg være plate i <em>hele</em> bilens lengde pluss beskyttelse under motor.</p>
-                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2">
-                                    <strong>Installasjon (Racing):</strong> Plasser beskytteren slik at den dekker rørene rett etter de kommer ut fra motorrommet rett bak den fremre subframen. Fronten på beskytteren skrus i subframen med 2 gjenngeskruer (6mm self tappers). Bakparten skrus inn i den langsgående avstiveren på chassis med 2 skruer. Merk opp det første hullet nøye og bor med 4.8mm borr. Monter platen lett med den første skruen, og bruk deretter beskytteren som guide for å bore de tre siste hullene. Skru inn resten, og gå og ta deg en øl!
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <Image src="/Brake Pipe Guard 1.jpg" alt="Brake Pipe Guard" width={500} height={350} className="rounded-xl border border-slate-200" />
-                                    <Image src="/Brake Pipe Guard 2.jpg" alt="Brake Pipe Guard" width={500} height={350} className="rounded-xl border border-slate-200" />
-                                </div>
-                            </AccordionItem>
-
-                            <AccordionItem title="5. Førerstol og Seler">
-                                <p>Førermiljøet må oppgraderes til FIA-godkjent standard.</p>
-                                <ul>
-                                    <li><strong>Stol:</strong> Monter en FIA-godkjent racingstol. Det er fritt frem for å montere stolen i bilens <strong>originale glideskinne</strong>, så lenge dette gjøres forsvarlig.</li>
-                                    <li><strong>Seler:</strong> Det er <strong>påkrevd</strong> med en FIA-godkjent <strong>6-punkts sele</strong> (5-punkts sele er <em>ikke</em> tillatt!).</li>
-                                    <li><strong>HANS / FHR:</strong> Hode- og nakkebeskyttelse (FHR / HANS-krage) er et absolutt krav i klassen.</li>
-                                </ul>
-                            </AccordionItem>
-
-                            <AccordionItem title="6. Dekk, Motor og Oppsett (Viktige tips)">
-                                <p>Bilene skal være mekanisk identiske for å holde kostnadene nede, men dette må du vite om oppsett:</p>
-                                <ul>
-                                    <li><strong>Dekk (Asfalt/Racing):</strong> I asfaltløp (og asfaltrally) brukes klassens dedikerte Nankang enhetsdekk for asfalt.</li>
-                                    <li><strong>Dekk (Rally på snø/grus):</strong> Her kreves det spesifikke rally-enhetsdekk og egne felger som tåler de røffere forholdene.</li>
-                                    <li><strong>Motorstyring (ECU):</strong> Fra og med 2026 er det regel på at bilens hjerne (ECU) <em>skal</em> flashes/omprogrammeres til et felles &quot;B-Zero Race Map&quot;.</li>
-                                    <li><strong>Hulkil / Shims bakaksel:</strong> Selv om understellet ellers er standardisert, er det sterkt anbefalt å &quot;shimse ut&quot; bakakselen! Dette gjør man for å justere inn riktig hjulvinkel (camber/toe) bak for å få bilen til å sitte optimalt i svingene.</li>
-                                </ul>
-                            </AccordionItem>
-
-                            <AccordionItem title="7. Understell: Bærebruer, Drivaksler og Senkefjærer">
-                                <p>En sentral del av ombyggingen for bedre kjøreegenskaper på bane (C1/B-Zero kit).</p>
-
-                                <h4 className="font-bold text-slate-900 mt-6 mb-2">Senkefjærer (Lowering springs)</h4>
-                                <p>Dette er en relativt enkel jobb. Det vanskeligste er å fjerne de fremre støtdemperbeina. De bakre fjærene kan byttes uten å fjerne bakakselen eller hjulnavene (men hvis du først har tenkt å legge inn camber-shims bak to-boltene der nede, gjør du det gjerne samtidig!)</p>
-                                <p>For å løsne støtdemperbeinet foran, trenger du et verktøy (eller en tykk skrutrekker) for å bende opp låseklemmen. En M12-bolt filt ned i profil fungerer ofte utmerket.</p>
-
-                                <h4 className="font-bold text-slate-900 mt-8 mb-2">Bærebruer og lengre drivaksler (Wishbones and Driveshafts)</h4>
-                                <p>Klassens kit-bærebruer (&quot;wishbones&quot;) <em>skal</em> monteres sammen med de forlengede drivakslene. Framgangsmåten er følgende:</p>
-
-                                <ol className="list-decimal pl-5 space-y-2 mt-2 mb-6 text-slate-700 font-light">
-                                    <li>Tapp ut girkasseoljen.</li>
-                                    <li>Fjern originale bærebruer og drivaksler. Vær veldig forsiktig så du ikke skader pakningene/simringene (seals) inn mot girkassehuset.</li>
-                                    <li>Fjern den originale låsemutteren og ende-leddet på styrestaget (track rod). Skru den medfølgende tynne låsemutteren helt inn på gjengene. Kapp gjengepartiet på styrestaget slik at det står igjen nøyaktig <strong>18mm</strong> med gjenger (målt fra låsemutteren). En vinkelsliper med 1mm kutteskive er ypperlig til dette. Fjern låsemutteren igjen etter kappingen.</li>
-                                    <li>Avfett styrestagsgjengene, de 2 tynne mutterne og de innvendige gjengene på &quot;forlengeren&quot; (extender). Skru den tynne låsemutteren inn til det gjenstår 10mm. Bruk Loctite gjengelåsing (Stud Lock) <em>foran og bak</em> den tynne mutteren. Skru mutteren nå helt inn. Skru styrestagsforlengeren helt inn mot bunn og stram låsemutteren hardt mot forlengeren. Målet er at denne forlengeren blir en permanent del av styrestaget ditt.</li>
-                                    <li><strong>VIKTIG:</strong> Sjekk at du har riktige KYB (anbefalt) eller originale støtdempere (sjekk <a href="https://c1racing.club/wp-content/uploads/2025/03/2025-C1-Racing-Series-Sporting-Technical-Regulations-PUBLISHED-09MAR2025-signed.pdf" target="_blank" rel="noreferrer">reglement for produktnummer</a>).</li>
-                                    <li>Monter de nye senkefjærene på demperbeina.</li>
-                                    <li>Sett inn de nye <strong>forlengede drivakslene</strong> i girkassen. Pass spesielt godt på kopp-siden så ikke den innvendige pakningen rives i stykker under montering.</li>
-                                    <li>Monter de nye forlengede bærebruene. Trekk til fremre pivot-bolt og de bakre festeboltene med <strong>100Nm</strong> moment.</li>
-                                    <li>Styr enden av drivakselen inn i hjulnavet, og sentrer deretter bærekulens tap opp i navet. Sett på bærekulemutteren og trekk til med <strong>98Nm</strong> moment.</li>
-                                    <li>Fest den store nav-mutteren for drivakselen, trekk denne til med massive <strong>216Nm</strong>, og slå inn kanten av mutteren inn i sporet på drivleddet for å låse den mekanisk.</li>
-                                </ol>
-
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <Image src="/Right Wishbone Build Notes.jpg" alt="Right Wishbone" width={300} height={300} className="rounded-xl border border-slate-200" />
-                                    <Image src="/Right Extended Driveshaft.jpg" alt="Extended Driveshaft" width={300} height={300} className="rounded-xl border border-slate-200" />
-                                    <Image src="/Track Rod Extension 450.jpg" alt="Track Rod Extension" width={300} height={300} className="rounded-xl border border-slate-200" />
-                                </div>
-                            </AccordionItem>
-
-                            <div className="mt-6 flex items-center justify-between bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                                <div>
-                                    <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-1">Se komplett liste på Teknisk Reglement</h4>
-                                    <p className="text-slate-600 text-sm font-light">Byggingen er ferskvare, dobbeltsjekk alltid reglene på siden for Reglement og Dokumenter for oppgraderinger som er lovlige og forbudt.</p>
-                                </div>
-                                <Link href="/reglement" className="flex items-center justify-center p-3 bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 rounded-full transition-colors ml-4 shrink-0 shadow-sm group">
-                                    <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                    <BuildGuideTabs />
                 </section>
 
                 {/* Section: Lisenser */}

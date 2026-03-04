@@ -14,9 +14,11 @@ export interface UpcomingRace {
 
 const kenBurnsAnimations = [
     'animate-slow-zoom-in',
-    'animate-slow-pan-right',
+    'animate-slow-pan-left',
+    'animate-slow-zoom-in',
     'animate-slow-zoom-out',
-    'animate-slow-pan-left'
+    'animate-slow-pan-right',
+    'animate-slow-zoom-in'
 ];
 
 const heroImages = [
@@ -122,7 +124,7 @@ export function HomeHero({ upcomingRacing, upcomingRally }: HomeHeroProps) {
             <div className="absolute inset-0 bg-black/60 z-10" />
 
             {/* Hero Content */}
-            <div className="relative z-20 text-center px-6 max-w-4xl mx-auto translate-y-2">
+            <div className="relative z-20 text-center px-6 py-6 max-w-4xl mx-auto translate-y-2">
                 <h1 className="mb-8 flex justify-center animate-fade-in-up-scale">
                     <span className="sr-only">B-Zero Racing / Rally</span>
                     <Image
@@ -147,7 +149,7 @@ export function HomeHero({ upcomingRacing, upcomingRally }: HomeHeroProps) {
                 </div>
 
                 {/* Upcoming Races Cards */}
-                <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-3xl mx-auto w-full mt-12">
+                <div className="flex flex-col sm:flex-row gap-6 gap-y-4 justify-center max-w-3xl mx-auto w-full mt-12">
                     <RaceCard race={upcomingRacing} label="Race" badgeClass="bg-slate-300 text-slate-800" />
                     <RaceCard race={upcomingRally} label="Rally" badgeClass="bg-amber-500 text-slate-900" />
                 </div>

@@ -185,7 +185,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                 <div className="bg-brand-red/20 text-brand-red p-3 rounded-xl">
                                     <Images size={28} weight="fill" />
                                 </div>
-                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-300">Galleri ({driver.gallery.length})</h2>
+                                <h2 className="text-xl font-conthrax uppercase tracking-wider text-slate-300">Galleri</h2>
                             </div>
                             <RaceGallery images={driver.gallery} />
                         </section>
