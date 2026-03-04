@@ -83,6 +83,7 @@ export default function RootLayout({
               <ul className="space-y-4 font-semibold">
                 <li><Link href="/kom-i-gang" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Kom i gang</Link></li>
                 <li><Link href="/reglement" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Teknisk Reglement</Link></li>
+                <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
                 <li><Link href="/sesonger" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Terminliste</Link></li>
                 <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
                 <li><a href="https://rpcwebshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> RPC Webshop</a></li>
