@@ -243,10 +243,10 @@ export default function ReglementPage() {
                             <div className="mt-8 pt-8 border-t border-slate-800">
                                 <h3 className="font-bold text-slate-200 text-sm uppercase tracking-wider mb-4">Årskontroll av Bilen</h3>
                                 <div className="space-y-4">
-                                    <a href="https://bilsport.no/wp-content/uploads/2026/01/Arskontrollor-Racing-Formelbil-Drifting-23.01.2026.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-white transition group text-sm font-light">
-                                        <FilePdf size={20} className="text-amber-500 group-hover:text-amber-400" />
+                                    <Link href="/arskontrollorer" className="flex items-center gap-3 text-slate-300 hover:text-white transition group text-sm font-light">
+                                        <LinkIcon size={20} className="text-amber-500 group-hover:text-amber-400" />
                                         <span>Finn Årskontrollør i ditt fylke</span>
-                                    </a>
+                                    </Link>
                                     <a href="https://bilsport.no/wp-content/uploads/2024/04/3-Arskontroll-BC-RC-RAC-DI.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-300 hover:text-white transition group text-sm font-light">
                                         <FilePdf size={20} className="text-red-500 group-hover:text-red-400" />
                                         <span>Last ned Årskontroll-skjema</span>

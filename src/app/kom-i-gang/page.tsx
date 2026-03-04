@@ -23,7 +23,7 @@ export default function KomIGangPage() {
 
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <Wrench size={64} className="text-brand-red mx-auto mb-6" />
-                    <h1 className="text-4xl md:text-5xl font-conthrax uppercase tracking-wider mb-6">Kom i gang</h1>
+                    <h1 className="text-2xl md:text-4xl font-conthrax uppercase tracking-wider mb-6">Kom i gang</h1>
                     <p className="text-xl text-slate-300 font-light leading-relaxed">
                         Veien til startstreken er kortere enn du tror. Her er alt du trenger å vite om bygging av bil, lisenser, kjøreutstyr og praktiske rutiner for din første sesong.
                     </p>

@@ -90,7 +90,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                         </time>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-conthrax text-white uppercase tracking-wider drop-shadow-lg">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-conthrax text-white uppercase tracking-wider drop-shadow-lg">
                         {post.title}
                     </h1>
                 </div>
