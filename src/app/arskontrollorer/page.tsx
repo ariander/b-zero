@@ -22,7 +22,7 @@ interface Inspector {
 
 export default function InspectorsPage() {
     // Read and parse CSV
-    const csvFilePath = path.join(process.cwd(), 'public', 'Årskontrollører.csv');
+    const csvFilePath = path.join(process.cwd(), 'public', 'arskontrollorer.csv');
     const fileContent = fs.readFileSync(csvFilePath, 'utf-8');
 
     const records = parse(fileContent, {
