@@ -101,6 +101,7 @@ export async function getSeasons() {
       date,
       endDate,
       raceCategory,
+      isNM,
       mainImage {
         asset->{
           _id,
@@ -124,7 +125,7 @@ export async function getUpcomingRaces() {
   return client.fetch(`
     {
       "racing": *[_type == "race" && raceCategory == "racing" && date >= $today] | order(date asc)[0] {
-        _id, title, slug, date, raceCategory,
+        _id, title, slug, date, raceCategory, isNM,
         links[] {
           title,
           url,
@@ -132,7 +133,7 @@ export async function getUpcomingRaces() {
         }
       },
       "rally": *[_type == "race" && raceCategory == "rally" && date >= $today] | order(date asc)[0] {
-        _id, title, slug, date, raceCategory,
+        _id, title, slug, date, raceCategory, isNM,
         links[] {
           title,
           url,
@@ -153,7 +154,8 @@ export async function getCurrentYearRaces() {
       slug,
       date,
       endDate,
-      raceCategory
+      raceCategory,
+      isNM
     }
   `, { currentYear }, { next: { revalidate: 3600 } });
 }
@@ -170,6 +172,7 @@ export async function getRaceBySlug(slug: string) {
       date,
       endDate,
       raceCategory,
+      isNM,
       mainImage {
         asset->{
           _id,

@@ -35,6 +35,13 @@ export const raceType = defineType({
             initialValue: 'racing'
         }),
         defineField({
+            name: 'isNM',
+            title: 'Er dette et NM-løp?',
+            description: 'Kryss av her for å vise Racing NM logoen på dette løpet',
+            type: 'boolean',
+            initialValue: false,
+        }),
+        defineField({
             name: 'season',
             title: 'Sesong (Årstall)',
             type: 'number',

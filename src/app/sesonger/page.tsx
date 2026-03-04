@@ -13,6 +13,7 @@ export interface Race {
     date: string;
     endDate?: string;
     raceCategory?: 'racing' | 'rally';
+    isNM?: boolean;
     mainImage: {
         asset: {
             url: string;

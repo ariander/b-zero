@@ -277,6 +277,13 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
                                                             <FlagCheckered size={48} />
                                                         </div>
                                                     )}
+
+                                                    {/* Racing NM Logo */}
+                                                    {race.isNM && (
+                                                        <div className="absolute bottom-3 right-3 z-30 w-16 h-8 bg-white/90 backdrop-blur shadow-lg rounded p-1 flex items-center justify-center border border-white/50">
+                                                            <Image src="/LOGONM.avif" alt="Racing NM" fill className="object-contain p-0.5" />
+                                                        </div>
+                                                    )}
                                                 </div>
                                                 <div className="p-6 relative overflow-hidden bg-white flex-1 flex flex-col justify-between">
                                                     {/* Background Track Map Watermark */}

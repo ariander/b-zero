@@ -101,6 +101,14 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                 Racing
                             </span>
                         )}
+                        {race.isNM && (
+                            <span className="bg-white text-slate-900 px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md flex items-center gap-1.5 h-6">
+                                <div className="relative w-4 h-4">
+                                    <Image src="/LOGONM.avif" alt="Racing NM" fill className="object-contain" />
+                                </div>
+                                <span className="pt-0.5">Racing NM</span>
+                            </span>
+                        )}
                         <span className="flex items-center gap-2 text-neutral-300 font-conthrax text-sm tracking-wider md:ml-auto">
                             <CalendarBlank size={18} />
                             {(() => {
