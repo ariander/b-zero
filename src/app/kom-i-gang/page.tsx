@@ -1,6 +1,5 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, WarningCircle, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
 import BuildGuideTabs from '@/components/BuildGuideTabs'
 
 export const metadata = {

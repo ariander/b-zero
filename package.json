@@ -19,6 +19,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "dotenv": "^17.3.1",
     "gray-matter": "^4.0.3",
+    "ics": "^3.8.1",
     "jsdom": "^28.1.0",
     "marked": "^17.0.3",
     "next": "16.1.6",

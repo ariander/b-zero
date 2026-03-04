@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FlagCheckered, FilePdf, CheckCircle, CalendarBlank, MapPin, MagnifyingGlass, CarProfile, Target } from "@phosphor-icons/react";
+import { FlagCheckered, FilePdf, CheckCircle, MapPin, MagnifyingGlass, CalendarPlus } from "@phosphor-icons/react";
 import type { Race } from '@/app/sesonger/page';
 
 interface SeasonDoc {
@@ -37,9 +37,11 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
 
     // Load saved preferences from localStorage on mount
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMounted(true);
         const savedCategory = localStorage.getItem('bzero-race-category');
         const savedHidePast = localStorage.getItem('bzero-hide-past');
+
 
         if (savedCategory === 'all' || savedCategory === 'racing' || savedCategory === 'rally') {
             setCategoryFilter(savedCategory);
@@ -181,9 +183,21 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
                             <div className={`absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ease-in-out shadow-sm ${hidePastRaces ? 'translate-x-6' : 'translate-x-0'}`}></div>
                         </div>
                         <span className={`text-sm font-medium transition-colors ${hidePastRaces ? 'text-emerald-400' : 'text-slate-300 group-hover:text-slate-100'}`}>
-                            Skjul gjennomførte løp
+                            Skjul gjennomførte
                         </span>
                     </label>
+
+                    {/* Subscribe to Calendar */}
+                    <div className="hidden sm:block w-px h-8 bg-slate-700/50"></div>
+
+                    <a
+                        href="/api/calendar"
+                        title="Abonner på løpskalenderen fra B-Zero Racing"
+                        className="flex items-center gap-2 px-4 py-2.5 bg-brand-red/10 hover:bg-brand-red text-brand-red hover:text-white border border-brand-red/30 rounded-xl transition-all font-medium text-sm group"
+                    >
+                        <CalendarPlus size={20} weight="fill" className="group-hover:scale-110 transition-transform" />
+                        <span>Abonner på kalender</span>
+                    </a>
                 </div>
             </div>
 
