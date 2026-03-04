@@ -553,7 +553,7 @@ export default function BuildGuideTabs() {
                                     <li><a href="https://gundersenmotorsport.no" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">Gundersen Motorsport:</a> Personlig utstyr (FIA), Alnabru Oslo.</li>
                                     <li><a href="https://stiansorliemotorsport.no" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">Stian Sørlie Motorsport:</a> Utstyr og piggdekk, Spydeberg.</li>
                                     <li><a href="https://pedersen-racing.no" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">Pedersen Racing:</a> Motorsportutstyr, Sarpsborg.</li>
-                                    <li><a href="https://tk-motorsport.no" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">TK Motorsport:</a> Utstyr til fører og bil, Hokksund.</li>
+                                    <li><a href="https://www.tk-sport.no/" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">TK-Sport:</a> Utstyr til fører og bil, Hokksund.</li>
                                     <li><a href="https://grindenmotorsport.no" target="_blank" rel="noreferrer" className="text-blue-600 font-bold hover:underline">Grinden Motorsport:</a> Motorsportutstyr, Elverum.</li>
                                 </ul>
                             </div>

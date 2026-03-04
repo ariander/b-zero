@@ -512,7 +512,7 @@ Rpcwebshop.no Selger ulike ting til vår klasse. Holder til i Halden. Drifter kl
 Kollevold.no Selger felger til klassen for snø og grus. Butikken ligger på Liertoppen, mellom Asker og Drammen Racesupport.no Selger grusdekk til klassen. 
 Gundersenmotorsport.no Selger utstyr til fører og bil. Holder til på Alnabru i Oslo. 
 Pedersenracing.no Selger utstyr til fører og bil. Holder til i Sarpsborg. 
-tk-motorsport.no Selger utstyr til fører og bil. Holder til i Hokksund 
+www.tk-sport.no Selger utstyr til fører og bil. Holder til i Hokksund 
 stiansorligmotorsport.no Selger utstyr til fører og bil, samt dekk for vinterrally. Holder til i Spydeberg. 
 
 Kontaktpersoner B-Zero i Norge 
