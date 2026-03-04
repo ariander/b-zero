@@ -5,7 +5,7 @@ import { getCountyFromPostalCode } from '@/utils/counties';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, EnvelopeSimple, Phone, MapPin } from '@phosphor-icons/react/dist/ssr';
-import BuildGuideTabs from '@/components/BuildGuideTabs'; // We could reuse tabs if it was flexible, but it's hardcoded to Racing/Rally. Let's make a custom tab UI.
+import CountyNavigation from './CountyNavigation';
 
 export const metadata = {
     title: 'Finn Årskontrollør | B-Zero Racing',
@@ -29,12 +29,12 @@ export default function InspectorsPage() {
         columns: true,
         skip_empty_lines: true,
         trim: true,
-    });
+    }) as Record<string, string>[];
 
     // Group by county
     const groupedData: Record<string, Inspector[]> = {};
 
-    records.forEach((record: any) => {
+    records.forEach((record: Record<string, string>) => {
         const poststedTokens = record['Postnr. / Sted'].split(' ');
         const rawZip = poststedTokens[0] || '';
         const county = getCountyFromPostalCode(rawZip);
@@ -71,10 +71,7 @@ export default function InspectorsPage() {
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
-                    <span className="text-brand-red font-conthrax text-sm tracking-widest uppercase mb-4 block">
-                        B-Zero Racing Norge
-                    </span>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-conthrax uppercase tracking-wider mb-6 drop-shadow-lg">
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-conthrax uppercase tracking-wider mb-6 drop-shadow-lg">
                         Årskontrollører
                     </h1>
                     <p className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
@@ -90,53 +87,33 @@ export default function InspectorsPage() {
                 </Link>
 
                 <div className="grid lg:grid-cols-4 gap-12 items-start">
-
-                    {/* Sticky Sidebar Navigation */}
-                    <div className="lg:col-span-1 lg:sticky lg:top-32 space-y-2 hidden lg:block">
-                        <h3 className="text-sm font-conthrax text-slate-500 uppercase tracking-wider mb-4 px-3">Velg Fylke</h3>
-                        {sortedCounties.map(county => (
-                            <a
-                                key={`nav-${county}`}
-                                href={`#${county.toLowerCase().replace(/\s+/g, '-')}`}
-                                className="block w-full text-left px-4 py-3 rounded-xl hover:bg-white hover:text-brand-red hover:shadow-sm transition-all font-medium text-slate-700 data-[active=true]:bg-brand-red data-[active=true]:text-white"
-                            >
-                                {county} <span className="float-right text-xs opacity-50 bg-slate-200 px-2 py-0.5 rounded-full text-slate-800">{groupedData[county].length}</span>
-                            </a>
-                        ))}
-                    </div>
+                    <CountyNavigation
+                        counties={sortedCounties.map(county => ({
+                            name: county,
+                            count: groupedData[county].length,
+                            id: county.toLowerCase().replace(/\s+/g, '-')
+                        }))}
+                    />
 
                     {/* Main Content Area */}
                     <div className="lg:col-span-3 space-y-16">
 
-                        {/* Mobile Navigation (Tabs alternative) */}
-                        <div className="lg:hidden flex overflow-x-auto pb-4 gap-2 snap-x scrollbar-hide -mx-6 px-6">
-                            {sortedCounties.map(county => (
-                                <a
-                                    key={`mob-nav-${county}`}
-                                    href={`#${county.toLowerCase().replace(/\s+/g, '-')}`}
-                                    className="shrink-0 snap-start bg-white border border-slate-200 px-5 py-2.5 rounded-full text-sm font-conthrax uppercase text-slate-700 hover:border-brand-red hover:text-brand-red whitespace-nowrap shadow-sm"
-                                >
-                                    {county} ({groupedData[county].length})
-                                </a>
-                            ))}
-                        </div>
-
                         {/* Rendering Counties */}
                         {sortedCounties.map(county => (
                             <section key={county} id={county.toLowerCase().replace(/\s+/g, '-')} className="scroll-mt-32">
-                                <h2 className="text-2xl font-conthrax uppercase tracking-wider text-slate-900 border-b-2 border-brand-red pb-3 mb-8 flex items-center gap-3">
+                                <h2 className="text-2xl font-conthrax uppercase tracking-wider text-slate-900 border-b-2 border-slate-300 pb-3 mb-8 flex items-center gap-3">
                                     <MapPin size={28} className="text-brand-red" weight="duotone" />
                                     {county}
                                 </h2>
 
                                 <div className="grid md:grid-cols-2 gap-6">
                                     {groupedData[county].map((inspector, idx) => (
-                                        <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+                                        <div key={idx} className="bg-white rounded-lg p-6 shadow-md border border-slate-200 relative overflow-hidden group">
                                             {/* Accent Banner */}
-                                            <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-200 group-hover:bg-brand-red transition-colors" />
+                                            <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-400" />
 
-                                            <h3 className="text-lg font-bold text-slate-900 mb-1">{inspector.navn}</h3>
-                                            <p className="text-sm text-slate-500 mb-6">{inspector.adresse}, {inspector.poststed}</p>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-1">{inspector.navn}</h3>
+                                            <p className="text-md text-slate-500 mb-6">{inspector.adresse}<br />{inspector.poststed}</p>
 
                                             <div className="space-y-3">
                                                 <a href={`tel:${inspector.mobil.replace(/\s+/g, '')}`} className="flex items-center gap-3 text-slate-700 hover:text-brand-red transition-colors w-fit p-1 -m-1 rounded-md">
