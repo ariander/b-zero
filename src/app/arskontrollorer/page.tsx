@@ -4,7 +4,7 @@ import { parse } from 'csv-parse/sync';
 import { getCountyFromPostalCode } from '@/utils/counties';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, EnvelopeSimple, Phone, MapPin } from '@phosphor-icons/react/dist/ssr';
+import { ArrowLeft, EnvelopeSimple, Phone, MapPin, ClipboardText } from '@phosphor-icons/react/dist/ssr';
 import CountyNavigation from './CountyNavigation';
 
 export const metadata = {
@@ -57,29 +57,28 @@ export default function InspectorsPage() {
 
     return (
         <div className="bg-slate-100 min-h-screen">
-            {/* Header / Hero Section (matches Kom i Gang) */}
-            <div className="bg-black text-white relative border-b-4 border-brand-red overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/teknisk-c1.avif"
-                        alt="B-Zero Hero"
-                        fill
-                        priority
-                        className="object-cover opacity-20"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/60 to-black/90 mix-blend-multiply" />
-                </div>
+            {/* Header Section */}
+            <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
+                <Image
+                    src="/teknisk-c1.avif"
+                    alt="B-Zero Hero"
+                    fill
+                    className="object-cover object-center z-0 opacity-20 mix-blend-luminosity"
+                    priority
+                />
+                <div className="absolute inset-0 bg-linear-to-b from-slate-900/50 via-slate-900/80 to-slate-900 z-0" />
 
-                <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
-                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-conthrax uppercase tracking-wider mb-6 drop-shadow-lg">
+                <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+                    <ClipboardText size={64} className="text-brand-red mx-auto mb-6" />
+                    <h1 className="text-4xl md:text-5xl font-conthrax uppercase tracking-wider mb-6">
                         Årskontrollører
                     </h1>
-                    <p className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-xl text-slate-300 font-light leading-relaxed">
                         Alle biler i B-Zero må være utstyrt med vognbok og lisens.
                         Finn din nærmeste tekniske årskontrollør i listen under for å avtale inspeksjon av veltebur, redningsutstyr og bilens generelle tekniske stand.
                     </p>
                 </div>
-            </div>
+            </section>
 
             <div className="max-w-6xl mx-auto px-6 py-12 md:py-20">
                 <Link href="/reglement" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white shadow-sm border border-slate-200 text-slate-700 font-conthrax text-sm tracking-wider uppercase transition-all hover:bg-slate-50 hover:border-slate-300 group mb-10">
