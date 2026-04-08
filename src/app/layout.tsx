@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import { Navigation } from '@/components/Navigation'
+import { Analytics } from '@vercel/analytics/next'
 
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
 
@@ -107,6 +108,7 @@ export default function RootLayout({
             <Link href="/studio" className="hover:text-neutral-400 transition mt-4 md:mt-0">Sanity Login</Link>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   )
