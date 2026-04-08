@@ -148,14 +148,14 @@ export default function BuildGuideTabs() {
 
                                 <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bensintank (Fuel tank guard)</h4>
                                 <p>I asfaltløp (racing) <em>skal</em> det monteres beskyttelsesplate for bensintanken.</p>
-                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2">
+                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2 text-slate-800">
                                     <strong>Installasjon:</strong> Plasser beskyttelsen slik at den ligger over de langsgående skinnene. Du må kanskje justere litt på karosserikitten og brette ut kantene for å få den til å smette over skinnene. Den bakre kanten skal ligge tett inntil gummipluggen for reservehjulsbrønnen, men ikke dekke over den. Borr opp 2 x 6.3mm hull gjennom brønnhullet ved bruke beskytteren som guide. Fest med 2x M6 button head skruer og nyloc-muttere. Bor deretter 2 x 3.5mm hull inn i de langsgående skinnene (bruk igjen beskytteren som guide) og fest med de medfølgende selvborrende skruene.
                                 </div>
                                 <Image src="/Fuel Tank Protector.jpg" alt="Fuel Tank Protector" width={800} height={400} className="rounded-xl border border-slate-200" />
 
                                 <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bremse- og bensinrør (Brake & fuel pipe guard)</h4>
                                 <p>Påkrevd på asfalt! For Rally skal det i tillegg være plate i <em>hele</em> bilens lengde pluss beskyttelse under motor.</p>
-                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2">
+                                <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2 text-slate-800">
                                     <strong>Installasjon (Racing):</strong> Plasser beskytteren slik at den dekker rørene rett etter de kommer ut fra motorrommet rett bak den fremre subframen. Fronten på beskytteren skrus i subframen med 2 gjenngeskruer (6mm self tappers). Bakparten skrus inn i den langsgående avstiveren på chassis med 2 skruer. Merk opp det første hullet nøye og bor med 4.8mm borr. Monter platen lett med den første skruen, og bruk deretter beskytteren som guide for å bore de tre siste hullene. Skru inn resten, og gå og ta deg en øl!
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
