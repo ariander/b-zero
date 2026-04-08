@@ -15,6 +15,7 @@ const components: PortableTextComponents = {
                         alt={value.alt || 'Bilde'}
                         fill
                         className="object-cover"
+                        unoptimized
                     />
                 </div>
             )
