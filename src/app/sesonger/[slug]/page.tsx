@@ -236,7 +236,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     )}
 
                     {/* Links Section */}
-                    {((race.links && race.links.length > 0) || new Date(race.date) > new Date()) && (
+                    {((race.links && race.links.length > 0) || (race.relatedPosts && race.relatedPosts.length > 0) || new Date(race.date) > new Date()) && (
                         <section className="bg-slate-900 text-white p-8 rounded-2xl shadow-md">
                             <div className="flex items-center gap-4 mb-8 border-b border-slate-700 pb-4">
                                 <LinkIcon size={28} weight="bold" className="text-brand-red" />
@@ -277,14 +277,14 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                         );
                                     })}
                                 </ul>
-                            ) : (
+                            ) : new Date(race.date) > new Date() ? (
                                 <div className="bg-slate-800 p-6 rounded-xl text-center">
                                     <p className="text-slate-400 font-medium">Mer informasjon kommer så fort vi har det</p>
                                 </div>
-                            )}
+                            ) : null}
 
                             {race.relatedPosts && race.relatedPosts.length > 0 && (
-                                <div className="mt-8 pt-8 border-t border-slate-700">
+                                <div className={race.links && race.links.length > 0 || new Date(race.date) > new Date() ? "mt-8 pt-8 border-t border-slate-700" : ""}>
                                     <h3 className="text-lg font-conthrax uppercase tracking-wider text-slate-300 mb-6">Siste nyhetsartikler for dette løpet</h3>
                                     <ul className="space-y-4">
                                         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
