@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Upload, X, CheckCircle, WarningCircle, CircleNotch } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
+import imageCompression from 'browser-image-compression';
 
 export function RentalForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,10 +42,21 @@ export function RentalForm() {
 
         const formData = new FormData(e.currentTarget);
 
-        // Add images to form data
-        selectedFiles.forEach(file => {
-            formData.append('images', file);
-        });
+        // Add and compress images
+        for (const file of selectedFiles) {
+            const options = {
+                maxSizeMB: 1.5,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            };
+            try {
+                const compressedFile = await imageCompression(file, options);
+                formData.append('images', compressedFile);
+            } catch (error) {
+                console.error('Error compressing image:', error);
+                formData.append('images', file);
+            }
+        }
 
         try {
             const response = await fetch('/api/rentals', {
@@ -186,7 +198,7 @@ export function RentalForm() {
                     />
                     <Upload size={48} className="mx-auto text-slate-400 group-hover:text-brand-red transition-colors mb-4" />
                     <p className="text-slate-300 font-medium">Klikk eller dra filer hit for å laste opp (Maks 5 bilder)</p>
-                    <p className="text-slate-500 text-sm mt-2">Støttede formater: JPG, PNG, WEBP (Maks 5 MB pr. bilde)</p>
+                    <p className="text-slate-500 text-sm mt-2">Støttede formater: JPG, PNG, WEBP (Maks 20 MB pr. bilde)</p>
                 </div>
 
                 {previewUrls.length > 0 && (

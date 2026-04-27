@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Upload, X, CheckCircle, WarningCircle, CircleNotch } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
+import imageCompression from 'browser-image-compression';
 
 export function DriverForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,9 +50,24 @@ export function DriverForm() {
 
         const formData = new FormData(e.currentTarget);
 
-        // Add explicit images if they exist
-        if (profileFile) formData.append('profileImage', profileFile);
-        if (carFile) formData.append('carImage', carFile);
+        // Helper to compress single image
+        const compressImage = async (file: File) => {
+            const options = {
+                maxSizeMB: 1.5,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            };
+            try {
+                return await imageCompression(file, options);
+            } catch (error) {
+                console.error('Error compressing image:', error);
+                return file; // Fallback
+            }
+        };
+
+        // Compress and add explicit images if they exist
+        if (profileFile) formData.append('profileImage', await compressImage(profileFile));
+        if (carFile) formData.append('carImage', await compressImage(carFile));
 
         try {
             const response = await fetch('/api/drivers', {
@@ -174,7 +190,7 @@ export function DriverForm() {
                                 />
                                 <Upload size={32} className="mx-auto text-slate-400 group-hover:text-brand-red transition-colors mb-2" />
                                 <p className="text-slate-300 font-medium text-sm">Last opp bilde av deg selv</p>
-                                <p className="text-slate-500 text-xs mt-1">(Maks 5 MB)</p>
+                                <p className="text-slate-500 text-xs mt-1">(Maks 20 MB)</p>
                             </div>
                         ) : (
                             <div className="relative aspect-square md:h-48 md:w-full rounded-2xl overflow-hidden group border border-slate-700">
@@ -203,7 +219,7 @@ export function DriverForm() {
                                 />
                                 <Upload size={32} className="mx-auto text-slate-400 group-hover:text-brand-red transition-colors mb-2" />
                                 <p className="text-slate-300 font-medium text-sm">Last opp et bilde av bilen</p>
-                                <p className="text-slate-500 text-xs mt-1">(Maks 5 MB)</p>
+                                <p className="text-slate-500 text-xs mt-1">(Maks 20 MB)</p>
                             </div>
                         ) : (
                             <div className="relative aspect-square md:h-48 md:w-full rounded-2xl overflow-hidden group border border-slate-700">
