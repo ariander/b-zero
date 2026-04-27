@@ -83,6 +83,7 @@ export default function RootLayout({
               <h3 className="text-white font-conthrax text-lg mb-6 uppercase tracking-wider">Snarveier</h3>
               <ul className="space-y-4 font-semibold">
                 <li><Link href="/kom-i-gang" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Kom i gang</Link></li>
+                <li><Link href="/leiebors" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Prøv en B-Zero</Link></li>
                 <li><Link href="/reglement" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Teknisk Reglement</Link></li>
                 <li><Link href="/baerekraft" className="hover:text-green-500 transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Bærekraftig Racing</Link></li>
                 <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>

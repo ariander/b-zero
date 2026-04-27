@@ -264,3 +264,27 @@ export async function getPresentationDrivers() {
     }
   `);
 }
+
+export async function getRentals() {
+  return client.fetch(`
+    *[_type == "rentalAd" && !(_id in path("drafts.**"))] | order(_createdAt desc) {
+      _id,
+      title,
+      slug,
+      raceCategory,
+      carInfo,
+      description,
+      price,
+      availability,
+      contactName,
+      contactEmail,
+      contactPhone,
+      images[] {
+        asset->{
+          _id,
+          url
+        }
+      }
+    }
+  `, {}, { next: { revalidate: 0 } }); // No cache for now, so it updates immediately
+}

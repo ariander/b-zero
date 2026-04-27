@@ -24,9 +24,20 @@ export default function KomIGangPage() {
                 <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <Wrench size={64} className="text-brand-red mx-auto mb-6" />
                     <h1 className="text-2xl md:text-4xl font-conthrax uppercase tracking-wider mb-6">Kom i gang</h1>
-                    <p className="text-xl text-slate-300 font-light leading-relaxed">
+                    <p className="text-xl text-slate-300 font-light leading-relaxed mb-12">
                         Veien til startstreken er kortere enn du tror. Her er alt du trenger å vite om bygging av bil, lisenser, kjøreutstyr og praktiske rutiner for din første sesong.
                     </p>
+
+                    {/* Promo: Leiebørs i Hero */}
+                    <div className="bg-linear-to-r from-blue-600/90 to-blue-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl text-white flex flex-col md:flex-row items-center justify-between gap-6 text-left border border-white/10 max-w-3xl mx-auto">
+                        <div>
+                            <h2 className="text-xl md:text-2xl font-conthrax uppercase tracking-wider mb-2 drop-shadow-md">Lyst å prøve B-Zero?</h2>
+                            <p className="text-blue-100 text-base md:text-lg">Finn ledig bil for sesongen, trening eller enkelte løp.</p>
+                        </div>
+                        <a href="/leiebors" className="shrink-0 bg-white text-blue-700 hover:bg-slate-100 font-conthrax uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-lg flex items-center gap-2 hover:scale-105">
+                            Se leiebørs <ArrowRight size={18} weight="bold" />
+                        </a>
+                    </div>
                 </div>
             </section>
 
