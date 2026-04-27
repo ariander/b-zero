@@ -100,11 +100,11 @@ export function RentalForm() {
             )}
 
             <div className="space-y-6">
-                <h3 className="text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Bilinformasjon</h3>
+                <h3 className="text-lg md:text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Bilinformasjon</h3>
 
                 <div className="space-y-4">
                     <label className="block text-sm font-medium text-slate-300">Kategori *</label>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <label className="flex items-center gap-2 cursor-pointer bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl hover:border-brand-red transition-colors w-full">
                             <input type="radio" name="raceCategory" value="racing" defaultChecked className="accent-brand-red w-4 h-4" />
                             <span className="text-white">Racing (Asfalt)</span>
@@ -149,7 +149,7 @@ export function RentalForm() {
             </div>
 
             <div className="space-y-6">
-                <h3 className="text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Kontaktinformasjon</h3>
+                <h3 className="text-lg md:text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Kontakt</h3>
 
                 <div className="space-y-2">
                     <label htmlFor="contactName" className="block text-sm font-medium text-slate-300">Ditt navn *</label>
@@ -168,7 +168,7 @@ export function RentalForm() {
             </div>
 
             <div className="space-y-4">
-                <h3 className="text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Bilder</h3>
+                <h3 className="text-lg md:text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Bilder</h3>
 
                 <div className="relative border-2 border-dashed border-slate-600 rounded-2xl p-8 hover:bg-slate-800/50 transition-colors group text-center cursor-pointer">
                     <input
