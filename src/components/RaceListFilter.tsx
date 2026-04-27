@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FlagCheckered, FilePdf, CheckCircle, MapPin, MagnifyingGlass } from "@phosphor-icons/react";
-import type { Race } from '@/app/sesonger/page';
+import type { Race } from '@/app/(site)/sesonger/page';
 
 interface SeasonDoc {
     _id: string;

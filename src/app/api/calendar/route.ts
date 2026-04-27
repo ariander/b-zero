@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createEvents, EventAttributes } from 'ics';
 import { getSeasons } from '@/sanity/lib/client';
-import type { Race } from '@/app/sesonger/page';
+import type { Race } from '@/app/(site)/sesonger/page';
 
 export const revalidate = 60; // Cache revalidation
 
