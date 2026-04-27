@@ -1,5 +1,6 @@
 import { FacebookLogo, EnvelopeSimple, Phone } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail'
 
 export const metadata = {
     title: 'Om Oss - B-Zero Racing',
@@ -69,10 +70,10 @@ export default function OmOssPage() {
                                 <p className="text-slate-400 font-bold uppercase tracking-wider text-xs mb-4">Leder & Generell Kontakt</p>
 
                                 <div className="space-y-3">
-                                    <a href="mailto:dan.rene.larsen@live.no" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
-                                        <EnvelopeSimple size={20} className="text-slate-400" />
-                                        <span className="truncate">dan.rene.larsen@live.no</span>
-                                    </a>
+                                    <div className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
+                                        <EnvelopeSimple size={20} className="text-slate-400 shrink-0" />
+                                        <ObfuscatedEmail user="dan.rene.larsen" domain="live.no" className="truncate" />
+                                    </div>
                                     <a href="tel:+4793817745" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
                                         <Phone size={20} className="text-slate-400" />
                                         <span>+47 93 81 77 45</span>
@@ -89,10 +90,10 @@ export default function OmOssPage() {
                                 <p className="text-slate-400 font-bold uppercase tracking-wider text-xs mb-4">Teknisk Leder</p>
 
                                 <div className="space-y-3">
-                                    <a href="mailto:jon.renstrom@gmail.com" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
-                                        <EnvelopeSimple size={20} className="text-slate-400" />
-                                        <span className="truncate">jon.renstrom@gmail.com</span>
-                                    </a>
+                                    <div className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
+                                        <EnvelopeSimple size={20} className="text-slate-400 shrink-0" />
+                                        <ObfuscatedEmail user="jon.renstrom" domain="gmail.com" className="truncate" />
+                                    </div>
                                     <a href="tel:+4793048706" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
                                         <Phone size={20} className="text-slate-400" />
                                         <span>+47 93 04 87 06</span>
