@@ -186,7 +186,7 @@ export function RentalForm() {
                     />
                     <Upload size={48} className="mx-auto text-slate-400 group-hover:text-brand-red transition-colors mb-4" />
                     <p className="text-slate-300 font-medium">Klikk eller dra filer hit for å laste opp (Maks 5 bilder)</p>
-                    <p className="text-slate-500 text-sm mt-2">Støttede formater: JPG, PNG, WEBP</p>
+                    <p className="text-slate-500 text-sm mt-2">Støttede formater: JPG, PNG, WEBP (Maks 5 MB pr. bilde)</p>
                 </div>
 
                 {previewUrls.length > 0 && (
