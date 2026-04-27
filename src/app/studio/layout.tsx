@@ -30,7 +30,13 @@ export default function StudioLayout({
           </a>
         </div>
       </header>
-      <main className="flex-1 relative min-h-0 overflow-hidden">
+      <main className="flex-1 relative min-h-0 overflow-hidden" id="sanity-custom-wrapper">
+        <style>{`
+          #sanity-custom-wrapper > div {
+            height: 100% !important;
+            max-height: 100% !important;
+          }
+        `}</style>
         {children}
       </main>
     </div>
