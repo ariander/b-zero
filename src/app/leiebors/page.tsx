@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { EnvelopeSimple, Phone, CarProfile, CalendarBlank, Tag, Plus, FlagCheckered } from '@phosphor-icons/react/dist/ssr';
 import { ImageGallery } from '@/components/ImageGallery';
+import { ObfuscatedEmail } from '@/components/ObfuscatedEmail';
 
 export const metadata = {
     title: 'Leiebørs | B-Zero Racing',
@@ -108,7 +109,7 @@ export default async function LeieborsPage() {
                 <div className="mt-16 bg-slate-200/50 rounded-2xl p-8 text-center text-slate-600 border border-slate-300">
                     <p>
                         Ønsker du å endre eller fjerne annonsen din? <br className="md:hidden" />
-                        Send en epost til <a href="mailto:arild.andersen@gmail.com" className="font-semibold text-brand-red hover:underline">arild.andersen@gmail.com</a>.
+                        Send en epost til <ObfuscatedEmail user="arild.andersen" domain="gmail.com" className="font-semibold text-brand-red hover:underline" />.
                     </p>
                 </div>
             </div>
