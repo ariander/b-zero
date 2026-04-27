@@ -99,6 +99,12 @@ export function RentalForm() {
                 </div>
             )}
 
+            {/* Honeypot field - Bots will fill this, humans will not see it */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+                <label htmlFor="website_url">Website (leave blank)</label>
+                <input type="text" id="website_url" name="website_url" tabIndex={-1} autoComplete="off" />
+            </div>
+
             <div className="space-y-6">
                 <h3 className="text-lg md:text-xl font-conthrax uppercase tracking-wider text-white border-b border-slate-700 pb-2">Bilinformasjon</h3>
 

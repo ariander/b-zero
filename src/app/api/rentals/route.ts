@@ -14,10 +14,27 @@ const client = createClient({
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder');
 
+function escapeHtml(unsafe: string) {
+  if (!unsafe) return '';
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     
+    // Check honeypot field
+    const websiteUrl = formData.get('website_url');
+    if (websiteUrl) {
+      console.warn('Bot detected via honeypot');
+      return NextResponse.json({ success: true, docId: 'fake-id' });
+    }
+
     // Parse fields
     const title = formData.get('title') as string;
     const raceCategory = formData.get('raceCategory') as string || 'racing';
@@ -35,8 +52,20 @@ export async function POST(request: Request) {
 
     // Process images
     const imageAssets = [];
+    let imageCount = 0;
     for (const [key, value] of Array.from(formData.entries())) {
       if (key === 'images' && value instanceof File) {
+        imageCount++;
+        if (imageCount > 5) {
+          return NextResponse.json({ error: 'Maks 5 bilder tillatt.' }, { status: 400 });
+        }
+        if (!value.type.startsWith('image/')) {
+          return NextResponse.json({ error: 'Kun bildefiler er tillatt.' }, { status: 400 });
+        }
+        if (value.size > 5 * 1024 * 1024) {
+          return NextResponse.json({ error: 'Et eller flere bilder er over 5MB.' }, { status: 400 });
+        }
+
         const buffer = await value.arrayBuffer();
         const asset = await client.assets.upload('image', Buffer.from(buffer), {
           filename: value.name,
@@ -91,11 +120,11 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: 'B-Zero Leiebørs <onboarding@resend.dev>', // Should be verified domain in prod
         to: [process.env.ADMIN_EMAIL],
-        subject: `Ny utleieannonse: ${title}`,
+        subject: `Ny utleieannonse: ${escapeHtml(title)}`,
         html: `
           <h1>Ny utleieannonse sendt inn</h1>
-          <p><strong>Utleier:</strong> ${contactName} (${contactEmail})</p>
-          <p><strong>Bil:</strong> ${title} / ${carInfo}</p>
+          <p><strong>Utleier:</strong> ${escapeHtml(contactName)} (${escapeHtml(contactEmail)})</p>
+          <p><strong>Bil:</strong> ${escapeHtml(title)} / ${escapeHtml(carInfo)}</p>
           <p>En ny annonse er lagt inn og ligger klar som et <strong>utkast</strong> i Sanity.</p>
           <p>Logg inn i Sanity Studio for å se over og publisere annonsen.</p>
         `,
