@@ -11,7 +11,7 @@ export default function KomIGangPage() {
     return (
         <div className="bg-slate-100 min-h-screen">
             {/* Header Section */}
-            <section className="bg-slate-900 text-white py-20 relative overflow-hidden">
+            <section className="bg-slate-900 text-white py-10 md:py-20 relative overflow-hidden">
                 <Image
                     src="/C1-24h-190428-146.JPG"
                     alt="B-Zero Racing 24h"
