@@ -53,7 +53,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
 
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                             <span className="bg-brand-red text-white px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
-                                B-Zero Sjåfør
+                                {driver.teamName || "B-Zero Sjåfør"}
                             </span>
                             {driver.startNumber && (
                                 <span className="bg-slate-800 text-white px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md border border-slate-700">
