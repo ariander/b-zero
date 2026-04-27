@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.b-zeroracing.com'),
   title: 'B-Zero Racing',
   description: 'Norges råeste og billigste racing- og rallyklasse.',
+  icons: {
+    icon: '/b-zero-favicon.png',
+    shortcut: '/b-zero-favicon.png',
+    apple: '/b-zero-homescreen.png',
+  },
+  appleWebApp: {
+    title: 'B-Zero Racing',
+    statusBarStyle: 'default',
+    capable: true,
+  },
+  themeColor: '#000000',
   openGraph: {
     title: 'B-Zero Racing',
     description: 'Norges råeste og billigste racing- og rallyklasse.',
