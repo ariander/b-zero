@@ -30,7 +30,7 @@ export default function StudioLayout({
           </a>
         </div>
       </header>
-      <main className="flex-1 relative">
+      <main className="flex-1 relative min-h-0 overflow-hidden">
         {children}
       </main>
     </div>
