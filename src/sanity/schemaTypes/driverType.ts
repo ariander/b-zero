@@ -12,6 +12,12 @@ export const driverType = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: 'teamName',
+            title: 'Teamnavn',
+            type: 'string',
+            description: 'Valgfritt',
+        }),
+        defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',

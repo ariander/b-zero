@@ -84,21 +84,20 @@ export default async function DriversPage() {
                         Vi ønsker å vise frem alle som kjører i B-Zero! Send oss din sjåførprofil og bli med i oversikten.
                     </p>
                     <div className="bg-neutral-950 p-6 rounded-2xl border border-neutral-800 text-left w-full max-w-xl mb-8">
-                        <h3 className="font-conthrax text-white uppercase tracking-widest mb-4">Dette trenger vi fra deg:</h3>
+                        <h3 className="font-conthrax text-white uppercase tracking-widest mb-4">Finn frem dette før du starter:</h3>
                         <ul className="text-neutral-300 space-y-2 list-disc list-inside">
-                            <li>Navnet ditt (og evt. teamnavn)</li>
-                            <li>Startnummer og debutår i Racing/Rally</li>
-                            <li>Bil (Merke og modell)</li>
-                            <li>En kort biografi om deg og gjerne en morsom historie!</li>
-                            <li>Bildemateriell: Et portrettbilde og et bilde av bilen</li>
+                            <li>Et godt portrettbilde av deg selv</li>
+                            <li>Et bilde av bilen din</li>
+                            <li>Din bilinformasjon, startnummer og debutår</li>
+                            <li>En liten historie om deg og din reise i B-Zero!</li>
                         </ul>
                     </div>
-                    <a
-                        href="mailto:arild.andersen@gmail.com?subject=B-Zero%20Sj%C3%A5f%C3%B8rprofil&body=Hei!%0A%0AHer%20er%20min%20informasjon%20til%20sj%C3%A5f%C3%B8rsiden:%0A%0ANavn:%20%0AStartnummer:%20%0ABil:%20%0ADebut%C3%A5r:%20%0A%0ABiografi:%20%0A%0A(Husk%20%C3%A5%20legge%20ved%20et%20portrettbilde%20og%20et%20bilde%20av%20bilen!)"
+                    <Link
+                        href="/sjaforer/ny"
                         className="bg-brand-red hover:bg-neutral-100 text-white hover:text-brand-red font-conthrax uppercase tracking-widest py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-brand-red/20 border-2 border-brand-red hover:border-white"
                     >
-                        Send Inn På E-post
-                    </a>
+                        Registrer Profil
+                    </Link>
                 </section>
             </div>
         </div>
