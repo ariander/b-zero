@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: 'https://www.bzero.no',
     images: [
       {
-        url: 'https://www.bzero.no/hero-images/bzero-racing-gallery.jpg',
+        url: 'https://www.bzero.no/bzero-og.jpg',
         width: 1200,
         height: 630,
         alt: 'B-Zero Racing',
