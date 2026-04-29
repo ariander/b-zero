@@ -1,0 +1,11 @@
+import { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://www.bzero.no/sitemap.xml', // Uncomment if you have a sitemap
+  }
+}
