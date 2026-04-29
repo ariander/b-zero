@@ -20,10 +20,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.bzero.no'),
   title: {
-    default: 'B-Zero Racing & Rally | Norges billigste og råeste motorsport',
+    default: 'B-Zero Racing & Rally',
     template: '%s | B-Zero Racing'
   },
-  description: 'B-Zero Racing og B-Zero Rally — Norges billigste og råeste bilsportsklasse. Citroën C1, Peugeot 107 og Toyota Aygo på bane og i skogen. Bli sjåfør i dag!',
+  description: 'B-Zero Racing og B-Zero Rally — Norges billigste og mest underholdende racing- og rallyklasse. Bygg en bil, still til start, og kjenn på ekte racingglede!',
   keywords: ['B-Zero', 'B-Zero Racing', 'B-Zero Rally', 'b zero', 'bzero', 'bilsport Norge', 'C1 racing', 'Citroën C1 racing', 'rimelig racing', 'motorsport Norge'],
   verification: {
     google: 'izTdgrppyMmmD0rxi2YdvnqU70LDoJjSeSpL9Q6ZMxg',
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     apple: '/b-zero-homescreen.png',
   },
   appleWebApp: {
-    title: 'B-Zero Racing',
+    title: 'B-Zero',
     statusBarStyle: 'default',
     capable: true,
   },
   openGraph: {
-    title: 'B-Zero Racing og Rally | Norges råeste og billigste motorsport',
-    description: 'B-Zero er Norges råeste og billigste racing- og rallyklasse — for Citroën C1, Peugeot 107 og Toyota Aygo. Opplev ekte bane- og rallysport med tett konkurranse, mye moro og lave kostnader.',
+    title: 'B-Zero Racing og Rally',
+    description: 'Norges billigste og mest underholdende racing- og rallyklasse. Bygg en bil, still til start, og kjenn på ekte racingglede!',
     siteName: 'B-Zero Racing & Rally',
     url: 'https://www.bzero.no',
     images: [
