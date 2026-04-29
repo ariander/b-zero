@@ -23,7 +23,7 @@ const kenBurnsAnimations = [
 
 const heroImages = [
     '/hero-images/B-Zero Racing Gallery (1).jpg',
-    '/hero-images/B-Zero Racing Gallery 2BZR230611.jpg',
+    '/hero-images/bzero-racing-gallery.jpg',
     '/hero-images/B-Zero Racing Gallery 6BZR231008.jpg',
     '/hero-images/B-Zero Racing Gallery 6BZR240901.jpg',
     '/hero-images/roger.jpg',

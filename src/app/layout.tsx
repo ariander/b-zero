@@ -35,9 +35,10 @@ export const metadata: Metadata = {
     title: 'B-Zero Racing',
     description: 'Norges råeste og billigste racing- og rallyklasse.',
     siteName: 'B-Zero Racing',
+    url: 'https://www.bzero.no',
     images: [
       {
-        url: '/C1-24h-190428-146.JPG',
+        url: 'https://www.bzero.no/hero-images/bzero-racing-gallery.jpg',
         width: 1200,
         height: 630,
         alt: 'B-Zero Racing',
