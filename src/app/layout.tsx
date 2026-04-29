@@ -13,8 +13,12 @@ const conthrax = localFont({
   display: 'swap',
 })
 
+export const viewport: Viewport = {
+  themeColor: '#000000',
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.b-zeroracing.com'),
+  metadataBase: new URL('https://www.bzero.no'),
   title: 'B-Zero Racing',
   description: 'Norges råeste og billigste racing- og rallyklasse.',
   icons: {
@@ -27,7 +31,6 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     capable: true,
   },
-  themeColor: '#000000',
   openGraph: {
     title: 'B-Zero Racing',
     description: 'Norges råeste og billigste racing- og rallyklasse.',

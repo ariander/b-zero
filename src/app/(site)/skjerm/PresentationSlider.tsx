@@ -149,7 +149,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                         className="brightness-0 invert h-10 lg:h-12 w-auto"
                     />
                     <span className="text-white font-conthrax text-sm lg:text-base tracking-widest uppercase opacity-80">
-                        www.b-zeroracing.com
+                        www.bzero.no
                     </span>
                 </div>
                 <div className="bg-white p-2 rounded-xl shadow-lg flex items-center justify-center shrink-0">

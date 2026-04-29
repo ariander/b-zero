@@ -37,13 +37,13 @@ export async function GET() {
                 title: race.title ? `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'}: ${race.title}` : `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'} Løp`,
                 start: startArray,
                 end: endArray,
-                description: `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'}\n\nLes mer om løpet på: https://b-zeroracing.com/sesonger/${race.slug.current}`,
+                description: `B-Zero ${race.raceCategory === 'rally' ? 'Rally' : 'Racing'}\n\nLes mer om løpet på: https://bzero.no/sesonger/${race.slug.current}`,
                 location: race.track?.name || 'Bane ikke annonsert ennå',
-                url: `https://b-zeroracing.com/sesonger/${race.slug.current}`,
+                url: `https://bzero.no/sesonger/${race.slug.current}`,
                 categories: ['B-Zero', race.raceCategory === 'rally' ? 'Rally' : 'Racing'],
                 status: 'CONFIRMED',
                 busyStatus: 'BUSY',
-                organizer: { name: 'B-Zero Racing', email: 'post@b-zeroracing.com' }
+                organizer: { name: 'B-Zero Racing', email: 'post@bzero.no' }
             };
         });
 

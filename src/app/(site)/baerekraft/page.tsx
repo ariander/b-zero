@@ -361,7 +361,7 @@ export default function BaerekraftPage() {
                                     </div>
                                 </div>
                                 <a
-                                    href="mailto:?subject=Bærekraft%20i%20Motorsport&body=Sjekk%20ut%20denne%20rapporten%20om%20bærekraft%20i%20B-Zero%3A%20https%3A%2F%2Fwww.b-zeroracing.com%2Fbaerekraft"
+                                    href="mailto:?subject=Bærekraft%20i%20Motorsport&body=Sjekk%20ut%20denne%20rapporten%20om%20bærekraft%20i%20B-Zero%3A%20https%3A%2F%2Fwww.bzero.no%2Fbaerekraft"
                                     className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-colors flex items-center gap-2 whitespace-nowrap shadow-md focus:outline-hidden"
                                 >
                                     Del via E-post <ArrowRight weight="bold" />
