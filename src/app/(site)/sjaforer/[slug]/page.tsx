@@ -35,16 +35,6 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                 ) : (
                     <div className="absolute inset-0 bg-slate-800" />
                 )}
-
-                {/* Gigantic Start Number Watermark */}
-                {driver.startNumber && (
-                    <div className="absolute inset-0 max-w-6xl mx-auto flex items-end justify-end p-6 md:p-12 z-0 pointer-events-none opacity-[0.6] mix-blend-overlay overflow-hidden">
-                        <span className="text-[250px] md:text-[500px] font-conthrax tracking-tighter text-white leading-none whitespace-nowrap select-none md:translate-y-24 md:translate-x-12">
-                            {driver.startNumber}
-                        </span>
-                    </div>
-                )}
-
                 <div className="relative z-20 w-full max-w-6xl mx-auto px-6 pb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div className="flex-1">
                         <Link href="/sjaforer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-conthrax text-sm tracking-wider uppercase transition-all hover:bg-white/20 hover:border-white/40 group mb-6 relative z-30">
