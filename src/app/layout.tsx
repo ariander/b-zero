@@ -19,8 +19,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.bzero.no'),
-  title: 'B-Zero Racing',
-  description: 'Norges råeste og billigste racing- og rallyklasse.',
+  title: {
+    default: 'B-Zero Racing & Rally | Norges billigste og råeste motorsport',
+    template: '%s | B-Zero Racing'
+  },
+  description: 'B-Zero Racing og B-Zero Rally — Norges billigste og råeste bilsportsklasse. Citroën C1, Peugeot 107 og Toyota Aygo på bane og i skogen. Bli sjåfør i dag!',
+  keywords: ['B-Zero', 'B-Zero Racing', 'B-Zero Rally', 'b zero', 'bzero', 'bilsport Norge', 'C1 racing', 'Citroën C1 racing', 'rimelig racing', 'motorsport Norge'],
+  verification: {
+    google: 'izTdgrppyMmmD0rxi2YdvnqU70LDoJjSeSpL9Q6ZMxg',
+  },
   icons: {
     icon: '/b-zero-favicon.png',
     shortcut: '/b-zero-favicon.png',

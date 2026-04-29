@@ -106,7 +106,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                 </div>
 
                                 {driver.bio && (
-                                    <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed max-w-2xl pt-8 line-clamp-6">
+                                    <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed max-w-2xl pt-8 line-clamp-20">
                                         <PortableText value={driver.bio} />
                                     </div>
                                 )}

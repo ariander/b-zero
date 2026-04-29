@@ -7,6 +7,12 @@ import YearTimeline, { Race } from "@/components/YearTimeline";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
 
+export const metadata = {
+    title: 'Nyheter fra B-Zero Racing & Rally',
+    description: 'Siste nyheter, resultater og oppdateringer fra B-Zero Racing og B-Zero Rally i Norge.',
+}
+
+
 // Define types based on our Sanity schema
 interface Post {
     _id: string;
