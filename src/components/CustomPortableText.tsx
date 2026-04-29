@@ -16,6 +16,13 @@ const components: PortableTextComponents = {
                         fill
                         className="object-cover"
                         unoptimized
+                        style={
+                            value.hotspot
+                                ? {
+                                    objectPosition: `${value.hotspot.x * 100}% ${value.hotspot.y * 100}%`,
+                                }
+                                : undefined
+                        }
                     />
                 </div>
             )

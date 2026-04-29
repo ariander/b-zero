@@ -38,7 +38,13 @@ export const postType = defineType({
             name: 'body',
             title: 'Innhold',
             type: 'array',
-            of: [{ type: 'block' }, { type: 'image' }],
+            of: [
+                { type: 'block' }, 
+                { 
+                    type: 'image',
+                    options: { hotspot: true }
+                }
+            ],
         }),
         defineField({
             name: 'relatedRace',
