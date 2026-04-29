@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.bzero.no/sitemap.xml', // Uncomment if you have a sitemap
+    sitemap: 'https://www.bzero.no/sitemap.xml',
   }
 }
