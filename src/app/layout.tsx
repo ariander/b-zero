@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     capable: true,
   },
   openGraph: {
-    title: 'B-Zero Racing',
-    description: 'Norges råeste og billigste racing- og rallyklasse.',
-    siteName: 'B-Zero Racing',
+    title: 'B-Zero Racing og Rally | Norges råeste og billigste motorsport',
+    description: 'B-Zero er Norges råeste og billigste racing- og rallyklasse — for Citroën C1, Peugeot 107 og Toyota Aygo. Opplev ekte bane- og rallysport med tett konkurranse, mye moro og lave kostnader.',
+    siteName: 'B-Zero Racing & Rally',
     url: 'https://www.bzero.no',
     images: [
       {
         url: 'https://www.bzero.no/bzero-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'B-Zero Racing',
+        alt: 'B-Zero Racing og Rally — Norges råeste og billigste motorsport',
       }
     ],
     locale: 'nb_NO',
