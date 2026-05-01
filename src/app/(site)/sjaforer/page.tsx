@@ -43,8 +43,13 @@ export default async function DriversPage() {
                                         </>
                                     ) : (
                                         <>
-                                            <User size={64} className="text-neutral-600 mb-8" />
-                                            <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-transparent to-transparent" />
+                                            <Image
+                                                src="/avatar.jpg"
+                                                alt="Ukjent sjåfør"
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition duration-700"
+                                            />
+                                            <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
                                         </>
                                     )}
 

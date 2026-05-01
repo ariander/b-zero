@@ -63,9 +63,12 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                         className="object-cover"
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                                        <User size={32} className="text-slate-300" />
-                                    </div>
+                                    <Image
+                                        src="/avatar.jpg"
+                                        alt={driver.name}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 )}
                             </div>
                             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
@@ -84,9 +87,12 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                 className="object-cover"
                             />
                         ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                                <User size={64} className="text-slate-300" />
-                            </div>
+                            <Image
+                                src="/avatar.jpg"
+                                alt={driver.name}
+                                fill
+                                className="object-cover"
+                            />
                         )}
                     </div>
                 </div>
