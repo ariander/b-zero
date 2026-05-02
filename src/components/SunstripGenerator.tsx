@@ -201,7 +201,10 @@ export default function SunstripGenerator() {
       await svg2pdf(svgEl, pdf, { x: 0, y: 0, width: 1250, height: 250 })
 
       document.body.removeChild(svgEl)
-      pdf.save(`bzero-solskjerm-${number || '0'}.pdf`)
+      
+      const filename = `bzero-solskjerm-${number || '0'}.pdf`
+      pdf.setProperties({ title: filename })
+      pdf.save(filename)
     } catch (err) {
       console.error('PDF generation failed:', err)
     } finally {
