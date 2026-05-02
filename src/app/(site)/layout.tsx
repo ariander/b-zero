@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import { Navigation } from '@/components/Navigation'
+// import { MerchBanner } from '@/components/MerchBanner'  // midlertidig skjult
 
 export default function SiteLayout({
   children,
@@ -19,6 +20,7 @@ export default function SiteLayout({
                 width={75}
                 height={20}
                 className="h-6 w-auto"
+                unoptimized
               />
             </Link>
             <Navigation />
@@ -27,6 +29,7 @@ export default function SiteLayout({
         <main className="flex-1">
           {children}
         </main>
+        {/* <MerchBanner /> */}{/* midlertidig skjult */}
         <footer className="bg-neutral-900 text-neutral-400 py-16 mt-auto border-t border-neutral-800">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm">
             <div className="md:col-span-2">
@@ -37,6 +40,7 @@ export default function SiteLayout({
                   width={200}
                   height={53}
                   className="h-6 w-auto mb-6 opacity-80 hover:opacity-100 transition-opacity"
+                  unoptimized
                 />
               </Link>
               <p className="max-w-sm text-neutral-500 leading-relaxed">
@@ -55,6 +59,8 @@ export default function SiteLayout({
                 <li><Link href="/sesonger" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Terminliste</Link></li>
                 <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
                 <li><a href="https://rpcwebshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> RPC Webshop</a></li>
+                {/* <li><a href="https://bzero.myspreadshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> B-Zero Merchandise</a></li> */}{/* midlertidig skjult */}
+                <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Sunstrip Generator</Link></li>
               </ul>
             </div>
 

@@ -104,7 +104,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                         {race.isNM && (
                             <span className="bg-white text-slate-900 px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md flex items-center gap-1.5 h-6">
                                 <div className="relative w-4 h-4">
-                                    <Image src="/LOGONM.avif" alt="Racing NM" fill className="object-contain" />
+                                    <Image src="/LOGONM.avif" alt="Racing NM" fill className="object-contain" unoptimized />
                                 </div>
                                 <span className="pt-0.5">Racing NM</span>
                             </span>

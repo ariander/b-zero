@@ -79,7 +79,7 @@ export default async function Home() {
                   </div>
                 ) : (
                   <div className="w-full md:w-1/2 bg-slate-800 flex items-center justify-center p-12">
-                    <Image src="/B-ZERO-logo.svg" alt="B-Zero" width={200} height={60} className="opacity-20" />
+                    <Image src="/B-ZERO-logo.svg" alt="B-Zero" width={200} height={60} className="opacity-20" unoptimized />
                   </div>
                 )}
                 <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
@@ -120,19 +120,19 @@ export default async function Home() {
         <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20">
 
           <Link href="https://www.glittertind.no/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300">
-            <Image src="/partners/glittertind.png" alt="Glittertind" width={200} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" />
+            <Image src="/partners/glittertind.png" alt="Glittertind" width={200} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" unoptimized />
           </Link>
 
           <div className="hover:scale-110 transition-all duration-300 cursor-default">
-            <Image src="/partners/innreguleringas.png" alt="Innregulering AS" width={220} height={80} className="object-contain max-h-12 md:max-h-16 w-auto bg-white/10 rounded-lg p-4" />
+            <Image src="/partners/innreguleringas.png" alt="Innregulering AS" width={220} height={80} className="object-contain max-h-12 md:max-h-16 w-auto bg-white/10 rounded-lg p-4" unoptimized />
           </div>
 
           <Link href="https://www.nankang-tyre.com/en" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300">
-            <Image src="/partners/nankang.png" alt="Nankang Tyres" width={180} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" />
+            <Image src="/partners/nankang.png" alt="Nankang Tyres" width={180} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" unoptimized />
           </Link>
 
           <Link href="https://rpcwebshop.no" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-all duration-300">
-            <Image src="/partners/rpcwebshop.png" alt="RPC Webshop" width={180} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" />
+            <Image src="/partners/rpcwebshop.png" alt="RPC Webshop" width={180} height={80} className="object-contain max-h-12 md:max-h-16 w-auto" unoptimized />
           </Link>
 
         </div>
