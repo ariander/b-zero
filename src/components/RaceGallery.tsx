@@ -8,8 +8,10 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
+import { urlFor } from "@/sanity/lib/image";
+
 interface GalleryProps {
-    images: { asset: { _id: string, url: string }, alt?: string }[];
+    images: { asset: { _id?: string, url?: string }, alt?: string, crop?: any, hotspot?: any }[];
 }
 
 export function RaceGallery({ images }: GalleryProps) {
@@ -22,7 +24,7 @@ export function RaceGallery({ images }: GalleryProps) {
 
     // Prepare slides for the lightbox
     const slides = validImages.map(img => ({
-        src: img.asset.url,
+        src: urlFor(img as any).url(),
         alt: img.alt || 'B-Zero Racing Gallery Image'
     }));
 
@@ -36,7 +38,7 @@ export function RaceGallery({ images }: GalleryProps) {
                         onClick={() => setIndex(i)}
                     >
                         <Image
-                            src={image.asset.url}
+                            src={urlFor(image as any).width(800).height(800).url()}
                             alt={image.alt || `Galleri bilde ${i + 1}`}
                             fill
                             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"

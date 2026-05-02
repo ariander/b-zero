@@ -199,6 +199,8 @@ export async function getRaceBySlug(slug: string) {
           _id,
           url
         },
+        crop,
+        hotspot,
         alt
       },
       relatedPosts[]->{
@@ -243,6 +245,8 @@ export async function getDriverBySlug(slug: string) {
           ...,
           metadata { lqip }
         },
+        crop,
+        hotspot,
         alt
       }
     }

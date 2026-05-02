@@ -71,7 +71,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                     />
                                 )}
                             </div>
-                            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
+                            <h1 className="text-3xl sm:text-3xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
                                 {driver.name}
                             </h1>
                         </div>
@@ -103,12 +103,12 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                 {/* Main Content Column */}
                 <div className="lg:col-span-2 space-y-12">
                     {/* Bio Section */}
-                    <section className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-200">
+                    <section className="bg-white p-5 md:p-10 rounded-2xl shadow-sm border border-slate-200">
                         <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
                             <div className="bg-blue-50 text-blue-600 p-3 rounded-xl hidden md:block">
                                 <User size={28} weight="fill" />
                             </div>
-                            <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-900">
+                            <h2 className="text-xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">
                                 Om {driver.name.split(' ')[0]}
                             </h2>
                         </div>

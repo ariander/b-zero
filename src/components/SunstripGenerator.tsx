@@ -198,7 +198,7 @@ export default function SunstripGenerator() {
 
       // Convert SVG → vector PDF
       const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [1250, 250] })
-      await svg2pdf.svg2pdf(svgEl, pdf, { x: 0, y: 0, width: 1250, height: 250 })
+      await svg2pdf(svgEl, pdf, { x: 0, y: 0, width: 1250, height: 250 })
 
       document.body.removeChild(svgEl)
       pdf.save(`bzero-solskjerm-${number || '0'}.pdf`)
