@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { Download, SunHorizon } from '@phosphor-icons/react'
+import { Download, SunHorizon, Eyedropper } from '@phosphor-icons/react'
 
 const LOGO_PATHS = [
   "M137.821 0C146.186 0 150.412 2.57598 150.412 8.19103C150.412 16.1505 145.144 20 134.29 20C125.926 20 121.7 17.3951 121.7 11.78C121.7 3.82055 126.968 0 137.821 0ZM135.159 14.9638C142.944 14.9638 144.392 13.7482 144.392 8.79884C144.392 5.67294 142.192 5.03618 136.924 5.03618C129.138 5.03618 127.72 6.22287 127.72 11.2012C127.72 14.3271 129.949 14.9638 135.159 14.9638Z",
@@ -33,7 +33,7 @@ const VERTICAL_OFFSET = 80
 const LOGO_Y = Math.round((RED_Y - LOGO_H) / 2) + VERTICAL_OFFSET
 const NUM_Y = LOGO_Y + LOGO_H  // baseline følger alltid bunn av logo
 
-// skewX angle for italic simulation (Archivo Black has no true italic)
+// skewX angle for italic simulation
 const SKEW = -12  // degrees
 const FONT_NAME = 'ArchivoBlack'
 const FONT_URL = '/fonts/ArchivoBlack-Regular.ttf'
@@ -201,7 +201,7 @@ export default function SunstripGenerator() {
       await svg2pdf(svgEl, pdf, { x: 0, y: 0, width: 1250, height: 250 })
 
       document.body.removeChild(svgEl)
-      
+
       const filename = `bzero-solskjerm-${number || '0'}.pdf`
       pdf.setProperties({ title: filename })
       pdf.save(filename)
@@ -243,10 +243,11 @@ export default function SunstripGenerator() {
 
           <div>
             <label className="block text-xs font-conthrax text-neutral-400 uppercase tracking-widest mb-2">
-              Nummerfarge
+              Velg nummerfarge
             </label>
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="w-14 h-14 rounded-xl border-2 border-neutral-700 overflow-hidden cursor-pointer relative" style={{ backgroundColor: color }}>
+              <div className="w-14 h-14 rounded-xl border-2 border-neutral-700 overflow-hidden cursor-pointer relative flex items-center justify-center group" style={{ backgroundColor: color }}>
+                <Eyedropper size={24} weight="fill" className="text-white group-hover:scale-110 transition-all drop-shadow-sm" />
                 <input type="color" value={color} onChange={e => setColor(e.target.value)}
                   className="absolute inset-0 opacity-0 cursor-pointer w-full h-full" />
               </div>
