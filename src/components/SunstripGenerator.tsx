@@ -33,14 +33,30 @@ const VERTICAL_OFFSET = 80
 const LOGO_Y = Math.round((RED_Y - LOGO_H) / 2) + VERTICAL_OFFSET
 const NUM_Y = LOGO_Y + LOGO_H  // baseline følger alltid bunn av logo
 
-const FONT_SPEC = `italic ${NUM_SIZE}px 'Archivo Black', Arial Black`
+// skewX angle for italic simulation (Archivo Black has no true italic)
+const SKEW = -12  // degrees
+const FONT_NAME = 'ArchivoBlack'
+const FONT_URL = '/fonts/ArchivoBlack-Regular.ttf'
+const FONT_SPEC = `900 ${NUM_SIZE}px '${FONT_NAME}', 'Archivo Black', Arial Black`
+
+// Load & cache the font for canvas use
+let fontFaceCache: FontFace | null = null
+async function ensureFont(): Promise<void> {
+  if (fontFaceCache) return
+  const face = new FontFace(FONT_NAME, `url(${FONT_URL})`)
+  await face.load()
+  document.fonts.add(face)
+  fontFaceCache = face
+}
 
 /** Measure text width using an offscreen canvas (runs only in browser) */
 function measureText(text: string): number {
   if (typeof window === 'undefined') return NUM_SIZE * 0.63 * text.length
   const c = document.createElement('canvas').getContext('2d')!
   c.font = FONT_SPEC
-  return c.measureText(text || '0').width
+  // account for skew: skewed text occupies extra horizontal space
+  const w = c.measureText(text || '0').width
+  return w + Math.abs(Math.tan((SKEW * Math.PI) / 180) * NUM_SIZE)
 }
 
 /** Compute group start X so (number + gap + logo) is centered in the strip */
@@ -62,16 +78,21 @@ interface SunstripSVGProps {
 }
 
 function SunstripSVG({ number, color, numX, logoX }: SunstripSVGProps) {
+  const skewRad = (SKEW * Math.PI) / 180
+  // SVG transform: skewX skews X axis — skewX(angle) where angle in degrees
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${W} ${H}`}
       style={{ display: 'block', width: '100%', height: '100%' }}>
       <rect width={W} height={H} fill="#0a0a0a" />
       <rect x="0" y={RED_Y} width={W} height={RED_H} fill="#e8140a" />
-      <text x={numX} y={NUM_Y} textAnchor="middle"
-        fontSize={NUM_SIZE} fontFamily="'Archivo Black', Arial Black, sans-serif"
-        fontWeight="900" fontStyle="italic" fill={color}>
-        {number || '0'}
-      </text>
+      {/* Skew group for italic simulation */}
+      <g transform={`skewX(${SKEW}) translate(${Math.abs(Math.tan(skewRad) * NUM_SIZE / 2)}, 0)`}>
+        <text x={numX} y={NUM_Y} textAnchor="middle"
+          fontSize={NUM_SIZE} fontFamily={`'${FONT_NAME}', 'Archivo Black', Arial Black, sans-serif`}
+          fontWeight="900" fill={color}>
+          {number || '0'}
+        </text>
+      </g>
       <g transform={`translate(${logoX}, ${LOGO_Y}) scale(${LOGO_SCALE})`}>
         {LOGO_PATHS.map((d, i) => <path key={i} d={d} fill="white" fillRule="nonzero" />)}
       </g>
@@ -95,46 +116,91 @@ export default function SunstripGenerator() {
   const handleDownload = async () => {
     setLoading(true)
     try {
-      await document.fonts.ready
-      const { jsPDF } = await import('jspdf')
+      // Load all deps in parallel
+      const [{ jsPDF }, { svg2pdf }, opentype] = await Promise.all([
+        import('jspdf'),
+        import('svg2pdf.js'),
+        import('opentype.js'),
+      ])
 
-      const scale = 3
-      const canvas = document.createElement('canvas')
-      canvas.width = W * scale
-      canvas.height = H * scale
-      const ctx = canvas.getContext('2d')!
-      ctx.scale(scale, scale)
+      // Parse font to get vector glyph outlines
+      const fontRes = await fetch(FONT_URL)
+      const fontBuf = await fontRes.arrayBuffer()
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const font = (opentype as any).parse(fontBuf)
 
-      // Measure with canvas font (most accurate)
-      ctx.font = FONT_SPEC
-      const measuredW = ctx.measureText(number || '0').width
-      const { numX: dlNumX, logoX: dlLogoX } = computePositions(measuredW)
+      // --- Compute positions ---
+      // Measure using opentype's own advance width for accuracy
+      const advanceWidth = font.getAdvanceWidth(number || '0', NUM_SIZE)
+      const effectiveW = Math.max(advanceWidth, MIN_NUM_W)
+      const totalW = effectiveW + GAP + LOGO_RENDER_W
+      const groupX = Math.round((W - totalW) / 2)
+      const dlNumX = groupX + effectiveW / 2       // center x for number
+      const dlLogoX = groupX + effectiveW + GAP    // logo left edge
 
-      // Background
-      ctx.fillStyle = '#0a0a0a'
-      ctx.fillRect(0, 0, W, H)
+      // --- Convert number text to SVG path outline ---
+      // opentype: getPath(str, x, y, fontSize) — x=left baseline
+      const startX = dlNumX - advanceWidth / 2
+      const glyphPath = font.getPath(number || '0', startX, NUM_Y, NUM_SIZE)
+      const pathD: string = glyphPath.toPathData(3)
+
+      // --- Build SVG element with pure paths (no text, no font needed) ---
+      const NS = 'http://www.w3.org/2000/svg'
+      const svgEl = document.createElementNS(NS, 'svg')
+      svgEl.setAttribute('xmlns', NS)
+      svgEl.setAttribute('viewBox', `0 0 ${W} ${H}`)
+      svgEl.setAttribute('width', `${W}`)
+      svgEl.setAttribute('height', `${H}`)
+
+      // Black background
+      const bg = document.createElementNS(NS, 'rect')
+      bg.setAttribute('width', String(W))
+      bg.setAttribute('height', String(H))
+      bg.setAttribute('fill', '#0a0a0a')
+      svgEl.appendChild(bg)
 
       // Red stripe
-      ctx.fillStyle = '#e8140a'
-      ctx.fillRect(0, RED_Y, W, RED_H)
+      const stripe = document.createElementNS(NS, 'rect')
+      stripe.setAttribute('x', '0')
+      stripe.setAttribute('y', String(RED_Y))
+      stripe.setAttribute('width', String(W))
+      stripe.setAttribute('height', String(RED_H))
+      stripe.setAttribute('fill', '#e8140a')
+      svgEl.appendChild(stripe)
 
-      // Number
-      ctx.fillStyle = color
-      ctx.textAlign = 'center'
-      ctx.textBaseline = 'alphabetic'
-      ctx.fillText(number || '0', dlNumX, NUM_Y)
+      // Number as path outline (shear = italic simulation)
+      const skewRad = (SKEW * Math.PI) / 180
+      const shearX = Math.tan(skewRad)
+      const numGroup = document.createElementNS(NS, 'g')
+      // matrix(a,b,c,d,e,f): shear in X, compensate horizontal shift
+      numGroup.setAttribute('transform', `matrix(1,0,${shearX.toFixed(4)},1,${(-NUM_Y * shearX).toFixed(1)},0)`)
+      const numPath = document.createElementNS(NS, 'path')
+      numPath.setAttribute('d', pathD)
+      numPath.setAttribute('fill', color)
+      numGroup.appendChild(numPath)
+      svgEl.appendChild(numGroup)
 
-      // B-ZERO logo via Path2D
-      ctx.save()
-      ctx.translate(dlLogoX, LOGO_Y)
-      ctx.scale(LOGO_SCALE, LOGO_SCALE)
-      ctx.fillStyle = 'white'
-      for (const d of LOGO_PATHS) ctx.fill(new Path2D(d), 'nonzero')
-      ctx.restore()
+      // B-ZERO logo paths (already vectors)
+      const logoGroup = document.createElementNS(NS, 'g')
+      logoGroup.setAttribute('transform', `translate(${dlLogoX},${LOGO_Y}) scale(${LOGO_SCALE})`)
+      for (const d of LOGO_PATHS) {
+        const p = document.createElementNS(NS, 'path')
+        p.setAttribute('d', d)
+        p.setAttribute('fill', 'white')
+        p.setAttribute('fill-rule', 'nonzero')
+        logoGroup.appendChild(p)
+      }
+      svgEl.appendChild(logoGroup)
 
-      const imgData = canvas.toDataURL('image/jpeg', 0.98)
-      const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [1250, 250] })
-      pdf.addImage(imgData, 'JPEG', 0, 0, 1250, 250)
+      // Temporarily mount off-screen (svg2pdf.js needs a DOM element)
+      svgEl.style.cssText = 'position:fixed;left:-99999px;top:0'
+      document.body.appendChild(svgEl)
+
+      // Convert SVG → vector PDF
+      const pdf = new jsPDF.jsPDF({ orientation: 'landscape', unit: 'mm', format: [1250, 250] })
+      await svg2pdf.svg2pdf(svgEl, pdf, { x: 0, y: 0, width: 1250, height: 250 })
+
+      document.body.removeChild(svgEl)
       pdf.save(`bzero-solskjerm-${number || '0'}.pdf`)
     } catch (err) {
       console.error('PDF generation failed:', err)
