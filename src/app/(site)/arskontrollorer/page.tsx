@@ -5,6 +5,7 @@ import { getCountyFromPostalCode } from '@/utils/counties';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, EnvelopeSimple, Phone, MapPin, ClipboardText } from '@phosphor-icons/react/dist/ssr';
+import { InspectorEmail } from '@/components/InspectorEmail';
 import CountyNavigation from './CountyNavigation';
 
 export const metadata = {
@@ -121,12 +122,7 @@ export default function InspectorsPage() {
                                                     </div>
                                                     <span className="font-medium tracking-wide">{inspector.mobil}</span>
                                                 </a>
-                                                <a href={`mailto:${inspector.epost}`} className="flex items-center gap-3 text-slate-700 hover:text-brand-red transition-colors w-fit p-1 -m-1 rounded-md">
-                                                    <div className="bg-slate-100 p-2 rounded-lg group-hover/btn:bg-red-50 text-slate-500">
-                                                        <EnvelopeSimple size={18} weight="fill" />
-                                                    </div>
-                                                    <span className="font-medium text-sm">{inspector.epost}</span>
-                                                </a>
+                                                <InspectorEmail email={inspector.epost} />
                                             </div>
                                         </div>
                                     ))}

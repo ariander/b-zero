@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, FacebookLogo, YoutubeLogo } from '@phosphor-icons/react/dist/ssr'
 import { Navigation } from '@/components/Navigation'
 // import { MerchBanner } from '@/components/MerchBanner'  // midlertidig skjult
 
@@ -76,10 +76,12 @@ export default function SiteLayout({
                 Spørsmål om klassen eller regelverket?
               </p>
               <div className="flex flex-col gap-3 items-start">
-                <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-block bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                  <FacebookLogo size={20} weight="fill" />
                   Følg oss på Facebook
                 </a>
-                <a href="https://www.youtube.com/@bzeroracing" target="_blank" rel="noreferrer" className="inline-block bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                <a href="https://www.youtube.com/@bzeroracing" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                  <YoutubeLogo size={20} weight="fill" />
                   Følg oss på YouTube
                 </a>
               </div>

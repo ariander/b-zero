@@ -61,7 +61,7 @@ export default async function DriversPage() {
                                 </div>
 
                                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 pt-8 md:pt-12">
-                                    <h2 className="text-lg md:text-2xl font-conthrax text-white mb-0.5 md:mb-1 group-hover:text-brand-red transition-colors drop-shadow-md">
+                                    <h2 className="text-md leading-tight md:text-2xl font-conthrax text-white mb-0.5 md:mb-1 group-hover:text-brand-red transition-colors drop-shadow-md">
                                         {driver.name}
                                     </h2>
                                     <p className="text-white/60 font-medium text-xs md:text-sm drop-shadow-md">

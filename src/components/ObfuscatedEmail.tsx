@@ -5,11 +5,13 @@ import { useState, useEffect } from 'react';
 export function ObfuscatedEmail({ 
     user, 
     domain, 
-    className = "" 
+    className = "",
+    children
 }: { 
     user: string; 
     domain: string; 
     className?: string; 
+    children?: React.ReactNode;
 }) {
     const [mounted, setMounted] = useState(false);
 
@@ -21,12 +23,12 @@ export function ObfuscatedEmail({
 
     if (!mounted) {
         // Return a non-clickable version for SSR/Bots
-        return <span className={className}>{user} [at] {domain}</span>;
+        return <span className={className}>{children || `${user} [at] ${domain}`}</span>;
     }
 
     return (
         <a href={`mailto:${email}`} className={className}>
-            {email}
+            {children || email}
         </a>
     );
 }

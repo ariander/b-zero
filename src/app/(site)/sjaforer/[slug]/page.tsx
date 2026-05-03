@@ -71,7 +71,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                     />
                                 )}
                             </div>
-                            <h1 className="text-3xl sm:text-3xl md:text-6xl lg:text-7xl font-conthrax text-white drop-shadow-xl leading-tight">
+                            <h1 className="text-2xl sm:text-5xl md:text-6xl font-conthrax text-white drop-shadow-xl leading-tight">
                                 {driver.name}
                             </h1>
                         </div>
