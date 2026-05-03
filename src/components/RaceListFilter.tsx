@@ -280,7 +280,7 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
 
                                                     {/* Racing NM Logo */}
                                                     {race.isNM && (
-                                                        <div className="absolute bottom-3 left-3 z-30 w-14 h-16 bg-white/20 backdrop-blur shadow-lg rounded p-0.5 flex items-center justify-center border border-white/50">
+                                                        <div className="absolute bottom-3 left-3 z-20 w-14 h-16 bg-white/20 backdrop-blur shadow-lg rounded p-0.5 flex items-center justify-center border border-white/50">
                                                             <Image src="/LOGONM.avif" alt="Racing NM" fill className="object-contain" unoptimized />
                                                         </div>
                                                     )}
