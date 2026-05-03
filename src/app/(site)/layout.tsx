@@ -43,9 +43,18 @@ export default function SiteLayout({
                   unoptimized
                 />
               </Link>
-              <p className="max-w-sm text-neutral-500 leading-relaxed">
+              <p className="max-w-sm text-neutral-500 leading-relaxed mb-8">
                 Norges billigste og mest underholdende racing- og rallyklasse. Bygg en bil, still til start, og kjenn på ekte racingglede!
               </p>
+
+              <div>
+                <h3 className="text-white font-conthrax text-sm mb-4 uppercase tracking-wider">Verktøy</h3>
+                <ul className="space-y-3 font-semibold">
+                  <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
+                  <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Solstripegenerator</Link></li>
+                  <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
+                </ul>
+              </div>
             </div>
 
             <div>
@@ -55,12 +64,9 @@ export default function SiteLayout({
                 <li><Link href="/leiebors" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Prøv en B-Zero</Link></li>
                 <li><Link href="/reglement" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Teknisk Reglement</Link></li>
                 <li><Link href="/baerekraft" className="hover:text-green-500 transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Bærekraftig Racing</Link></li>
-                <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
                 <li><Link href="/sesonger" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Terminliste</Link></li>
-                <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
                 <li><a href="https://rpcwebshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> RPC Webshop</a></li>
                 {/* <li><a href="https://bzero.myspreadshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> B-Zero Merchandise</a></li> */}{/* midlertidig skjult */}
-                <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Sunstrip Generator</Link></li>
               </ul>
             </div>
 
@@ -69,9 +75,14 @@ export default function SiteLayout({
               <p className="mb-4 text-neutral-200">
                 Spørsmål om klassen eller regelverket?
               </p>
-              <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-block bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
-                Følg oss på Facebook
-              </a>
+              <div className="flex flex-col gap-3 items-start">
+                <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-block bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                  Følg oss på Facebook
+                </a>
+                <a href="https://www.youtube.com/@bzeroracing" target="_blank" rel="noreferrer" className="inline-block bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
+                  Følg oss på YouTube
+                </a>
+              </div>
             </div>
           </div>
 
