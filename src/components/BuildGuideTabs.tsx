@@ -181,8 +181,8 @@ export default function BuildGuideTabs() {
                                 <p>Bilene skal være mekanisk identiske for å holde kostnadene nede, men dette må du vite om oppsett:</p>
                                 <ul>
                                     <li><strong>Dekk (Asfalt/Racing):</strong> I asfaltløp brukes klassens dedikerte Nankang enhetsdekk for asfalt. 14-tommer.</li>
-                                    <li><strong>Motorstyring (ECU):</strong> Fra og med høsten 2026 er det regel på at bilens hjerne (ECU) <em>skal</em> flashes/omprogrammeres til et felles &quot;B-Zero Race Map&quot;. Kontakt RPC for dette.</li>
-                                    <li><strong>Hulkil / Shims bakaksel:</strong> Selv om understellet ellers er standardisert, er det sterkt anbefalt å &quot;shimse ut&quot; bakakselen! Dette gjør man for å justere inn riktig hjulvinkel (camber/toe) bak for å få bilen til å sitte optimalt i svingene.</li>
+                                    <li><strong>Motorstyring (ECU):</strong> Fra og med høsten 2026 er det regel på at bilens hjerne (ECU) <em>skal</em>ฺ flashes/omprogrammeres til et felles &quot;B-Zero Race Map&quot;. Kontakt RPC for dette.</li>
+                                    <li><strong>Shims bakaksel:</strong> Selv om understellet ellers er standardisert, er det sterkt anbefalt å &quot;shimse ut&quot; bakakselen! Dette gjøres for å justere inn riktig hjulvinkel (camber/toe) bak for å få bilen til å sitte optimalt i svingene. Et greit utgangspunkt er 3.0 grader negativ camber og 0–1mm total toe-out. 1 mm shims mellom bremsetrommel og huben nede gir ca 0,7–0,8 graders endring i camber.</li>
                                 </ul>
                             </div>
 
