@@ -47,7 +47,7 @@ export default function SiteLayout({
                 Norges billigste og mest underholdende racing- og rallyklasse. Bygg en bil, still til start, og kjenn på ekte racingglede!
               </p>
 
-              <div>
+              <div className="hidden md:block">
                 <h3 className="text-white font-conthrax text-sm mb-4 uppercase tracking-wider">Verktøy</h3>
                 <ul className="space-y-3 font-semibold">
                   <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
@@ -85,6 +85,16 @@ export default function SiteLayout({
                   Følg oss på YouTube
                 </a>
               </div>
+            </div>
+
+            {/* Verktøy - Mobil (vises under Kontakt på små skjermer) */}
+            <div className="md:hidden mt-4">
+              <h3 className="text-white font-conthrax text-lg mb-6 uppercase tracking-wider">Verktøy</h3>
+              <ul className="space-y-4 font-semibold">
+                <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
+                <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Solstripegenerator</Link></li>
+                <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
+              </ul>
             </div>
           </div>
 
