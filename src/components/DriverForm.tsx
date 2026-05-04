@@ -141,6 +141,21 @@ export function DriverForm() {
                         <input type="email" id="contactEmail" name="contactEmail" required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all" />
                     </div>
                 </div>
+                
+                <div className="space-y-3 pt-2">
+                    <label className="block text-sm font-medium text-slate-300">Hva kjører du? (Velg minst én) *</label>
+                    <div className="flex flex-wrap gap-6">
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" name="categories" value="racing" defaultChecked className="w-5 h-5 rounded border-slate-700 bg-slate-800 text-brand-red focus:ring-brand-red focus:ring-offset-slate-900 transition-colors" />
+                            <span className="text-white font-medium group-hover:text-brand-red transition-colors">Racing</span>
+                        </label>
+                        <label className="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" name="categories" value="rally" className="w-5 h-5 rounded border-slate-700 bg-slate-800 text-brand-red focus:ring-brand-red focus:ring-offset-slate-900 transition-colors" />
+                            <span className="text-white font-medium group-hover:text-brand-red transition-colors">Rally / Kartleser</span>
+                        </label>
+                    </div>
+                </div>
+
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label htmlFor="teamName" className="block text-sm font-medium text-slate-300">Teamnavn (valgfritt)</label>

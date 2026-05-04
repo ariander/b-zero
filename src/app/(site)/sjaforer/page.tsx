@@ -2,7 +2,7 @@ import { getDrivers } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 import { User } from "@phosphor-icons/react/dist/ssr";
-import { urlFor } from "@/sanity/lib/image";
+import DriverListFilter from "@/components/DriverListFilter";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
 
@@ -17,65 +17,11 @@ export default async function DriversPage() {
                         Sjåfører <span className="text-brand-red block">& Team</span>
                     </h1>
                     <p className="text-xl md:text-xl text-neutral-300 font-normal max-w-3xl">
-                        Hvem skjuler seg bak hjelmen? Bli kjent med førerne som kjemper om pallplassene i Norges jevneste racingklasse.
+                        Hvem skjuler seg bak hjelmene? Bli kjent med førerne og kartleserne som kjemper om pallplassene og etappeseirene i Norges jevneste racing- og rallyklasse.
                     </p>
                 </header>
 
-                {drivers.length > 0 ? (
-                    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 mb-16">
-                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                        {drivers.map((driver: any) => (
-                            <Link
-                                key={driver._id}
-                                href={`/sjaforer/${driver.slug.current}`}
-                                className="group relative bg-neutral-900 rounded-3xl overflow-hidden border border-neutral-700 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:border-neutral-500 transition-all duration-500 flex flex-col"
-                            >
-                                <div className="relative aspect-square overflow-hidden bg-neutral-800 flex-1 flex items-center justify-center">
-                                    {driver.profileImage ? (
-                                        <>
-                                            <Image
-                                                src={urlFor(driver.profileImage).width(600).height(600).url()}
-                                                alt={driver.name}
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition duration-700"
-                                            />
-                                            <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Image
-                                                src="/avatar.jpg"
-                                                alt="Ukjent sjåfør"
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition duration-700"
-                                            />
-                                            <div className="absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
-                                        </>
-                                    )}
-
-                                    {driver.startNumber && (
-                                        <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-brand-red text-white py-0.5 md:py-1 transition-transform group-hover:scale-110 duration-500 px-2 pt-1 md:px-3 md:pt-2 font-conthrax rounded-full shadow-lg border border-red-500/50 flex flex-col items-center justify-center z-10">
-                                            <span className="text-xl md:text-2xl leading-none">{driver.startNumber}</span>
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 pt-8 md:pt-12">
-                                    <h2 className="text-md leading-tight md:text-2xl font-conthrax text-white mb-0.5 md:mb-1 group-hover:text-brand-red transition-colors drop-shadow-md">
-                                        {driver.name}
-                                    </h2>
-                                    <p className="text-white/60 font-medium text-xs md:text-sm drop-shadow-md">
-                                        {driver.carMake || "Ukjent bil"}
-                                    </p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="bg-neutral-900 p-12 rounded-3xl text-center shadow-sm border border-neutral-800 mb-16">
-                        <p className="text-slate-400 italic text-lg">Ingen sjåfører registrert på terminalen enda...</p>
-                    </div>
-                )}
+                <DriverListFilter initialDrivers={drivers} />
 
                 {/* Call to Action for Drivers */}
                 <section className="bg-neutral-900 border-2 border-neutral-700 p-8 md:p-12 rounded-3xl shadow-xl flex flex-col items-center text-center">

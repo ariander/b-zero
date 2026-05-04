@@ -222,6 +222,7 @@ export async function getDrivers() {
       startNumber,
       carMake,
       teamName,
+      categories,
       profileImage
     }
   `);
@@ -237,6 +238,7 @@ export async function getDriverBySlug(slug: string) {
       carMake,
       carImage,
       teamName,
+      categories,
       debutYear,
       profileImage,
       bio,
@@ -264,6 +266,7 @@ export async function getPresentationDrivers() {
       startNumber,
       carMake,
       carImage,
+      categories,
       debutYear,
       profileImage,
       bio

@@ -44,6 +44,10 @@ export async function POST(request: Request) {
     const carMake = formData.get('carMake') as string;
     const bio = formData.get('bio') as string;
     const contactEmail = formData.get('contactEmail') as string;
+    
+    // Parse categories (could be multiple if checkbox)
+    const categories = formData.getAll('categories') as string[];
+    const finalCategories = categories.length > 0 ? categories : ['racing']; // default to racing
 
     if (!name || !carMake || !contactEmail) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -90,6 +94,7 @@ export async function POST(request: Request) {
       name,
       teamName,
       slug: { _type: 'slug', current: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') + '-' + Date.now() },
+      categories: finalCategories,
       startNumber,
       debutYear,
       carMake,

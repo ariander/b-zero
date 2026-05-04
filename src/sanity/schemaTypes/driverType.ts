@@ -18,6 +18,21 @@ export const driverType = defineType({
             description: 'Valgfritt',
         }),
         defineField({
+            name: 'categories',
+            title: 'Kategorier',
+            type: 'array',
+            of: [{ type: 'string' }],
+            options: {
+                list: [
+                    { title: 'Racing', value: 'racing' },
+                    { title: 'Rally og kartleser', value: 'rally' }
+                ],
+                layout: 'tags'
+            },
+            validation: (rule) => rule.required().min(1),
+            initialValue: ['racing']
+        }),
+        defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',

@@ -45,6 +45,18 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                             <span className="bg-brand-red text-white px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
                                 {driver.teamName || "B-Zero Sjåfør"}
                             </span>
+                            
+                            {/* Categories */}
+                            {(driver.categories || ['racing']).includes('racing') && (
+                                <span className="bg-slate-800 text-white border border-slate-700 px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
+                                    Racing
+                                </span>
+                            )}
+                            {(driver.categories || []).includes('rally') && (
+                                <span className="bg-amber-500 text-slate-900 border border-amber-600 px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
+                                    Rally
+                                </span>
+                            )}
                             {driver.startNumber && (
                                 <span className="bg-slate-800 text-white px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md border border-slate-700">
                                     Startnummer: {driver.startNumber}

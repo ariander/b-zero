@@ -71,7 +71,7 @@ const RaceCard = ({ race, label, badgeClass }: { race: UpcomingRace | null, labe
                     {countdownText}
                 </span>
             </div>
-            <h3 className="text-white font-conthrax group-hover:text-brand-red transition-colors text-xl line-clamp-1 mb-1">{race.title}</h3>
+            <h3 className="text-white font-conthrax group-hover:text-brand-red transition-colors text-base md:text-lg line-clamp-1 mb-1">{race.title}</h3>
             <div className="text-slate-400 text-sm font-medium">
                 {new Date(race.date).toLocaleDateString('no-NB', { month: 'long', day: 'numeric', year: 'numeric' })}
             </div>

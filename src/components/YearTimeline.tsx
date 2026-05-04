@@ -16,7 +16,7 @@ export interface Race {
     } | null;
 }
 
-export default function YearTimeline({ races, year }: { races: Race[], year: number }) {
+export default function YearTimeline({ races, year, title, hideSubheadings }: { races: Race[], year: number, title?: string, hideSubheadings?: boolean }) {
     if (!races || races.length === 0) return null;
 
     const racingRaces = races.filter(r => r.raceCategory === 'racing' || !r.raceCategory);
@@ -27,12 +27,14 @@ export default function YearTimeline({ races, year }: { races: Race[], year: num
 
         return (
             <div className="mb-8 last:mb-0">
-                <h3 className="text-sm font-conthrax text-slate-300 mb-4 uppercase flex items-center justify-between gap-3">
-                    {title}
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full ${isRally ? 'bg-amber-500 text-slate-900' : 'bg-slate-300 text-slate-600'}`}>
-                        {trackRaces.length} LØP
-                    </span>
-                </h3>
+                {!hideSubheadings && (
+                    <h3 className="text-sm font-conthrax text-slate-300 mb-4 uppercase flex items-center justify-between gap-3">
+                        {title}
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full ${isRally ? 'bg-amber-500 text-slate-900' : 'bg-slate-300 text-slate-600'}`}>
+                            {trackRaces.length} LØP
+                        </span>
+                    </h3>
+                )}
                 <div className="relative border-l-2 border-slate-700 ml-2 pl-6 space-y-5 pb-2">
                     {trackRaces.map((race) => {
                         const isPast = new Date(race.date) < new Date(new Date().setHours(0, 0, 0, 0));
@@ -81,7 +83,7 @@ export default function YearTimeline({ races, year }: { races: Race[], year: num
         <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-xl relative overflow-hidden">
             <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-slate-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
             <h2 className="text-xl font-conthrax text-white mb-6 border-b border-slate-700 pb-3 relative z-10">
-                Løpskalender {year}
+                {title || `Løpskalender ${year}`}
             </h2>
             <div className="relative z-10">
                 {renderTrack("Racing", racingRaces, false)}
