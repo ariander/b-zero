@@ -10,7 +10,7 @@ export const revalidate = 60; // Revalidate at most every 60 seconds
 export default async function Home() {
   const latestPost = await getLatestPost()
   const upcomingRaces = await getUpcomingRaces()
-  
+
   // Fetch and split current year's races
   const currentYearRaces = await getCurrentYearRaces()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -67,7 +67,7 @@ export default async function Home() {
       <section className="bg-slate-200 py-12 md:py-20 border-y border-slate-300">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-end mb-10">
-            <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-800">Siste Nytt fra Depotet</h2>
+            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-800">Siste Nytt fra Depotet</h2>
             <Link href="/nyheter" className="hidden sm:flex text-slate-600 font-bold items-center gap-2 hover:text-slate-800 transition group uppercase tracking-wider text-sm">
               Se alle nyheter <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -98,7 +98,7 @@ export default async function Home() {
                       day: 'numeric'
                     })}
                   </time>
-                  <h3 className="text-3xl md:text-4xl font-conthrax text-slate-800 mb-6 transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-conthrax text-slate-800 mb-6 transition-colors">
                     {latestPost.title}
                   </h3>
                   <p className="text-slate-600 text-lg mb-8 line-clamp-3">
@@ -126,10 +126,10 @@ export default async function Home() {
       <section className="bg-slate-900 py-12 md:py-20 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10 text-center">
-            <h2 className="text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {new Date().getFullYear()}</h2>
+            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {new Date().getFullYear()}</h2>
             <p className="text-slate-400 mt-3 max-w-2xl mx-auto">Hold av datoene! Her er oversikten over årets gjeveste oppgjør på asfalt og grus.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             <YearTimeline races={racingRaces} year={new Date().getFullYear()} title={`Racing ${new Date().getFullYear()}`} hideSubheadings={true} />
             <YearTimeline races={rallyRaces} year={new Date().getFullYear()} title={`Rally ${new Date().getFullYear()}`} hideSubheadings={true} />
