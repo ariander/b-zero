@@ -90,7 +90,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                         </time>
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-conthrax text-white uppercase tracking-wider drop-shadow-lg">
+                    <h1 className="text-2xl md:text-5xl lg:text-6xl font-conthrax text-white uppercase tracking-wider drop-shadow-lg">
                         {post.title}
                     </h1>
                 </div>
@@ -104,9 +104,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
                     <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <span className="text-slate-500 font-bold uppercase tracking-wider text-sm">Likte du saken? Del den med venner:</span>
-                        <a 
+                        <a
                             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://www.bzero.no/nyheter/${post.slug.current}`)}`}
-                            target="_blank" 
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1864D9] text-white font-bold px-6 py-3 rounded-lg transition-colors shadow-sm"
                         >
