@@ -2,7 +2,7 @@ import { getPostBySlug } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, FacebookLogo } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { CustomPortableText } from "@/components/CustomPortableText";
 
@@ -98,8 +98,21 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 <section className="bg-white px-6 py-6 md:px-10 md:py-8 rounded-2xl shadow-sm border border-slate-200">
-                    <div className="prose prose-slate max-w-none prose-headings:font-conthrax prose-headings:uppercase prose-p:text-lg prose-p:leading-relaxed">
+                    <div className="prose prose-slate max-w-none prose-headings:font-conthrax prose-headings:uppercase prose-p:text-lg prose-p:leading-relaxed mb-10">
                         <CustomPortableText value={post.body} />
+                    </div>
+
+                    <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span className="text-slate-500 font-bold uppercase tracking-wider text-sm">Likte du saken? Del den med venner:</span>
+                        <a 
+                            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://www.bzero.no/nyheter/${post.slug.current}`)}`}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1864D9] text-white font-bold px-6 py-3 rounded-lg transition-colors shadow-sm"
+                        >
+                            <FacebookLogo size={24} weight="fill" />
+                            Del på Facebook
+                        </a>
                     </div>
                 </section>
 
