@@ -9,13 +9,12 @@ const components: PortableTextComponents = {
                 return null
             }
             return (
-                <div className="my-8 rounded-xl overflow-hidden relative w-full h-96 bg-slate-100">
-                    <Image
+                <div className="my-8 rounded-xl overflow-hidden w-full">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                         src={urlFor(value).url()}
                         alt={value.alt || 'Bilde'}
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-auto"
                         style={
                             value.hotspot
                                 ? {
