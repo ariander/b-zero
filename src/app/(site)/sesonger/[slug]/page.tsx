@@ -142,7 +142,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
 
             <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-12 relative z-10">
                 {/* Main Content Column */}
-                <div className="lg:col-span-2 space-y-16">
+                <div className="lg:col-span-2 space-y-16 min-w-0">
                     {/* Race Report */}
                     {race.report && (
                         <section className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-200">
@@ -175,7 +175,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                 </div>
 
                 {/* Sidebar Column */}
-                <div className="space-y-8 lg:sticky lg:top-24 self-start">
+                <div className="space-y-8 lg:sticky lg:top-24 self-start min-w-0 w-full">
                     {/* Track Section */}
                     {race.track && (
                         <section className="bg-slate-100 text-slate-800 p-4 rounded-2xl shadow-md">
@@ -261,7 +261,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                                         : 'bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500'
                                                         }`}
                                                 >
-                                                    <div className="flex items-center gap-3 overflow-hidden">
+                                                    <div className="flex items-center gap-3 overflow-hidden flex-1 min-w-0">
                                                         {isFacebook && (
                                                             <div className="bg-white text-blue-600 rounded-full p-1 shrink-0">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
@@ -269,7 +269,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                                                 </svg>
                                                             </div>
                                                         )}
-                                                        <span className="truncate pr-4">{link.title}</span>
+                                                        <span className="truncate pr-4 flex-1 min-w-0">{link.title}</span>
                                                     </div>
                                                     <CaretRight weight="bold" className={`${isFacebook ? 'text-white' : 'text-brand-red'} group-hover:translate-x-1 transition-transform shrink-0`} />
                                                 </a>
@@ -294,7 +294,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                                     href={`/nyheter/${post.slug.current}`}
                                                     className="flex items-center justify-between bg-slate-800 hover:bg-slate-700 p-4 rounded-xl font-semibold transition group border border-slate-700 hover:border-slate-500"
                                                 >
-                                                    <span className="truncate pr-4 text-sm text-slate-100">{post.title}</span>
+                                                    <span className="truncate pr-4 text-sm text-slate-100 flex-1 min-w-0">{post.title}</span>
                                                     <CaretRight weight="bold" className="text-brand-red group-hover:translate-x-1 transition-transform shrink-0" />
                                                 </Link>
                                             </li>

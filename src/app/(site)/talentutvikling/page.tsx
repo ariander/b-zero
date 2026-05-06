@@ -23,7 +23,7 @@ export default function TalentutviklingPage() {
 
                 <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
                     <RocketLaunch size={64} weight="fill" className="text-amber-500 mx-auto mb-6" />
-                    <h1 className="text-3xl md:text-4xl font-conthrax tracking-wider mb-6 text-slate-100 uppercase">
+                    <h1 className="text-2xl md:text-4xl font-conthrax tracking-wider mb-6 text-slate-100 uppercase">
                         Talentutvikling med B-Zero
                     </h1>
                     <p className="text-xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
