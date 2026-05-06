@@ -29,8 +29,8 @@ export function Navigation() {
         { name: 'Hjem', href: '/' },
         { name: 'Nyheter', href: '/nyheter' },
         { name: 'Terminliste', href: '/sesonger' },
-        { name: 'Sjåfører', href: '/sjaforer' },
         { name: 'Kom i gang', href: '/kom-i-gang' },
+        { name: 'Sjåfører', href: '/sjaforer' },
         { name: 'Reglement', href: '/reglement' },
         { name: 'Om Oss', href: '/om-oss' },
     ]
