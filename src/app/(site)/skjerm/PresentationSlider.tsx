@@ -25,36 +25,36 @@ interface Driver {
 
 export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    
+
     // Filters and settings
     const [showRacing, setShowRacing] = useState(true);
     const [showRally, setShowRally] = useState(true);
     const [requireProfilePic, setRequireProfilePic] = useState(false);
     const [durationSecs, setDurationSecs] = useState(20);
-    
+
     // UI state
     const [controlsVisible, setControlsVisible] = useState(false);
 
     // Apply filters
     const filteredDrivers = drivers.filter(d => {
         const cats = d.categories || ['racing'];
-        
+
         // If driver has ONLY racing and we disabled racing
         if (!showRacing && cats.includes('racing') && !cats.includes('rally')) return false;
         // If driver has ONLY rally and we disabled rally
         if (!showRally && cats.includes('rally') && !cats.includes('racing')) return false;
         // If we disabled both
         if (!showRacing && !showRally) return false;
-        
+
         if (requireProfilePic && !d.profileImage) return false;
-        
+
         return true;
     });
 
     // Handle timer for slider
     useEffect(() => {
         if (filteredDrivers.length === 0) return;
-        
+
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % filteredDrivers.length);
         }, durationSecs * 1000);
@@ -79,7 +79,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                 setControlsVisible(false);
             }, 3000); // Hide after 3s of inactivity
         };
-        
+
         // Trigger once on mount
         handleMouseMove();
 
@@ -95,9 +95,9 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
 
     return (
         <div className={`relative w-full h-full bg-black overflow-hidden select-none ${controlsVisible ? 'cursor-default' : 'cursor-none'}`}>
-            
+
             {/* Control Panel */}
-            <div 
+            <div
                 className={`absolute top-8 left-8 z-50 bg-slate-900/90 backdrop-blur-xl border border-slate-700 p-6 rounded-2xl shadow-2xl transition-all duration-500 transform ${controlsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
                 onMouseEnter={() => setControlsVisible(true)} // Keep alive while hovering panel
             >
@@ -122,18 +122,18 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
 
                     <div className="pt-4 border-t border-slate-700/50">
                         <label className="block text-slate-300 text-sm mb-2">Visningstid pr. sjåfør: <strong className="text-white">{durationSecs} sekunder</strong></label>
-                        <input 
-                            type="range" 
-                            min="5" 
-                            max="60" 
+                        <input
+                            type="range"
+                            min="5"
+                            max="60"
                             step="5"
-                            value={durationSecs} 
+                            value={durationSecs}
                             onChange={e => setDurationSecs(parseInt(e.target.value))}
                             className="w-full accent-brand-red cursor-pointer"
                         />
                     </div>
                 </div>
-                
+
                 <div className="mt-6 pt-4 flex items-center justify-between border-t border-slate-700/50">
                     <span className="text-xs text-slate-500 italic">
                         Viser {filteredDrivers.length} av {drivers.length} profiler
@@ -206,7 +206,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                             <h2 className="text-3xl lg:text-4xl text-brand-red font-conthrax uppercase tracking-wider">
                                                 {driver.carMake || "B-Zero Racer"}
                                             </h2>
-                                            
+
                                             {/* Categories */}
                                             <div className="flex gap-2">
                                                 {(driver.categories || ['racing']).includes('racing') && (
@@ -239,7 +239,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                     </div>
 
                                     {driver.bio && (
-                                        <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed max-w-2xl pt-8 line-clamp-20">
+                                        <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed [&_h3]:mt-3 [&_h4]:mt-3 max-w-3xl pt-8 line-clamp-20">
                                             <PortableText value={driver.bio} />
                                         </div>
                                     )}
@@ -264,9 +264,9 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                             {/* Progress Bar Container */}
                             <div className="absolute bottom-0 left-0 right-0 h-2 bg-neutral-900 z-30">
                                 {isActive && (
-                                    <div 
-                                        className="h-full bg-brand-red animate-progress-bar" 
-                                        style={{ animationDuration: `${durationSecs}s` }} 
+                                    <div
+                                        className="h-full bg-brand-red animate-progress-bar"
+                                        style={{ animationDuration: `${durationSecs}s` }}
                                     />
                                 )}
                             </div>
