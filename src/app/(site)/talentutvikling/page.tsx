@@ -68,6 +68,9 @@ export default function TalentutviklingPage() {
                                 <p>
                                     De fem utvalgte finalistene får prøve seg i en rekke krevende øvelser. Vinneren blir offentliggjort på NBF sin galla til høsten, og stikker av med en premiepott på hele <strong>300 000 kroner</strong>.
                                 </p>
+                                <div className="mt-8 relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                                    <Image src="/talentutvikling/bzero-start.jpg" alt="B-Zero biler på startstreken" fill className="object-cover object-bottom" sizes="(max-width: 768px) 100vw, 75vw" />
+                                </div>
                             </div>
                         </section>
 
@@ -78,6 +81,15 @@ export default function TalentutviklingPage() {
                                 <p>
                                     Vi har allerede bevist at breddeidretten i B-Zero leverer eliteutøvere. Tidligere juniorer som Storm og Emil Gjerdrum har brukt erfaringen fra våre tette fighter til å markere seg nasjonalt.
                                 </p>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 mb-8 not-prose">
+                                    <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                                        <Image src="/talentutvikling/gjerdrum-b-zero.jpg" alt="Storm og Emil Gjerdrum i B-Zero" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                                    </div>
+                                    <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                                        <Image src="/talentutvikling/gjerdrum-b-zero-2.jpg" alt="Gjerdrum brødrene i aksjon" fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                                    </div>
+                                </div>
 
                                 <div className="mt-8 space-y-6">
                                     <div className="flex gap-4 items-start">
@@ -117,6 +129,10 @@ export default function TalentutviklingPage() {
                                         <li><span className="font-conthrax ml-2">Fysisk og mental styrke:</span> <span className="font-light text-slate-600 block mt-1 ml-6">Er du trent for å tåle en hel sesong?</span></li>
                                         <li><span className="font-conthrax ml-2">Kommunikasjon:</span> <span className="font-light text-slate-600 block mt-1 ml-6">Hvordan snakker du med media og samarbeidspartnere?</span></li>
                                     </ol>
+                                </div>
+
+                                <div className="mt-8 relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg border border-slate-200 not-prose">
+                                    <Image src="/talentutvikling/b-zero-pall.jpg" alt="B-Zero pallen med feiring" fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 75vw" />
                                 </div>
                             </div>
                         </section>
