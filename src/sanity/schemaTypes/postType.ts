@@ -43,7 +43,8 @@ export const postType = defineType({
                 { 
                     type: 'image',
                     options: { hotspot: true }
-                }
+                },
+                { type: 'youtube' }
             ],
         }),
         defineField({

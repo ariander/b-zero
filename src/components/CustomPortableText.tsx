@@ -26,6 +26,31 @@ const components: PortableTextComponents = {
                 </div>
             )
         },
+        youtube: ({ value }: any) => {
+            if (!value?.url) return null;
+            
+            let videoId = '';
+            try {
+                const url = new URL(value.url);
+                videoId = url.searchParams.get('v') || url.pathname.split('/').pop() || '';
+            } catch (e) {
+                // Ignore invalid URLs
+            }
+            
+            if (!videoId) return null;
+            
+            return (
+                <div className="my-8 rounded-xl overflow-hidden w-full aspect-video shadow-lg">
+                    <iframe
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full border-0"
+                    />
+                </div>
+            )
+        },
     },
     block: {
         // Ex. 1: customizing common block types
