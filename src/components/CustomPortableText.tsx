@@ -30,9 +30,20 @@ const components: PortableTextComponents = {
             if (!value?.url) return null;
             
             let videoId = '';
+            let startParam = '';
+
             try {
                 const url = new URL(value.url);
                 videoId = url.searchParams.get('v') || url.pathname.split('/').pop() || '';
+                
+                const t = url.searchParams.get('t');
+                if (t) {
+                    // YouTube uses '?start=SECONDS' for embeds
+                    const parsedT = parseInt(t);
+                    if (!isNaN(parsedT)) {
+                        startParam = `?start=${parsedT}`;
+                    }
+                }
             } catch (e) {
                 // Ignore invalid URLs
             }
@@ -42,7 +53,7 @@ const components: PortableTextComponents = {
             return (
                 <div className="my-8 rounded-xl overflow-hidden w-full aspect-video shadow-lg">
                     <iframe
-                        src={`https://www.youtube.com/embed/${videoId}`}
+                        src={`https://www.youtube.com/embed/${videoId}${startParam}`}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
