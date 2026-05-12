@@ -206,6 +206,17 @@ export async function getRaceBySlug(slug: string) {
       relatedPosts[]->{
         title,
         slug
+      },
+      "submittedImages": *[_type == "submittedImage" && race._ref == ^._id && approved == true] {
+        image {
+          asset->{
+            _id,
+            url
+          },
+          crop,
+          hotspot
+        },
+        submitterName
       }
     }
   `,

@@ -6,6 +6,7 @@ import { ArrowLeft, Images, Notebook, Link as LinkIcon, CaretRight, CalendarBlan
 import { CustomPortableText } from "@/components/CustomPortableText";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { RaceGallery } from "@/components/RaceGallery";
+import { RaceImageUploader } from "@/components/RaceImageUploader";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
 
@@ -52,6 +53,15 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
     if (!race) {
         notFound();
     }
+
+    // Combine standard gallery images with approved submitted images
+    const allGalleryImages = [
+        ...(race.gallery || []),
+        ...(race.submittedImages?.map((s: any) => ({
+            ...s.image,
+            alt: s.submitterName ? `Foto: ${s.submitterName}` : 'Innsendt publikumsbilde'
+        })) || [])
+    ].filter(Boolean);
 
     return (
         <article className="pb-24">
@@ -161,17 +171,20 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     )}
 
                     {/* Gallery Section */}
-                    {race.gallery && race.gallery.length > 0 && (
+                    {allGalleryImages && allGalleryImages.length > 0 && (
                         <section>
                             <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-800 pb-4">
                                 <div className="bg-brand-red/20 text-brand-red p-3 rounded-xl">
                                     <Images size={28} weight="fill" />
                                 </div>
-                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-300">Galleri ({race.gallery.length})</h2>
+                                <h2 className="text-3xl font-conthrax uppercase tracking-wider text-slate-300">Galleri ({allGalleryImages.length})</h2>
                             </div>
-                            <RaceGallery images={race.gallery} />
+                            <RaceGallery images={allGalleryImages} />
                         </section>
                     )}
+
+                    {/* Image Uploader */}
+                    <RaceImageUploader raceId={race._id} />
                 </div>
 
                 {/* Sidebar Column */}
