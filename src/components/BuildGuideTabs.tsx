@@ -109,10 +109,25 @@ export default function BuildGuideTabs() {
                                     <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-1 mt-0"><WarningCircle size={20} /> Viktig Norsk Regel!</h4>
                                     <p className="text-amber-800 text-sm mb-0">I Norge <strong>SKAL</strong> alle nybygde biler ha <strong>sveiset bur</strong> i henhold til NBF sitt reglement. (De aller første bilene som ble bygget i Norge benyttet skrudde bur som i britiske C1, og disse er unntatt regelen, men bygger du ny i dag: sveis!).</p>
                                 </div>
-                                <p>Anbefalt leverandør for bur og ferdige kit er RPC Webshop, som selger bur spesifikt utformet for disse bilene og disse reglene.</p>
-                                <a href="/B-Zero%20Bur%20Installation.pdf" target="_blank" className="not-prose inline-flex items-center gap-2 px-4 py-2 mt-4 bg-slate-900 text-white font-semibold rounded hover:bg-slate-800 transition">
-                                    <LinkIcon size={16} /> Se eksempel på burinstallasjon (PDF)
-                                </a>
+                                <h4 className="font-bold text-slate-900 mt-6 mb-3">Leverandører</h4>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <strong>RPC webshop</strong> selger kit med ferdigbøyde rør, som tilpasses og sveises selv.<br />Pris 9.900,– inkl. mva.
+                                        <br />
+                                        <a href="https://rpcwebshop.no/#!/b-zero/products/b-zero-bur-byggesett" target="_blank" rel="noreferrer" className="text-brand-red hover:underline font-semibold text-sm">RPC webshop</a>
+                                        <span className="mx-2 text-slate-300">|</span>
+                                        <a href="/B-Zero%20Bur%20Installation.pdf" target="_blank" rel="noreferrer" className="text-brand-red hover:underline font-semibold text-sm">Eksempel på montering</a>
+                                    </li>
+                                    <li>
+                                        <strong>JH Linnerud</strong> bygger og tilpasser komplett bur som har høy kvalitet og er estetisk utført. Bil leveres ribbet. Øvre og nedre del av dashboard demontert. Frontrute kan beholdes i. <br />Pris 25.000,– inkl. mva. for B-Zero
+                                        <div className="text-slate-500 text-sm mt-1 mb-1">
+                                            📍 Gaustadsætervegen 12, Magnor, Norway | 📞 Mob. 970 15 582
+                                        </div>
+                                        <a href="https://www.facebook.com/JHLCages" target="_blank" rel="noreferrer" className="text-brand-red hover:underline font-semibold text-sm">JH Linnerud på Facebook</a>
+                                        <span className="mx-2 text-slate-300">|</span>
+                                        <a href="/JHLinnerud-B-Zero.pdf" target="_blank" rel="noreferrer" className="text-brand-red hover:underline font-semibold text-sm">Eksempel på bur av JH Linnerud</a>
+                                    </li>
+                                </ul>
                             </div>
 
                             {/* 3. Norske særregler */}
