@@ -28,14 +28,28 @@ export default function KomIGangPage() {
                         Veien til startstreken er kortere enn du tror. Her er alt du trenger å vite om bygging av bil, lisenser, kjøreutstyr og praktiske rutiner for din første sesong.
                     </p>
 
-                    {/* Promo: Leiebørs i Hero */}
-                    <div className="bg-linear-to-r from-blue-600/90 to-blue-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl text-white flex flex-col md:flex-row items-center justify-between gap-6 text-left border border-white/10 max-w-3xl mx-auto">
-                        <div>
-                            <h2 className="text-xl md:text-2xl font-conthrax uppercase tracking-wider mb-2 drop-shadow-md">Lyst å prøve B-Zero?</h2>
-                            <p className="text-blue-100 text-base md:text-lg">Finn ledig bil for sesongen, trening eller enkelte løp.</p>
-                        </div>
-                        <a href="/leiebors" className="shrink-0 bg-white text-blue-700 hover:bg-slate-100 font-conthrax uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-lg flex items-center gap-2 hover:scale-105">
-                            Se leiebørs <ArrowRight size={18} weight="bold" />
+                    {/* Promo Boxes i Hero */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                        {/* Promo 1: Leiebørs */}
+                        <a href="/leiebors" className="group bg-linear-to-r from-blue-600/90 to-blue-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl text-white flex flex-col items-start justify-between gap-4 text-left border border-white/10 hover:scale-[1.02] transition-all cursor-pointer">
+                            <div className="w-full">
+                                <div className="flex items-center justify-between w-full mb-2">
+                                    <h2 className="text-xl md:text-2xl font-conthrax uppercase tracking-wider drop-shadow-md">Prøve B-Zero?</h2>
+                                    <ArrowRight size={24} weight="bold" className="opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                </div>
+                                <p className="text-blue-100 text-base md:text-lg pr-8">Finn ledig bil for sesongen, trening eller enkelte løp.</p>
+                            </div>
+                        </a>
+
+                        {/* Promo 2: Talentutvikling */}
+                        <a href="/talentutvikling" className="group bg-linear-to-r from-amber-500/90 to-amber-700/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-2xl text-white flex flex-col items-start justify-between gap-4 text-left border border-white/10 hover:scale-[1.02] transition-all cursor-pointer">
+                            <div className="w-full">
+                                <div className="flex items-center justify-between w-full mb-2">
+                                    <h2 className="text-xl md:text-2xl font-conthrax uppercase tracking-wider drop-shadow-md">Talentutvikling</h2>
+                                    <ArrowRight size={24} weight="bold" className="opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                </div>
+                                <p className="text-amber-100 text-base md:text-lg pr-8">Er du Bilsporttalentet 2026? Les om talentutvikling her.</p>
+                            </div>
                         </a>
                     </div>
                 </div>
