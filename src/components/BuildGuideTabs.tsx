@@ -95,7 +95,7 @@ export default function BuildGuideTabs() {
                                 <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span className="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> Demontering og Forberedelser</h3>
                                 <p>Det første steget er å fjerne alt unødvendig interiør fra bilen. Dette sparer vekt og klargjør kupeen for sveising av veltebur.</p>
                                 <ul>
-                                    <li>Fjern seter, matter, taktrekk og plastdeksler. Dashboardet kan bli stående, men må ofte tilpasses noe for at buret skal passere.</li>
+                                    <li>Fjern seter, matter, taktrekk og plastdeksler. Dashboard-plasten taes ut før montering av sikkerhetsbur, og må tilpasses noe ved montering, etter at sikkerhetsburet er ferdig installert.</li>
                                     <li>Fjern lydisolering/asfaltmatter fra gulvet (bruk feks tørris og hammer, eller varmepistol og skrape).</li>
                                     <li>Sørg for at områdene der buret skal sveises inn i karosseriet er skrapt helt rene for lakk og tektyl.</li>
                                 </ul>
