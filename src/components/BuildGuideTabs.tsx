@@ -198,6 +198,9 @@ export default function BuildGuideTabs() {
                                     <p>For biler med elektronisk gasspjeld kan man oppleve at motoren kutter gasspådraget når man trykker på bremsen og ABS kobler inn. Dette er en sikkerhetsfunksjon fra fabrikk, men i racing (som for eksempel ved &quot;heel and toe&quot;) er det uønsket.</p>
                                     <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2 text-slate-800">
                                         <strong>Løsning:</strong> Den offisielle måten å fjerne dette motorkuttet på er å klippe to ledninger i pedalrommet, der gasspedalen er festet (gul og sort kabel), og koble disse sammen. Se bildene under for nøyaktig plassering. Trykk på bildene for å forstørre.
+                                        <div className="mt-3 pt-3 border-t border-slate-200 text-slate-900">
+                                            <strong className="text-brand-red">VIKTIG:</strong> Dette er den <strong>eneste</strong> godkjente og lovlige måten å omgå motorkuttet på i henhold til regelverket. Andre inngrep eller løsninger er ikke tillatt.
+                                        </div>
                                     </div>
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                                         <div className="cursor-pointer overflow-hidden rounded-xl border border-slate-200" onClick={() => setZoomedImage('/IMG_8611.avif')}>

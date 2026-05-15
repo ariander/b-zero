@@ -206,7 +206,7 @@ export default function ReglementPage() {
                                                 </li>
                                                 <li className="flex items-start gap-2">
                                                     <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
-                                                    <span><strong>Drive-by-wire fiks:</strong> Fjerne motorkutt ved brems på biler med elektronisk gasspjeld. <Link href="/kom-i-gang#drive-by-wire" className="text-blue-500 hover:text-blue-600 underline font-semibold">Se offisiell veiledning her.</Link></span>
+                                                    <span><strong>Drive-by-wire fiks:</strong> Fjerne motorkutt ved brems på biler med elektronisk gasspjeld. <em>(Merk: Dette er den <strong>eneste</strong> lovlige måten å gjøre det på)</em>. <Link href="/kom-i-gang#drive-by-wire" className="text-blue-500 hover:text-blue-600 underline font-semibold">Se offisiell veiledning her.</Link></span>
                                                 </li>
                                             </ul>
                                         </div>
