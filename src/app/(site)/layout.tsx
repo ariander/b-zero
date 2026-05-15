@@ -51,7 +51,6 @@ export default function SiteLayout({
                 <h3 className="text-white font-conthrax text-sm mb-4 uppercase tracking-wider">Verktøy</h3>
                 <ul className="space-y-3 font-semibold">
                   <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
-                  <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Solstripegenerator</Link></li>
                   <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
                 </ul>
               </div>
@@ -92,7 +91,6 @@ export default function SiteLayout({
               <h3 className="text-white font-conthrax text-lg mb-6 uppercase tracking-wider">Verktøy</h3>
               <ul className="space-y-4 font-semibold">
                 <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
-                <li><Link href="/sunstrip" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Solstripegenerator</Link></li>
                 <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
               </ul>
             </div>
