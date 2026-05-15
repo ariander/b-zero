@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { UploadSimple, CheckCircle, WarningCircle, Spinner } from '@phosphor-icons/react';
+import imageCompression from 'browser-image-compression';
 
 interface RaceImageUploaderProps {
     raceId: string;
@@ -39,7 +40,23 @@ export function RaceImageUploader({ raceId }: RaceImageUploaderProps) {
         setErrorMessage('');
 
         const formData = new FormData();
-        formData.append('image', file);
+        
+        // Komprimer bildet for å unngå Vercel's 4.5MB Serverless Function begrensning
+        let fileToUpload = file;
+        try {
+            const options = {
+                maxSizeMB: 2,          // Mål for maksimal filstørrelse
+                maxWidthOrHeight: 2000, // Maksimal dimensjon (bevarer aspect ratio)
+                useWebWorker: true,
+            };
+            fileToUpload = await imageCompression(file, options);
+        } catch (error) {
+            console.error('Kunne ikke komprimere bildet:', error);
+            // Fallback: prøv å laste opp ukomprimert hvis det feilet
+        }
+
+        // Pass på å sende med opprinnelig filnavn for å unngå problemer i noen nettlesere
+        formData.append('image', fileToUpload, file.name);
         formData.append('raceId', raceId);
         if (submitterName.trim()) {
             formData.append('submitterName', submitterName);
@@ -51,9 +68,24 @@ export function RaceImageUploader({ raceId }: RaceImageUploaderProps) {
                 body: formData,
             });
 
-            if (!response.ok) {
+            // Sjekk om responsen faktisk er JSON før vi prøver å parse den
+            // Safari krasjer med "The string did not match the expected pattern" hvis vi prøver å parse HTML som JSON
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
                 const data = await response.json();
-                throw new Error(data.error || 'Feil ved opplasting');
+                if (!response.ok) {
+                    throw new Error(data.error || 'Feil ved opplasting');
+                }
+            } else {
+                // Håndter feil (f.eks. Vercel 413 Payload Too Large som returnerer HTML)
+                const text = await response.text();
+                if (!response.ok) {
+                    if (response.status === 413) {
+                        throw new Error('Bildet er for stort for serveren selv etter komprimering. Prøv et mindre bilde.');
+                    }
+                    console.error('Server returnerte ikke JSON:', text.substring(0, 200) + '...');
+                    throw new Error(`Det oppstod en uventet feil (Status ${response.status}). Prøv igjen senere.`);
+                }
             }
 
             setStatus('success');
