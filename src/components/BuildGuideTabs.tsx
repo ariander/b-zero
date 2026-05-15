@@ -109,7 +109,7 @@ export default function BuildGuideTabs() {
                                     <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-1 mt-0"><WarningCircle size={20} /> Viktig Norsk Regel!</h4>
                                     <p className="text-amber-800 text-sm mb-0">I Norge <strong>SKAL</strong> alle nybygde biler ha <strong>sveiset bur</strong> i henhold til NBF sitt reglement. (De aller første bilene som ble bygget i Norge benyttet skrudde bur som i britiske C1, og disse er unntatt regelen, men bygger du ny i dag: sveis!).</p>
                                 </div>
-                                <h4 className="font-bold text-slate-900 mt-6 mb-3">Leverandører</h4>
+                                <h3 className="text-xl font-bold text-slate-900 mt-6 mb-3">Leverandører</h3>
                                 <ul className="space-y-4">
                                     <li>
                                         <strong>RPC webshop</strong> selger kit med ferdigbøyde rør, som tilpasses og sveises selv.<br />Pris 9.900,– inkl. mva.
@@ -128,6 +128,10 @@ export default function BuildGuideTabs() {
                                         <a href="/JHLinnerud-B-Zero.pdf" target="_blank" rel="noreferrer" className="text-brand-red hover:underline font-semibold text-sm">Eksempel på bur av JH Linnerud</a>
                                     </li>
                                 </ul>
+                                <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded mb-4 mt-6">
+                                    <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-1 mt-0">Merk!</h4>
+                                    <p className="text-slate-700 text-sm mb-0">Tilpassing og montering av sikkerhetsbur er viktig for sikkerhet. Det er mye jobb, og krever både utstyr og erfaring også om man kjøper sett med ferdig bøyde rør. Alt skal kappes, tilpasses og sveises. Ta gjerne kontakt med en av oss for å høre erfaringer før man bestemmer seg for hvordan man ønsker å gå frem.</p>
+                                </div>
                             </div>
 
                             {/* 3. Norske særregler */}
