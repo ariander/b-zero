@@ -281,6 +281,12 @@ export default function KomIGangPage() {
                             </h3>
                             <p className="text-slate-500 text-xs">Bestill deler, bur og utstyr direkte fra klassens leverandør.</p>
                         </a>
+                        <a href="https://www.facebook.com/JHLCages" target="_blank" rel="noreferrer" className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-red transition group">
+                            <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1 flex items-center gap-2">
+                                JH Linnerud <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                            </h3>
+                            <p className="text-slate-500 text-xs">Spesialist på bygging og montering av sikkerhetsbur for bilsport. Ligger på Magnor.</p>
+                        </a>
                         <a href="https://gundersenmotorsport.no/" target="_blank" rel="noreferrer" className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-red transition group">
                             <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide mb-1 flex items-center gap-2">
                                 Gundersen Motorsport <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
