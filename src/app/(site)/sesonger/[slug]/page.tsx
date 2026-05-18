@@ -184,7 +184,9 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     )}
 
                     {/* Image Uploader */}
-                    <RaceImageUploader raceId={race._id} />
+                    {(!race.date || new Date() >= new Date(new Date(race.date).setHours(0, 0, 0, 0))) && (
+                        <RaceImageUploader raceId={race._id} />
+                    )}
                 </div>
 
                 {/* Sidebar Column */}
