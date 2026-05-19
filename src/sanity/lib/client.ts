@@ -186,7 +186,9 @@ export async function getRaceBySlug(slug: string) {
         trackMap { asset->{ url } },
         thumbnail { asset->{ url } },
         mapsLink,
-        websiteUrl
+        websiteUrl,
+        latitude,
+        longitude
       },
       report,
       links[] {

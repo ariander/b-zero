@@ -52,6 +52,18 @@ export const trackType = defineType({
             rows: 3,
         }),
         defineField({
+            name: 'latitude',
+            title: 'Breddegrad (Latitude)',
+            description: 'F.eks 59.2741 (Brukes for værvarsel)',
+            type: 'number',
+        }),
+        defineField({
+            name: 'longitude',
+            title: 'Lengdegrad (Longitude)',
+            description: 'F.eks 11.1332 (Brukes for værvarsel)',
+            type: 'number',
+        }),
+        defineField({
             name: 'websiteUrl',
             title: 'Hjemmeside',
             description: 'Valgfritt. Lenke til banens offisielle hjemmeside.',

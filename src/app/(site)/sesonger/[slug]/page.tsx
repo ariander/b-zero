@@ -7,6 +7,7 @@ import { CustomPortableText } from "@/components/CustomPortableText";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { RaceGallery } from "@/components/RaceGallery";
 import { RaceImageUploader } from "@/components/RaceImageUploader";
+import { WeatherWidget } from "@/components/WeatherWidget";
 
 export const revalidate = 60; // Revalidate at most every 60 seconds
 
@@ -168,6 +169,16 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                                 <CustomPortableText value={race.report} />
                             </div>
                         </section>
+                    )}
+
+                    {/* Weather Section */}
+                    {race.track?.latitude && race.track?.longitude && (
+                        <WeatherWidget 
+                            latitude={race.track.latitude} 
+                            longitude={race.track.longitude} 
+                            startDate={race.date}
+                            endDate={race.endDate}
+                        />
                     )}
 
                     {/* Gallery Section */}
