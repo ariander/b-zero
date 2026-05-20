@@ -201,7 +201,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                 </div>
 
                 {/* Sidebar Column */}
-                <div className="space-y-8 lg:sticky lg:top-24 self-start min-w-0 w-full">
+                <div className="space-y-8 self-start min-w-0 w-full">
                     {/* Track Section */}
                     {race.track && (
                         <section className="bg-slate-100 text-slate-800 p-4 rounded-2xl shadow-md">

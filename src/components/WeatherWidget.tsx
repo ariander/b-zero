@@ -86,7 +86,7 @@ export function WeatherWidget({ latitude, longitude, startDate, endDate }: Weath
     }
 
     // Map Yr symbol codes to Phosphor icons
-    const renderIcon = (symbolCode: string, size = 48) => {
+    const renderIcon = (symbolCode: string, size: number | string = 48) => {
         const code = symbolCode.split('_')[0]; // Remove _day, _night etc.
         const isNight = symbolCode.includes('_night');
 
@@ -124,7 +124,7 @@ export function WeatherWidget({ latitude, longitude, startDate, endDate }: Weath
     const isForecast = weatherData[0]?.isForecast;
 
     return (
-        <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-xl border border-slate-700/50 relative overflow-hidden mt-8 mb-12">
+        <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl border border-slate-700/50 relative overflow-hidden mt-8 mb-12">
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6 border-b border-slate-700/50 pb-4">
                     <h2 className="text-xl font-conthrax uppercase tracking-wider text-brand-red flex items-center gap-2">
@@ -135,29 +135,29 @@ export function WeatherWidget({ latitude, longitude, startDate, endDate }: Weath
                     </div>
                 </div>
 
-                <div className={`grid grid-cols-1 gap-4 ${weatherData.length === 1 ? 'md:grid-cols-1 max-w-sm mx-auto' : weatherData.length === 2 ? 'md:grid-cols-2 max-w-2xl mx-auto' : 'md:grid-cols-3'}`}>
+                <div className={`grid gap-3 sm:gap-4 ${weatherData.length === 1 ? 'grid-cols-1 max-w-sm mx-auto' : weatherData.length === 2 ? 'grid-cols-2 max-w-2xl mx-auto' : 'grid-cols-3'}`}>
                     {weatherData.map((day, idx) => (
-                        <div key={idx} className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 flex flex-col items-center text-center relative overflow-hidden group hover:bg-slate-800 transition-colors">
+                        <div key={idx} className="bg-slate-800/50 rounded-xl p-3 sm:p-5 border border-slate-700 flex flex-col items-center text-center relative overflow-hidden group hover:bg-slate-800 transition-colors">
                             {/* Subtle background decoration */}
                             <div className="absolute -top-4 -right-4 opacity-5 pointer-events-none group-hover:scale-110 transition-transform duration-500">
                                 {renderIcon(day.symbolCode, 100)}
                             </div>
                             
-                            <div className="text-sm font-semibold text-slate-300 mb-3 uppercase tracking-wider relative z-10">
+                            <div className="text-[10px] sm:text-sm font-semibold text-slate-300 mb-2 sm:mb-3 uppercase tracking-wider relative z-10">
                                 {day.dateStr || 'Akkurat nå'}
                             </div>
                             
-                            <div className="drop-shadow-lg mb-3 relative z-10">
-                                {renderIcon(day.symbolCode, 56)}
+                            <div className="drop-shadow-lg mb-2 sm:mb-3 relative z-10 w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center">
+                                {renderIcon(day.symbolCode, '100%')}
                             </div>
                             
-                            <div className="text-3xl font-conthrax tracking-tighter mb-4 relative z-10 flex items-start justify-center">
-                                {Math.round(day.temperature)}<span className="text-xl text-slate-400 align-super -mt-1">°</span>
+                            <div className="text-xl sm:text-3xl font-conthrax tracking-tighter mb-2 sm:mb-4 relative z-10 flex items-start justify-center">
+                                {Math.round(day.temperature)}<span className="text-sm sm:text-xl text-slate-400 align-super -mt-0.5 sm:-mt-1">°</span>
                             </div>
                             
-                            <div className="flex items-center gap-3 text-xs text-slate-300 w-full justify-center pt-3 border-t border-slate-700/50 relative z-10">
-                                <div className="flex items-center gap-1.5" title="Vindstyrke">
-                                    <Wind size={16} className="text-slate-400" />
+                            <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-slate-300 w-full justify-center pt-2 sm:pt-3 border-t border-slate-700/50 relative z-10">
+                                <div className="flex items-center gap-1 sm:gap-1.5" title="Vindstyrke">
+                                    <Wind size={14} className="text-slate-400 sm:w-4 sm:h-4 w-3.5 h-3.5" />
                                     <span>{day.windSpeed.toFixed(1)} m/s</span>
                                 </div>
                             </div>
