@@ -8,6 +8,7 @@ export interface UpcomingRace {
     title: string;
     slug: { current: string };
     date: string;
+    endDate?: string;
     raceCategory: 'racing' | 'rally';
     links?: { title: string, url: string, fileUrl?: string }[];
 }
@@ -56,18 +57,27 @@ const RaceCard = ({ race, label, badgeClass }: { race: UpcomingRace | null, labe
         );
     }
 
+    const start = new Date(race.date);
+    start.setHours(0, 0, 0, 0);
+    const end = race.endDate ? new Date(race.endDate) : new Date(race.date);
+    end.setHours(23, 59, 59, 999);
+    const today = new Date();
+    const isOngoing = today >= start && today <= end;
+
     const daysLeft = calculateDaysRemaining(race.date);
     let countdownText = `${daysLeft} DAGER`;
     if (daysLeft === 0) countdownText = "I DAG!";
     if (daysLeft === 1) countdownText = "I MORGEN!";
+    if (isOngoing) countdownText = "PÅGÅR NÅ!";
 
     return (
-        <a href={`/sesonger/${race.slug.current}`} className="bg-black/60 backdrop-blur-sm border border-white/20 p-5 rounded-2xl text-left hover:bg-black/60 hover:border-brand-red transition duration-300 group flex-1">
+        <a href={`/sesonger/${race.slug.current}`} className={`bg-black/60 backdrop-blur-sm border p-5 rounded-2xl text-left hover:bg-black/60 transition duration-300 group flex-1 ${isOngoing ? 'border-emerald-500/50 hover:border-emerald-500' : 'border-white/20 hover:border-brand-red'}`}>
             <div className="flex justify-between items-start mb-3">
-                <span className={`text-[10px] font-conthrax uppercase tracking-wider px-3 py-1 rounded-full ${badgeClass}`}>
-                    Neste {label}
+                <span className={`text-[10px] font-conthrax uppercase tracking-wider px-3 py-1 rounded-full ${isOngoing ? 'bg-emerald-500 text-white animate-pulse' : badgeClass}`}>
+                    {isOngoing ? 'Løp pågår' : `Neste ${label}`}
                 </span>
-                <span className="text-brand-red font-conthrax font-black text-lg drop-shadow-md">
+                <span className={`font-conthrax font-black text-lg drop-shadow-md flex items-center gap-2 ${isOngoing ? 'text-emerald-400 animate-pulse' : 'text-brand-red'}`}>
+                    {isOngoing && <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>}
                     {countdownText}
                 </span>
             </div>

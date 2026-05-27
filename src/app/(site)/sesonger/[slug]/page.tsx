@@ -157,14 +157,6 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     {/* Race Report */}
                     {race.report && (
                         <section className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-200">
-                            <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
-                                <div className="bg-blue-50 text-blue-600 p-3 rounded-xl">
-                                    <Notebook size={28} weight="fill" />
-                                </div>
-                                <h2 className="text-xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">
-                                    {new Date(race.date) > new Date() ? "Beskrivelse" : "Løpsrapport"}
-                                </h2>
-                            </div>
                             <div className="prose prose-slate max-w-none prose-headings:font-conthrax prose-headings:uppercase prose-p:text-lg prose-p:leading-relaxed">
                                 <CustomPortableText value={race.report} />
                             </div>
@@ -173,9 +165,9 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
 
                     {/* Weather Section */}
                     {race.track?.latitude && race.track?.longitude && (
-                        <WeatherWidget 
-                            latitude={race.track.latitude} 
-                            longitude={race.track.longitude} 
+                        <WeatherWidget
+                            latitude={race.track.latitude}
+                            longitude={race.track.longitude}
                             startDate={race.date}
                             endDate={race.endDate}
                         />

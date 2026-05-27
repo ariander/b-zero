@@ -124,16 +124,16 @@ export async function getUpcomingRaces() {
   const today = new Date().toISOString().split('T')[0];
   return client.fetch(`
     {
-      "racing": *[_type == "race" && raceCategory == "racing" && date >= $today] | order(date asc)[0] {
-        _id, title, slug, date, raceCategory, isNM,
+      "racing": *[_type == "race" && raceCategory == "racing" && (date >= $today || (defined(endDate) && endDate >= $today))] | order(date asc)[0] {
+        _id, title, slug, date, endDate, raceCategory, isNM,
         links[] {
           title,
           url,
           "fileUrl": file.asset->url
         }
       },
-      "rally": *[_type == "race" && raceCategory == "rally" && date >= $today] | order(date asc)[0] {
-        _id, title, slug, date, raceCategory, isNM,
+      "rally": *[_type == "race" && raceCategory == "rally" && (date >= $today || (defined(endDate) && endDate >= $today))] | order(date asc)[0] {
+        _id, title, slug, date, endDate, raceCategory, isNM,
         links[] {
           title,
           url,

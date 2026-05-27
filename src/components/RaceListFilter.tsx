@@ -62,7 +62,9 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
     const filteredRaces = initialRaces.filter(race => {
         // 1. Hide Past Races Filter
         if (hidePastRaces) {
-            const isPast = new Date(race.date) < new Date(new Date().setHours(0, 0, 0, 0));
+            const end = race.endDate ? new Date(race.endDate) : new Date(race.date);
+            end.setHours(23, 59, 59, 999);
+            const isPast = new Date() > end;
             if (isPast) return false;
         }
 
@@ -237,18 +239,29 @@ export default function RaceListFilter({ initialRaces, seasonDocs }: RaceListFil
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {groupedRaces[season].map(race => {
-                                    const isPast = new Date(race.date) < new Date(new Date().setHours(0, 0, 0, 0));
+                                    const start = new Date(race.date);
+                                    start.setHours(0, 0, 0, 0);
+                                    const end = race.endDate ? new Date(race.endDate) : new Date(race.date);
+                                    end.setHours(23, 59, 59, 999);
+                                    const now = new Date();
+                                    const isPast = now > end;
+                                    const isOngoing = now >= start && now <= end;
                                     return (
                                         <div key={race._id} className="relative">
                                             {/* Anchor for linking from timeline */}
                                             <div id={race.slug.current} className="absolute -top-32" />
-                                            <Link href={`/sesonger/${race.slug.current}`} className={`group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-md hover:border-brand-red/50 transition-all duration-300 h-full ${isPast ? 'opacity-85' : ''}`}>
+                                            <Link href={`/sesonger/${race.slug.current}`} className={`group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border transition-all duration-300 h-full ${isPast ? 'opacity-85 border-slate-200 hover:shadow-md hover:border-brand-red/50' : isOngoing ? 'border-emerald-500/50 hover:border-emerald-500 hover:shadow-lg' : 'border-slate-200 hover:shadow-md hover:border-brand-red/50'}`}>
                                                 <div className={`relative w-full aspect-4/3 bg-slate-100 overflow-hidden ${isPast ? 'grayscale-50' : ''}`}>
-                                                    {isPast && (
-                                                        <div className="absolute top-4 left-4 z-20 bg-slate-900/95 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md shadow-md border border-slate-700">
+                                                    {isOngoing ? (
+                                                        <div className="absolute top-4 left-4 z-20 bg-emerald-950/95 text-emerald-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md shadow-md border border-emerald-500/50 animate-pulse">
+                                                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                                                            Pågår nå
+                                                        </div>
+                                                    ) : isPast ? (
+                                                        <div className="absolute top-4 left-4 z-20 bg-slate-900/95 text-slate-400 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 backdrop-blur-md shadow-md border border-slate-700">
                                                             <CheckCircle size={14} weight="fill" className="text-emerald-500" /> Avsluttet
                                                         </div>
-                                                    )}
+                                                    ) : null}
 
                                                     {/* Track Logo Overlay */}
                                                     {race.track?.logo?.asset?.url && (

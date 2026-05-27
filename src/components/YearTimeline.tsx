@@ -37,8 +37,18 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
                 )}
                 <div className="relative border-l-2 border-slate-700 ml-2 pl-6 space-y-5 pb-2">
                     {trackRaces.map((race) => {
-                        const isPast = new Date(race.date) < new Date(new Date().setHours(0, 0, 0, 0));
-                        const dotColor = isRally ? 'bg-amber-400 border-amber-900' : 'bg-brand-red border-red-950';
+                        const start = new Date(race.date);
+                        start.setHours(0, 0, 0, 0);
+                        const end = race.endDate ? new Date(race.endDate) : new Date(race.date);
+                        end.setHours(23, 59, 59, 999);
+                        const now = new Date();
+                        
+                        const isPast = now > end;
+                        const isOngoing = now >= start && now <= end;
+
+                        const dotColor = isOngoing 
+                            ? 'bg-emerald-400 border-emerald-950 animate-pulse'
+                            : isRally ? 'bg-amber-400 border-amber-900' : 'bg-brand-red border-red-950';
                         const textColor = isPast ? 'text-slate-500' : 'text-slate-200';
 
                         return (
@@ -49,26 +59,38 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
                                         <div className="absolute -left-[35px] top-[2px] bg-slate-900 z-10 text-emerald-500 transition-transform group-hover:scale-125 rounded-full">
                                             <CheckCircle size={20} weight="fill" />
                                         </div>
+                                    ) : isOngoing ? (
+                                        <div className="absolute -left-[35px] top-[2px] bg-slate-900 z-10 text-emerald-400 transition-transform group-hover:scale-125 rounded-full p-0.5 flex items-center justify-center">
+                                            <span className="relative flex h-3.5 w-3.5">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+                                            </span>
+                                        </div>
                                     ) : (
                                         <div className={`absolute -left-[33px] top-1 w-4 h-4 rounded-full border-2 z-10 transition-transform group-hover:scale-125 ${dotColor}`}></div>
                                     )}
 
                                     <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${textColor}`}>
                                         {(() => {
-                                            const start = new Date(race.date);
-                                            const startStr = `${start.getDate()}. ${start.toLocaleDateString('no-NB', { month: 'short' })}`;
+                                            const startVal = new Date(race.date);
+                                            const startStr = `${startVal.getDate()}. ${startVal.toLocaleDateString('no-NB', { month: 'short' })}`;
                                             if (race.endDate && race.endDate !== race.date) {
-                                                const end = new Date(race.endDate);
-                                                if (start.getMonth() === end.getMonth()) {
-                                                    return `${start.getDate()}.-${end.getDate()}. ${end.toLocaleDateString('no-NB', { month: 'short' })}`;
+                                                const endVal = new Date(race.endDate);
+                                                if (startVal.getMonth() === endVal.getMonth()) {
+                                                    return `${startVal.getDate()}.-${endVal.getDate()}. ${endVal.toLocaleDateString('no-NB', { month: 'short' })}`;
                                                 }
-                                                return `${start.getDate()}. ${start.toLocaleDateString('no-NB', { month: 'short' })} - ${end.getDate()}. ${end.toLocaleDateString('no-NB', { month: 'short' })}`;
+                                                return `${startVal.getDate()}. ${startVal.toLocaleDateString('no-NB', { month: 'short' })} - ${endVal.getDate()}. ${endVal.toLocaleDateString('no-NB', { month: 'short' })}`;
                                             }
                                             return startStr;
                                         })()}
                                     </div>
-                                    <div className={`text-sm font-conthrax line-clamp-2 ${isPast ? 'text-slate-600' : 'text-slate-400 group-hover:text-white'} transition-colors`}>
-                                        {race.title}
+                                    <div className={`text-sm font-conthrax line-clamp-2 ${isPast ? 'text-slate-600' : 'text-slate-400 group-hover:text-white'} transition-colors flex items-center gap-1.5 flex-wrap`}>
+                                        <span>{race.title}</span>
+                                        {isOngoing && (
+                                            <span className="text-emerald-400 text-[10px] font-bold font-sans animate-pulse shrink-0 whitespace-nowrap bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-800 uppercase tracking-wider">
+                                                Pågår nå
+                                            </span>
+                                        )}
                                     </div>
                                 </Link>
                             </div>
