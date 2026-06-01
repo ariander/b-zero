@@ -12,9 +12,16 @@ export default function ShareButton({ url, title }: ShareButtonProps) {
     const [isMobileShareSupported, setIsMobileShareSupported] = useState(false);
 
     useEffect(() => {
-        // Detect Web Share API support on the client side
+        // Detect Web Share API support on the client side only for mobile/touch devices.
+        // Desktop browsers (like Arc/Chrome/Safari on macOS) support navigator.share
+        // but typically show a generic OS sharing popup instead of opening Facebook,
+        // which is a poor user experience.
         if (typeof navigator !== 'undefined' && 'share' in navigator) {
-            setIsMobileShareSupported(true);
+            const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const hasTouch = window.matchMedia("(pointer: coarse)").matches;
+            if (isMobileUA || hasTouch) {
+                setIsMobileShareSupported(true);
+            }
         }
     }, []);
 
