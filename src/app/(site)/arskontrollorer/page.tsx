@@ -17,8 +17,10 @@ interface Inspector {
     navn: string;
     epost: string;
     mobil: string;
-    adresse: string;
+    adresse?: string;
     poststed: string;
+    nbf?: string;
+    klubb?: string;
 }
 
 export default function InspectorsPage() {
@@ -50,6 +52,8 @@ export default function InspectorsPage() {
             mobil: record['Mobil'],
             adresse: record['Adresse'],
             poststed: record['Postnr. / Sted'],
+            nbf: record['NBF'],
+            klubb: record['Klubb'],
         });
     });
 
@@ -76,7 +80,7 @@ export default function InspectorsPage() {
                     </h1>
                     <p className="text-xl text-slate-300 font-light leading-relaxed">
                         Alle biler i B-Zero må være utstyrt med vognbok og lisens.
-                        Finn din nærmeste tekniske årskontrollør tilknyttet Norges Bilsportforbund i listen under for å avtale inspeksjon av bilen.
+                        Finn din nærmeste tekniske årskontrollør tilknyttet Norges Bilsportforbund i listen under for å avtale inspeksjon av bilen (oppdatert juni 2026)
                     </p>
                 </div>
             </section>
@@ -113,7 +117,23 @@ export default function InspectorsPage() {
                                             <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-400" />
 
                                             <h3 className="text-xl font-bold text-slate-900 mb-1">{inspector.navn}</h3>
-                                            <p className="text-md text-slate-500 mb-6">{inspector.adresse}<br />{inspector.poststed}</p>
+                                            <p className="text-md text-slate-500 mb-4">
+                                                {inspector.adresse && <>{inspector.adresse}<br /></>}
+                                                {inspector.poststed}
+                                            </p>
+
+                                            <div className="mb-6 space-y-1">
+                                                {inspector.klubb && (
+                                                    <p className="text-sm text-slate-600">
+                                                        <span className="font-semibold text-slate-700">Klubb:</span> {inspector.klubb}
+                                                    </p>
+                                                )}
+                                                {inspector.nbf && (
+                                                    <p className="text-sm text-slate-600">
+                                                        <span className="font-semibold text-slate-700">NBF Lisensnr:</span> {inspector.nbf}
+                                                    </p>
+                                                )}
+                                            </div>
 
                                             <div className="space-y-3">
                                                 <a href={`tel:${inspector.mobil.replace(/\s+/g, '')}`} className="flex items-center gap-3 text-slate-700 hover:text-brand-red transition-colors w-fit p-1 -m-1 rounded-md">
