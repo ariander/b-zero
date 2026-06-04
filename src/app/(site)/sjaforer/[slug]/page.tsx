@@ -79,7 +79,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                         src="/avatar.jpg"
                                         alt={driver.name}
                                         fill
-                                        className="object-cover"
+                                        className="object-cover opacity-50"
                                     />
                                 )}
                             </div>
@@ -103,7 +103,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                                 src="/avatar.jpg"
                                 alt={driver.name}
                                 fill
-                                className="object-cover"
+                                className="object-cover opacity-50"
                             />
                         )}
                     </div>
