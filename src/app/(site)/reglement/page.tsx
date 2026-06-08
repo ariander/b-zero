@@ -44,14 +44,14 @@ export default function ReglementPage() {
                                         </div>
                                     </a>
 
-                                    <a href="https://c1racing.club/wp-content/uploads/2025/03/2025-C1-Racing-Series-Sporting-Technical-Regulations-PUBLISHED-09MAR2025-signed.pdf" target="_blank" rel="noreferrer" className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-white transition group">
+                                    <a href="https://c1racing.club/wp-content/uploads/2026/04/2026-C1-Racing-Series-Sporting-Technical-Regulations-PUBLISHED-09APR2026-signed.pdf" target="_blank" rel="noreferrer" className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-white transition group">
                                         <FilePdf size={24} className="text-slate-400 group-hover:text-blue-500 shrink-0 mt-1" />
                                         <div>
                                             <div className="flex flex-col items-start gap-1 mb-2">
                                                 <h3 className="font-bold text-slate-900 text-sm">UK C1 Racing Series Rules</h3>
                                                 <span className="bg-blue-100 text-blue-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full inline-block">C1 Racing Club</span>
                                             </div>
-                                            <p className="text-xs text-slate-500">2025 Base-reglementet for de tekniske spesifikasjonene på C1/Aygo/107.</p>
+                                            <p className="text-xs text-slate-500">2026 Base-reglementet for de tekniske spesifikasjonene på C1/Aygo/107.</p>
                                         </div>
                                     </a>
 
