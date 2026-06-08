@@ -45,7 +45,7 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                             <span className="bg-brand-red text-white px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
                                 {driver.teamName || "B-Zero Sjåfør"}
                             </span>
-                            
+
                             {/* Categories */}
                             {(driver.categories || ['racing']).includes('racing') && (
                                 <span className="bg-slate-800 text-white border border-slate-700 px-3 py-1 rounded-sm font-conthrax text-xs tracking-widest uppercase shadow-md">
@@ -116,14 +116,6 @@ export default async function DriverPage({ params }: { params: Promise<{ slug: s
                 <div className="lg:col-span-2 space-y-12">
                     {/* Bio Section */}
                     <section className="bg-white p-5 md:p-10 rounded-2xl shadow-sm border border-slate-200">
-                        <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
-                            <div className="bg-blue-50 text-blue-600 p-3 rounded-xl hidden md:block">
-                                <User size={28} weight="fill" />
-                            </div>
-                            <h2 className="text-xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">
-                                Om {driver.name.split(' ')[0]}
-                            </h2>
-                        </div>
 
                         {driver.bio ? (
                             <div className="prose prose-slate max-w-none prose-headings:font-conthrax prose-headings:uppercase prose-p:text-lg prose-p:leading-relaxed">
