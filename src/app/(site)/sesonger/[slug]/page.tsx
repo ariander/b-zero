@@ -42,7 +42,7 @@ export async function generateMetadata(
             title: race.title,
             description: description + (description.length >= 160 ? '...' : ''),
             type: 'article',
-            images: imageUrl ? [{ url: imageUrl }, ...previousImages] : previousImages,
+            images: imageUrl ? [{ url: imageUrl }] : previousImages,
         },
     }
 }

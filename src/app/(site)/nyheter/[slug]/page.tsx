@@ -36,7 +36,7 @@ export async function generateMetadata(
             description: description + (description.length >= 160 ? '...' : ''),
             type: 'article',
             publishedTime: post.publishedAt,
-            images: imageUrl ? [{ url: imageUrl }, ...previousImages] : previousImages,
+            images: imageUrl ? [{ url: imageUrl }] : previousImages,
         },
     }
 }

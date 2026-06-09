@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
@@ -22,6 +22,84 @@ interface Driver {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: any;
 }
+
+const ScrollingBio = ({ bio, durationSecs, isActive }: { bio: any, durationSecs: number, isActive: boolean }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+    const [needsScroll, setNeedsScroll] = useState(false);
+
+    // Calculate if we need to scroll when it becomes active
+    useEffect(() => {
+        let timer: NodeJS.Timeout;
+        let animTimer: NodeJS.Timeout;
+        let layoutTimer: NodeJS.Timeout;
+
+        if (isActive && containerRef.current && contentRef.current) {
+            // Reset position instantly
+            contentRef.current.style.transition = 'none';
+            contentRef.current.style.transform = 'translateY(0)';
+            
+            // Allow layout to calculate
+            layoutTimer = setTimeout(() => {
+                if (containerRef.current && contentRef.current) {
+                    const containerHeight = containerRef.current.clientHeight;
+                    const contentHeight = contentRef.current.scrollHeight;
+                    
+                    if (contentHeight > containerHeight) {
+                        setNeedsScroll(true);
+                        const distance = contentHeight - containerHeight + 80; // Extra padding
+                        
+                        // Apply animation
+                        animTimer = setTimeout(() => {
+                            if (contentRef.current) {
+                                // 70% of total duration for the scroll, starting after 15% delay
+                                const scrollDuration = durationSecs * 0.7; 
+                                const delay = durationSecs * 0.15;
+                                contentRef.current.style.transition = `transform ${scrollDuration}s linear ${delay}s`;
+                                contentRef.current.style.transform = `translateY(-${distance}px)`;
+                            }
+                        }, 50);
+                    } else {
+                        setNeedsScroll(false);
+                    }
+                }
+            }, 50);
+        } else if (!isActive && contentRef.current) {
+            // Reset when inactive, but delay it so it doesn't jump during fade-out
+            timer = setTimeout(() => {
+                if (contentRef.current) {
+                    contentRef.current.style.transition = 'none';
+                    contentRef.current.style.transform = 'translateY(0)';
+                }
+                setNeedsScroll(false);
+            }, 1500); // Wait 1.5s for fade-out to complete
+        }
+
+        return () => {
+            clearTimeout(timer);
+            clearTimeout(animTimer);
+            clearTimeout(layoutTimer);
+        };
+    }, [isActive, durationSecs, bio]);
+
+    return (
+        <div 
+            ref={containerRef} 
+            className="relative overflow-hidden max-h-[35vh] mt-8" 
+            style={{ 
+                maskImage: needsScroll ? 'linear-gradient(to bottom, black 70%, transparent 100%)' : 'none',
+                WebkitMaskImage: needsScroll ? 'linear-gradient(to bottom, black 70%, transparent 100%)' : 'none'
+            }}
+        >
+            <div 
+                ref={contentRef}
+                className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed [&_h3]:mt-3 [&_h4]:mt-3 max-w-3xl pb-16"
+            >
+                <PortableText value={bio} />
+            </div>
+        </div>
+    );
+};
 
 export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,16 +129,40 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
         return true;
     });
 
+    // Helper to calculate dynamic duration based on bio text length
+    const getDriverDuration = (driver: Driver | null, baseDuration: number) => {
+        if (!driver) return baseDuration;
+        let extraTime = 0;
+        if (driver.bio && Array.isArray(driver.bio)) {
+            let textLength = 0;
+            driver.bio.forEach((block: any) => {
+                if (block.children) {
+                    block.children.forEach((child: any) => {
+                        if (child.text) textLength += child.text.length;
+                    });
+                }
+            });
+            // Assume reading speed of ~25 chars per second
+            const expectedTime = Math.ceil(textLength / 25);
+            if (expectedTime > baseDuration) {
+                extraTime = expectedTime - baseDuration;
+            }
+        }
+        return Math.min(baseDuration + extraTime, 90); // Cap at 90s max
+    };
+
     // Handle timer for slider
     useEffect(() => {
         if (filteredDrivers.length === 0) return;
 
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % filteredDrivers.length);
-        }, durationSecs * 1000);
+        const currentSlideDuration = getDriverDuration(filteredDrivers[currentIndex], durationSecs);
 
-        return () => clearInterval(interval);
-    }, [filteredDrivers.length, durationSecs]);
+        const timeout = setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % filteredDrivers.length);
+        }, currentSlideDuration * 1000);
+
+        return () => clearTimeout(timeout);
+    }, [filteredDrivers.length, durationSecs, currentIndex]);
 
     // Handle array shrink bounds check
     useEffect(() => {
@@ -121,7 +223,8 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                     </label>
 
                     <div className="pt-4 border-t border-slate-700/50">
-                        <label className="block text-slate-300 text-sm mb-2">Visningstid pr. sjåfør: <strong className="text-white">{durationSecs} sekunder</strong></label>
+                        <label className="block text-slate-300 text-sm mb-1">Minimum visningstid pr. sjåfør: <strong className="text-white">{durationSecs} sekunder</strong></label>
+                        <p className="text-[10px] text-slate-500 mb-3">Tiden utvides automatisk for sjåfører med lang tekst.</p>
                         <input
                             type="range"
                             min="5"
@@ -155,6 +258,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                     const isActive = index === currentIndex;
                     const isPrevious = index === (currentIndex - 1 + filteredDrivers.length) % filteredDrivers.length;
                     const shouldAnimateZoom = isActive || isPrevious;
+                    const driverDuration = getDriverDuration(driver, durationSecs);
 
                     return (
                         <div
@@ -239,9 +343,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                     </div>
 
                                     {driver.bio && (
-                                        <div className="prose prose-xl prose-invert prose-p:text-neutral-200 prose-p:leading-relaxed [&_h3]:mt-3 [&_h4]:mt-3 max-w-3xl pt-8 line-clamp-20">
-                                            <PortableText value={driver.bio} />
-                                        </div>
+                                        <ScrollingBio bio={driver.bio} durationSecs={driverDuration} isActive={isActive} />
                                     )}
                                 </div>
 
@@ -266,7 +368,7 @@ export default function PresentationSlider({ drivers }: { drivers: Driver[] }) {
                                 {isActive && (
                                     <div
                                         className="h-full bg-brand-red animate-progress-bar"
-                                        style={{ animationDuration: `${durationSecs}s` }}
+                                        style={{ animationDuration: `${driverDuration}s` }}
                                     />
                                 )}
                             </div>
