@@ -6,23 +6,54 @@ import { CaretLeft, CaretRight, FlagCheckered } from '@phosphor-icons/react/dist
 
 export function ImageGallery({ images, title, raceCategory }: { images: any[], title: string, raceCategory?: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const minSwipeDistance = 50;
 
     const validImages = images?.filter(img => img?.asset?.url) || [];
 
     if (validImages.length === 0) return null;
 
-    const nextImage = (e: React.MouseEvent) => {
-        e.preventDefault();
+    const nextImage = (e?: React.MouseEvent) => {
+        if (e) e.preventDefault();
         setCurrentIndex((prev) => (prev + 1) % validImages.length);
     };
 
-    const prevImage = (e: React.MouseEvent) => {
-        e.preventDefault();
+    const prevImage = (e?: React.MouseEvent) => {
+        if (e) e.preventDefault();
         setCurrentIndex((prev) => (prev - 1 + validImages.length) % validImages.length);
     };
 
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            nextImage();
+        } else if (isRightSwipe) {
+            prevImage();
+        }
+    };
+
     return (
-        <div className="relative h-72 md:h-96 w-full bg-slate-100 group overflow-hidden">
+        <div 
+            className="relative h-72 md:h-96 w-full bg-slate-100 group overflow-hidden"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+        >
             <Image
                 src={validImages[currentIndex].asset.url}
                 alt={`${title} - Bilde ${currentIndex + 1}`}
