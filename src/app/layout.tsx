@@ -4,6 +4,7 @@ import { Archivo } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
 
@@ -66,6 +67,7 @@ export default function RootLayout({
       <body className={`${archivo.variable} ${conthrax.variable} font-sans bg-slate-100 text-slate-800 min-h-screen flex flex-col`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
