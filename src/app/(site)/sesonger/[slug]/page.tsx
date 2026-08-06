@@ -254,17 +254,43 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     )}
 
                     {/* Links Section */}
-                    {((race.links && race.links.length > 0) || (race.relatedPosts && race.relatedPosts.length > 0) || new Date(race.date) > new Date()) && (
+                    {((race.links && race.links.length > 0) || race.eventSupportRaceId || race.speedhiveEventId || (race.relatedPosts && race.relatedPosts.length > 0) || new Date(race.date) > new Date()) && (
                         <section className="bg-slate-900 text-white p-8 rounded-2xl shadow-md">
                             <div className="flex items-center gap-4 mb-8 border-b border-slate-700 pb-4">
                                 <LinkIcon size={28} weight="bold" className="text-brand-red" />
                                 <h2 className="text-2xl font-conthrax uppercase tracking-wider">Lenker & Filer</h2>
                             </div>
 
-                            {race.links && race.links.length > 0 ? (
+                            {(race.links && race.links.length > 0) || race.eventSupportRaceId || race.speedhiveEventId ? (
                                 <ul className="space-y-4">
+                                    {race.eventSupportRaceId && (
+                                        <li>
+                                            <a
+                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}#:~:text=B%2DZero`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-between p-4 rounded-xl font-semibold transition group border bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500"
+                                            >
+                                                <span className="truncate pr-4 flex-1 min-w-0">Påmeldte</span>
+                                                <CaretRight weight="bold" className="text-brand-red group-hover:translate-x-1 transition-transform shrink-0" />
+                                            </a>
+                                        </li>
+                                    )}
+                                    {race.speedhiveEventId && (
+                                        <li>
+                                            <a
+                                                href={`https://speedhive.mylaps.com/events/${race.speedhiveEventId}#:~:text=B%2DZero`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-between p-4 rounded-xl font-semibold transition group border bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500"
+                                            >
+                                                <span className="truncate pr-4 flex-1 min-w-0">Se resultater</span>
+                                                <CaretRight weight="bold" className="text-brand-red group-hover:translate-x-1 transition-transform shrink-0" />
+                                            </a>
+                                        </li>
+                                    )}
                                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                    {race.links.map((link: any, idx: number) => {
+                                    {race.links?.map((link: any, idx: number) => {
                                         const url = link.fileUrl || link.url || "#";
                                         const isFacebook = url.toLowerCase().includes('facebook.com');
 

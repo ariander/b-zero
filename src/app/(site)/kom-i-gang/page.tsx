@@ -268,6 +268,12 @@ export default function KomIGangPage() {
                             </h3>
                             <p className="text-slate-400 text-xs">Våre egne klasseregler for oppsett og justeringer.</p>
                         </a>
+                        <a href="/tiltrekkingsmomenter" className="bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800 hover:border-brand-red transition group">
+                            <h3 className="font-bold text-white text-sm uppercase tracking-wide mb-1 flex items-center gap-2">
+                                Tiltrekkingsmomenter <ArrowRight size={14} className="text-brand-red group-hover:translate-x-1 transition-transform" />
+                            </h3>
+                            <p className="text-slate-400 text-xs">Nm-verdier for bolter over hele bilen, med søk.</p>
+                        </a>
                     </div>
 
                     <div className="flex items-center gap-4 mt-20 mb-8">

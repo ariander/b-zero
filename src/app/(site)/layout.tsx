@@ -52,6 +52,9 @@ export default function SiteLayout({
                 <ul className="space-y-3 font-semibold">
                   <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
                   <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
+                  <li><Link href="/shim-kalkulator" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Shim-kalkulator <span className="text-[10px] font-bold uppercase tracking-wide text-brand-red border border-brand-red/50 rounded px-1.5 py-0.5">Beta</span></Link></li>
+                  <li><Link href="/tiltrekkingsmomenter" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Tiltrekkingsmomenter</Link></li>
+                  <li><Link href="/dekktrykk" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Dekktrykk-logg <span className="text-[10px] font-bold uppercase tracking-wide text-brand-red border border-brand-red/50 rounded px-1.5 py-0.5">Beta</span></Link></li>
                 </ul>
               </div>
             </div>
@@ -92,6 +95,9 @@ export default function SiteLayout({
               <ul className="space-y-4 font-semibold">
                 <li><Link href="/arskontrollorer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Finn Årskontrollør</Link></li>
                 <li><Link href="/skjerm" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Stand/Skjermvisning</Link></li>
+                <li><Link href="/shim-kalkulator" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Shim-kalkulator <span className="text-[10px] font-bold uppercase tracking-wide text-brand-red border border-brand-red/50 rounded px-1.5 py-0.5">Beta</span></Link></li>
+                <li><Link href="/tiltrekkingsmomenter" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Tiltrekkingsmomenter</Link></li>
+                <li><Link href="/dekktrykk" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Dekktrykk-logg <span className="text-[10px] font-bold uppercase tracking-wide text-brand-red border border-brand-red/50 rounded px-1.5 py-0.5">Beta</span></Link></li>
               </ul>
             </div>
           </div>

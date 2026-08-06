@@ -191,6 +191,8 @@ export async function getRaceBySlug(slug: string) {
         longitude
       },
       report,
+      eventSupportRaceId,
+      speedhiveEventId,
       links[] {
         title,
         url,

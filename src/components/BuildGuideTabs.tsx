@@ -262,6 +262,12 @@ export default function BuildGuideTabs() {
                                         <li>Fest den store nav-mutteren for drivakselen, trekk denne til med massive <strong>216Nm</strong>, og slå inn kanten av mutteren inn i sporet på drivleddet for å låse den mekanisk.</li>
                                     </ol>
 
+                                    <p className="text-sm mb-6">
+                                        <Link href="/tiltrekkingsmomenter" className="text-brand-red font-semibold hover:underline">
+                                            Se alle tiltrekkingsmomenter for hele bilen →
+                                        </Link>
+                                    </p>
+
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div className="cursor-pointer overflow-hidden rounded-xl border border-slate-200" onClick={() => setZoomedImage('/Right Wishbone Build Notes.jpg')}>
                                             <Image src="/Right Wishbone Build Notes.jpg" alt="Right Wishbone" width={300} height={300} className="hover:scale-105 transition-transform w-full object-cover" />
@@ -646,14 +652,25 @@ export default function BuildGuideTabs() {
                     )}
                 </div>
 
-                <div className="mt-6 flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <div>
-                        <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-1">Se komplett liste på Teknisk Reglement</h4>
-                        <p className="text-slate-700 text-sm">Byggingen er ferskvare, dobbeltsjekk alltid reglene på siden for Reglement og Dokumenter for oppgraderinger som er lovlige og forbudt.</p>
+                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div className="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div>
+                            <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-1">Se komplett liste på Teknisk Reglement</h4>
+                            <p className="text-slate-700 text-sm">Byggingen er ferskvare, dobbeltsjekk alltid reglene på siden for Reglement og Dokumenter for oppgraderinger som er lovlige og forbudt.</p>
+                        </div>
+                        <Link href="/reglement" className="flex items-center justify-center p-3 bg-brand-red border border-transparent hover:bg-red-700 text-white rounded-full transition-colors ml-4 shrink-0 shadow-sm group">
+                            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
                     </div>
-                    <Link href="/reglement" className="flex items-center justify-center p-3 bg-brand-red border border-transparent hover:bg-red-700 text-white rounded-full transition-colors ml-4 shrink-0 shadow-sm group">
-                        <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    <div className="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div>
+                            <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-1">Se tiltrekkingsmomenter for hele bilen</h4>
+                            <p className="text-slate-700 text-sm">Full oversikt over Nm-verdier for motor, girkasse, hjuloppheng, bremser og karosseri, med søk.</p>
+                        </div>
+                        <Link href="/tiltrekkingsmomenter" className="flex items-center justify-center p-3 bg-brand-red border border-transparent hover:bg-red-700 text-white rounded-full transition-colors ml-4 shrink-0 shadow-sm group">
+                            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
                 </div>
 
             </div >

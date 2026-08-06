@@ -107,6 +107,18 @@ export const raceType = defineType({
             }
         }),
         defineField({
+            name: 'eventSupportRaceId',
+            title: 'EventSupport Race ID',
+            description: 'Race ID fra eventsupport.se (f.eks. "3788" fra url https://www.eventsupport.se/entre/public/registrations.php?race=3788). Gir en "Påmeldte"-lenke på løpssiden.',
+            type: 'string',
+        }),
+        defineField({
+            name: 'speedhiveEventId',
+            title: 'Speedhive (MYLAPS) Event ID',
+            description: 'Event ID fra speedhive.mylaps.com. Gir en "Se resultater"-lenke på løpssiden.',
+            type: 'string',
+        }),
+        defineField({
             name: 'links',
             title: 'Nyttige lenker & Filer',
             description: 'Legg til lenker eller last opp filer (f.eks PDF) for tilleggsregler, innbydelser, resultatlister etc.',
