@@ -159,8 +159,8 @@ export default function History({ readings, onImported }: Props) {
                       </div>
                       <div className="flex items-center gap-2">
                         {r.weather && (
-                          <span className="flex items-center gap-1 text-neutral-400 text-xs">
-                            <WeatherIcon symbolCode={r.weather.symbolCode} size={14} />
+                          <span className="flex items-center gap-1 text-neutral-400 text-sm">
+                            <WeatherIcon symbolCode={r.weather.symbolCode} size={20} />
                             {r.weather.tempC.toFixed(0)}°
                           </span>
                         )}
