@@ -26,8 +26,17 @@ export default function InstallBanner() {
   const { isIos } = state
 
   return (
-    <div className="absolute inset-x-0 top-0 z-20 bg-neutral-900 border-b border-neutral-700 p-4 text-sm text-neutral-200">
-      <button type="button" onClick={dismiss} className="absolute top-3 right-3 text-neutral-400" aria-label="Lukk">
+    <div
+      className="absolute inset-x-0 top-0 z-20 bg-neutral-900 border-b border-neutral-700 p-4 text-sm text-neutral-200"
+      style={{ paddingTop: 'calc(1rem + env(safe-area-inset-top))' }}
+    >
+      <button
+        type="button"
+        onClick={dismiss}
+        className="absolute right-3 text-neutral-400"
+        style={{ top: 'calc(0.75rem + env(safe-area-inset-top))' }}
+        aria-label="Lukk"
+      >
         <X size={20} weight="bold" />
       </button>
       <p className="pr-6 mb-2">

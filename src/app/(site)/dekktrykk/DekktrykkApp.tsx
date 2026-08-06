@@ -117,7 +117,7 @@ export default function DekktrykkApp() {
       <ServiceWorkerRegister />
       <InstallBanner />
 
-      <div className="flex-1 flex flex-col min-h-0">
+      <div className="flex-1 flex flex-col min-h-0" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
         {tab === 'new' && screen === 'new' && (
           <NewReading
             track={track}
@@ -148,7 +148,10 @@ export default function DekktrykkApp() {
         {tab === 'history' && <History readings={readings} onImported={refresh} />}
       </div>
 
-      <nav className="grid grid-cols-2 gap-2 p-3 pt-2 bg-neutral-950 border-t border-neutral-800 shrink-0">
+      <nav
+        className="grid grid-cols-2 gap-2 p-3 pt-2 bg-neutral-950 border-t border-neutral-800 shrink-0"
+        style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
+      >
         <button
           type="button"
           onClick={() => {
