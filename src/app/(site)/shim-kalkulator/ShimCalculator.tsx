@@ -116,7 +116,7 @@ export default function ShimCalculator() {
     const [maltToe, setMaltToe] = useState('0');
     const [malToe, setMalToe] = useState('1');
     const [maltCamber, setMaltCamber] = useState('0');
-    const [malCamber, setMalCamber] = useState('2');
+    const [malCamber, setMalCamber] = useState('-2');
     const [dagensShims, setDagensShims] = useState<Bolts>({ FO: '0', BO: '0', FN: '0', BN: '0' });
 
     const hjulDia = useMemo(() => {
