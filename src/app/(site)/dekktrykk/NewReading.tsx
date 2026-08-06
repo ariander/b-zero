@@ -97,8 +97,8 @@ export default function NewReading({
 
   return (
     <div className="flex-1 flex flex-col min-h-0">
-      <div className="px-4 pt-4 pb-2 flex flex-col gap-3">
-        <div className="relative">
+      <div className="px-4 pt-3 pb-1 flex gap-2">
+        <div className="relative flex-1 min-w-0">
           <label className="block text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Bane</label>
           <div className="flex gap-2">
             <input
@@ -114,7 +114,7 @@ export default function NewReading({
               }}
               onBlur={() => setTimeout(() => setShowTrackList(false), 150)}
               placeholder="Skriv bane"
-              className="flex-1 min-w-0 h-12 rounded-lg bg-neutral-900 border border-neutral-700 px-3 text-white text-lg focus:border-brand-red focus:outline-none"
+              className="flex-1 min-w-0 h-11 rounded-lg bg-neutral-900 border border-neutral-700 px-3 text-white text-base focus:border-brand-red focus:outline-none"
             />
             <button
               type="button"
@@ -125,7 +125,7 @@ export default function NewReading({
                   return next
                 })
               }
-              className="w-12 h-12 shrink-0 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center text-neutral-400"
+              className="w-11 h-11 shrink-0 rounded-lg bg-neutral-900 border border-neutral-700 flex items-center justify-center text-neutral-400"
               aria-label="Vis baner"
             >
               <CaretDown size={20} weight="bold" />
@@ -152,13 +152,13 @@ export default function NewReading({
           )}
         </div>
 
-        <div>
-          <span className="block text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Dekktemperatur</span>
-          <div className="grid grid-cols-2 gap-2">
+        <div className="shrink-0">
+          <span className="block text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Temp</span>
+          <div className="flex gap-2">
             <button
               type="button"
               onClick={() => onHotColdChange('hot')}
-              className={`h-12 rounded-lg font-bold text-lg border transition-colors ${
+              className={`h-11 px-3 rounded-lg font-bold text-base border transition-colors ${
                 hotCold === 'hot' ? 'bg-brand-red border-brand-red text-white' : 'bg-neutral-900 border-neutral-700 text-neutral-300'
               }`}
             >
@@ -167,7 +167,7 @@ export default function NewReading({
             <button
               type="button"
               onClick={() => onHotColdChange('cold')}
-              className={`h-12 rounded-lg font-bold text-lg border transition-colors ${
+              className={`h-11 px-3 rounded-lg font-bold text-base border transition-colors ${
                 hotCold === 'cold' ? 'bg-blue-500 border-blue-500 text-white' : 'bg-neutral-900 border-neutral-700 text-neutral-300'
               }`}
             >
@@ -177,7 +177,7 @@ export default function NewReading({
         </div>
       </div>
 
-      <div className="relative flex-1 min-h-[320px] mx-4">
+      <div className="relative flex-1 min-h-[220px] mx-4">
         <Image src="/c1-top.avif" alt="" fill className="object-contain opacity-90 pointer-events-none select-none" priority />
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none">
           <ArrowUp size={40} weight="bold" className="text-neutral-500" />
