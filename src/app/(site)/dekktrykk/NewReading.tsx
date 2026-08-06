@@ -153,7 +153,7 @@ export default function NewReading({
         </div>
 
         <div>
-          <span className="block text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Varm / Kald</span>
+          <span className="block text-neutral-400 text-xs font-bold uppercase tracking-wider mb-1">Dekktemperatur</span>
           <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
