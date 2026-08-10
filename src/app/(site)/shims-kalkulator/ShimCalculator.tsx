@@ -23,6 +23,35 @@ const labelClass = 'block text-xs font-semibold uppercase tracking-wide text-sla
 const cardClass = 'bg-white rounded-lg shadow-sm border border-slate-200 p-6';
 const sectionTitleClass = 'font-conthrax uppercase tracking-wider text-lg text-slate-900 border-b-2 border-slate-200 pb-3 mb-6';
 
+// Input med ±-knapp foran — for felt som ofte trenger negative tall
+// (mobiltastatur har ofte ikke "-" på num/decimal-tastatur).
+function SignedInput({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+    const toggleSign = () => {
+        const trimmed = value.trim();
+        if (trimmed.startsWith('-')) onChange(trimmed.slice(1));
+        else if (trimmed === '' || trimmed === '0') onChange('-' + (trimmed || '0'));
+        else onChange('-' + trimmed);
+    };
+    return (
+        <div className="flex gap-1.5">
+            <button
+                type="button"
+                onClick={toggleSign}
+                aria-label="Bytt fortegn"
+                className="shrink-0 w-9 rounded-md border border-slate-300 bg-slate-100 text-slate-700 font-conthrax text-sm hover:bg-slate-200 active:bg-slate-300"
+            >
+                ±
+            </button>
+            <input
+                className={inputClass}
+                inputMode="decimal"
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+            />
+        </div>
+    );
+}
+
 function tabBtnClass(active: boolean) {
     return `flex-1 px-4 py-2.5 font-conthrax text-xs uppercase tracking-wider rounded-md border transition-colors ${
         active
@@ -327,21 +356,21 @@ export default function ShimCalculator() {
                                 <label className={labelClass}>
                                     Toe målt i dag ({toeEnhet === 'deg' ? '°, + = ut' : 'mm på felg, + = ut'})
                                 </label>
-                                <input className={inputClass} inputMode="decimal" value={maltToe} onChange={(e) => setMaltToe(e.target.value)} />
+                                <SignedInput value={maltToe} onChange={setMaltToe} />
                             </div>
                             <div>
                                 <label className={labelClass}>
                                     Toe ønsket ({toeEnhet === 'deg' ? '°' : 'mm på felg'})
                                 </label>
-                                <input className={inputClass} inputMode="decimal" value={malToe} onChange={(e) => setMalToe(e.target.value)} />
+                                <SignedInput value={malToe} onChange={setMalToe} />
                             </div>
                             <div>
                                 <label className={labelClass}>Camber målt i dag (grader)</label>
-                                <input className={inputClass} inputMode="decimal" value={maltCamber} onChange={(e) => setMaltCamber(e.target.value)} />
+                                <SignedInput value={maltCamber} onChange={setMaltCamber} />
                             </div>
                             <div>
                                 <label className={labelClass}>Camber ønsket (grader)</label>
-                                <input className={inputClass} inputMode="decimal" value={malCamber} onChange={(e) => setMalCamber(e.target.value)} />
+                                <SignedInput value={malCamber} onChange={setMalCamber} />
                             </div>
                         </div>
                         {tilbake && (
