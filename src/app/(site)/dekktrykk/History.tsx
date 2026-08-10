@@ -23,7 +23,7 @@ function formatTime(ts: number): string {
   return new Date(ts).toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' })
 }
 
-const PAIR_WINDOW_MS = 60 * 60 * 1000 // 1 time
+const PAIR_WINDOW_MS = 90 * 60 * 1000 // 1,5 time
 
 // Par hver "varm"-måling med nærmeste foregående "kald"-måling på samme bane,
 // innenfor 1 time. Hver kald-måling brukes til maks ett par.
