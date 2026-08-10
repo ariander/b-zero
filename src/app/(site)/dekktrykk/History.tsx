@@ -23,6 +23,40 @@ function formatTime(ts: number): string {
   return new Date(ts).toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit' })
 }
 
+const PAIR_WINDOW_MS = 60 * 60 * 1000 // 1 time
+
+// Par hver "varm"-måling med nærmeste foregående "kald"-måling på samme bane,
+// innenfor 1 time. Hver kald-måling brukes til maks ett par.
+function pairWithCold(readings: Reading[]): Map<string, Reading> {
+  const pairs = new Map<string, Reading>()
+  const usedColdIds = new Set<string>()
+  // readings er sortert desc (nyest først) — sorter en kopi asc for enkel nærmeste-før-logikk
+  const asc = [...readings].sort((a, b) => a.timestamp - b.timestamp)
+  for (let i = 0; i < asc.length; i++) {
+    const hot = asc[i]
+    if (hot.hotCold !== 'hot') continue
+    let best: Reading | null = null
+    for (let j = i - 1; j >= 0; j--) {
+      const cand = asc[j]
+      if (hot.timestamp - cand.timestamp > PAIR_WINDOW_MS) break
+      if (cand.hotCold === 'cold' && cand.track === hot.track && !usedColdIds.has(cand.id)) {
+        best = cand
+        break
+      }
+    }
+    if (best) {
+      pairs.set(hot.id, best)
+      usedColdIds.add(best.id)
+    }
+  }
+  return pairs
+}
+
+function formatDelta(hot: number, cold: number): string {
+  const d = hot - cold
+  return `${d >= 0 ? '+' : ''}${d.toFixed(1)}`
+}
+
 export default function History({ readings, onImported }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [importMsg, setImportMsg] = useState<string | null>(null)
@@ -35,6 +69,9 @@ export default function History({ readings, onImported }: Props) {
   }
 
   const filtered = trackFilter ? readings.filter((r) => r.track === trackFilter) : readings
+
+  // par varm↔kald på tvers av hele historikken (ikke bare filtrert visning)
+  const coldPairs = pairWithCold(readings)
 
   // group by date (local), newest first (readings already sorted desc by timestamp)
   const groups: { dateKey: string; label: string; items: Reading[] }[] = []
@@ -140,6 +177,7 @@ export default function History({ readings, onImported }: Props) {
             </h2>
             <div className="flex flex-col gap-3">
               {group.items.map((r) => {
+                const cold = coldPairs.get(r.id)
                 return (
                   <div key={r.id} className="rounded-xl border border-neutral-700 p-4">
                     <div className="flex items-start justify-between mb-2">
@@ -173,12 +211,17 @@ export default function History({ readings, onImported }: Props) {
                         </span>
                       </div>
                     </div>
+                    {cold && (
+                      <div className="text-neutral-400 text-xs mb-3">
+                        Δ mot kald {formatTime(cold.timestamp)}
+                      </div>
+                    )}
                     {r.note && <p className="text-neutral-400 text-sm mb-3">{r.note}</p>}
                     <div className="grid grid-cols-2 gap-2">
-                      <WheelCell label="FL" value={r.fl} />
-                      <WheelCell label="FR" value={r.fr} />
-                      <WheelCell label="RL" value={r.rl} />
-                      <WheelCell label="RR" value={r.rr} />
+                      <WheelCell label="FL" value={r.fl} delta={cold ? formatDelta(r.fl, cold.fl) : undefined} />
+                      <WheelCell label="FR" value={r.fr} delta={cold ? formatDelta(r.fr, cold.fr) : undefined} />
+                      <WheelCell label="RL" value={r.rl} delta={cold ? formatDelta(r.rl, cold.rl) : undefined} />
+                      <WheelCell label="RR" value={r.rr} delta={cold ? formatDelta(r.rr, cold.rr) : undefined} />
                     </div>
                   </div>
                 )
@@ -191,11 +234,14 @@ export default function History({ readings, onImported }: Props) {
   )
 }
 
-function WheelCell({ label, value }: { label: string; value: number }) {
+function WheelCell({ label, value, delta }: { label: string; value: number; delta?: string }) {
   return (
     <div className="flex items-baseline justify-between rounded-lg bg-neutral-900 px-3 py-2">
       <span className="text-neutral-500 text-xs font-bold uppercase tracking-wider">{label}</span>
-      <span className="text-white text-2xl font-bold">{value.toFixed(1)}</span>
+      <span className="flex items-baseline gap-1.5">
+        <span className="text-white text-2xl font-bold">{value.toFixed(1)}</span>
+        {delta && <span className="text-brand-red text-xs font-bold">{delta}</span>}
+      </span>
     </div>
   )
 }
