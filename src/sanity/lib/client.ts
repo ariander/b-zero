@@ -192,7 +192,6 @@ export async function getRaceBySlug(slug: string) {
       },
       report,
       eventSupportRaceId,
-      eventSupportHeatId,
       speedhiveEventId,
       links[] {
         title,

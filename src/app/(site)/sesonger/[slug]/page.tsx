@@ -263,10 +263,10 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
 
                             {(race.links && race.links.length > 0) || race.eventSupportRaceId || race.speedhiveEventId ? (
                                 <ul className="space-y-4">
-                                    {race.eventSupportRaceId && race.eventSupportHeatId && (
+                                    {race.eventSupportRaceId && (
                                         <li>
                                             <a
-                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}&heat=${race.eventSupportHeatId}`}
+                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}&heat=1920`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="flex items-center justify-between p-4 rounded-xl font-semibold transition group border bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500"
