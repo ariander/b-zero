@@ -263,15 +263,28 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
 
                             {(race.links && race.links.length > 0) || race.eventSupportRaceId || race.speedhiveEventId ? (
                                 <ul className="space-y-4">
-                                    {race.eventSupportRaceId && (
+                                    {race.eventSupportRaceId && race.eventSupportHeatId && (
                                         <li>
                                             <a
-                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}#:~:text=B%2DZero`}
+                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}&heat=${race.eventSupportHeatId}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="flex items-center justify-between p-4 rounded-xl font-semibold transition group border bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500"
                                             >
-                                                <span className="truncate pr-4 flex-1 min-w-0">Påmeldte</span>
+                                                <span className="truncate pr-4 flex-1 min-w-0">Påmeldte B-Zero</span>
+                                                <CaretRight weight="bold" className="text-brand-red group-hover:translate-x-1 transition-transform shrink-0" />
+                                            </a>
+                                        </li>
+                                    )}
+                                    {race.eventSupportRaceId && (
+                                        <li>
+                                            <a
+                                                href={`https://www.eventsupport.se/entre/public/registrations.php?race=${race.eventSupportRaceId}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-between p-4 rounded-xl font-semibold transition group border bg-slate-800 hover:bg-slate-700 border-slate-700 hover:border-slate-500"
+                                            >
+                                                <span className="truncate pr-4 flex-1 min-w-0">Alle påmeldte</span>
                                                 <CaretRight weight="bold" className="text-brand-red group-hover:translate-x-1 transition-transform shrink-0" />
                                             </a>
                                         </li>

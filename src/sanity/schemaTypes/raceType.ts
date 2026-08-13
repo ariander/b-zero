@@ -109,7 +109,13 @@ export const raceType = defineType({
         defineField({
             name: 'eventSupportRaceId',
             title: 'EventSupport Race ID',
-            description: 'Race ID fra eventsupport.se (f.eks. "3788" fra url https://www.eventsupport.se/entre/public/registrations.php?race=3788). Gir en "Påmeldte"-lenke på løpssiden.',
+            description: 'Race ID fra eventsupport.se (f.eks. "3788" fra url https://www.eventsupport.se/entre/public/registrations.php?race=3788). Gir en "Alle påmeldte"-lenke på løpssiden.',
+            type: 'string',
+        }),
+        defineField({
+            name: 'eventSupportHeatId',
+            title: 'EventSupport Heat ID (B-Zero klasse)',
+            description: 'Heat ID fra eventsupport.se for vår klasse (f.eks. "1920" fra url https://www.eventsupport.se/entre/public/registrations.php?race=3787&heat=1920). Gir en "Påmeldte B-Zero"-lenke på løpssiden.',
             type: 'string',
         }),
         defineField({
