@@ -141,7 +141,7 @@ export async function getUpcomingRaces() {
         }
       }
     }
-  `, { today }, { next: { revalidate: 3600 } }); // Cache for 1 hour to handle date changes
+  `, { today }, { next: { revalidate: 60 } });
 }
 
 // Henter ALLE løp for inneværende år
@@ -157,7 +157,7 @@ export async function getCurrentYearRaces() {
       raceCategory,
       isNM
     }
-  `, { currentYear }, { next: { revalidate: 3600 } });
+  `, { currentYear }, { next: { revalidate: 60 } });
 }
 
 // Henter et spesifikt løp (inklusive galleri og referat) basert på slug
