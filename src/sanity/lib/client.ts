@@ -25,7 +25,7 @@ export async function getPosts() {
       },
       "excerpt": array::join(string::split((pt::text(body)), "")[0..120], "") + "..."
     }
-  `);
+  `, {}, { next: { tags: ['post'] } });
 }
 
 export async function getLatestPost() {
@@ -45,7 +45,7 @@ export async function getLatestPost() {
       },
       "excerpt": array::join(string::split((pt::text(body)), "")[0..120], "") + "..."
     }
-  `);
+  `, {}, { next: { tags: ['post'] } });
 }
 
 
@@ -72,7 +72,8 @@ export async function getPostBySlug(slug: string) {
       }
     }
   `,
-    { slug }
+    { slug },
+    { next: { tags: ['post'] } }
   );
 }
 
@@ -87,7 +88,7 @@ export async function getSeasonDocuments() {
         "fileUrl": file.asset->url
       }
     }
-  `);
+  `, {}, { next: { tags: ['season'] } });
 }
 
 // Henter alle løp sortert på sesong og dato
@@ -117,7 +118,7 @@ export async function getSeasons() {
         websiteUrl
       }
     }
-  `);
+  `, {}, { next: { tags: ['race', 'track'] } });
 }
 
 export async function getUpcomingRaces() {
@@ -141,7 +142,7 @@ export async function getUpcomingRaces() {
         }
       }
     }
-  `, { today }, { next: { revalidate: 60 } });
+  `, { today }, { next: { tags: ['race'] } });
 }
 
 // Henter ALLE løp for inneværende år
@@ -157,7 +158,7 @@ export async function getCurrentYearRaces() {
       raceCategory,
       isNM
     }
-  `, { currentYear }, { next: { revalidate: 60 } });
+  `, { currentYear }, { next: { tags: ['race'] } });
 }
 
 // Henter et spesifikt løp (inklusive galleri og referat) basert på slug
@@ -224,7 +225,8 @@ export async function getRaceBySlug(slug: string) {
       }
     }
   `,
-    { slug }
+    { slug },
+    { next: { tags: ['race', 'track'] } }
   );
 }
 
@@ -240,7 +242,7 @@ export async function getDrivers() {
       categories,
       profileImage
     }
-  `);
+  `, {}, { next: { tags: ['driver'] } });
 }
 
 export async function getDriverBySlug(slug: string) {
@@ -268,7 +270,8 @@ export async function getDriverBySlug(slug: string) {
       }
     }
   `,
-    { slug }
+    { slug },
+    { next: { tags: ['driver'] } }
   );
 }
 
@@ -286,7 +289,7 @@ export async function getPresentationDrivers() {
       profileImage,
       bio
     }
-  `);
+  `, {}, { next: { tags: ['driver'] } });
 }
 
 export async function getRentals() {

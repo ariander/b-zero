@@ -1,7 +1,7 @@
 import { getPresentationDrivers } from "@/sanity/lib/client";
 import PresentationSlider from "./PresentationSlider";
 
-export const revalidate = 60; // Revalidate every minute so updates show during events
+export const revalidate = 300; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export default async function SkjermPage() {
     const drivers = await getPresentationDrivers();

@@ -5,7 +5,7 @@ import { getLatestPost, getUpcomingRaces, getCurrentYearRaces } from '@/sanity/l
 import Image from 'next/image'
 import YearTimeline from '@/components/YearTimeline'
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export default async function Home() {
   const latestPost = await getLatestPost()

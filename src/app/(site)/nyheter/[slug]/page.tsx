@@ -7,7 +7,7 @@ import type { Metadata, ResolvingMetadata } from 'next';
 import { CustomPortableText } from "@/components/CustomPortableText";
 import ShareButton from "@/components/ShareButton";
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export async function generateMetadata(
     { params }: { params: Promise<{ slug: string }> },

@@ -6,7 +6,7 @@ import { ArrowLeft, User, CalendarCheck, Wrench, FlagCheckered, Images } from "@
 import { CustomPortableText } from "@/components/CustomPortableText";
 import { RaceGallery } from "@/components/RaceGallery";
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function DriverPage({ params }: { params: Promise<{ slug: string }> }) {

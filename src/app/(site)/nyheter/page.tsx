@@ -5,7 +5,7 @@ import { ArrowRight, Image as ImageIcon } from '@phosphor-icons/react/dist/ssr'
 import { urlFor } from "@/sanity/lib/image";
 import YearTimeline, { Race } from "@/components/YearTimeline";
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export const metadata = {
     title: 'Nyheter fra B-Zero Racing & Rally',

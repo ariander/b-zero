@@ -4,7 +4,7 @@ import Link from "next/link";
 import { User } from "@phosphor-icons/react/dist/ssr";
 import DriverListFilter from "@/components/DriverListFilter";
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export default async function DriversPage() {
     const drivers = await getDrivers();

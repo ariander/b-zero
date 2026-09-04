@@ -3,7 +3,7 @@ import { createEvents, EventAttributes } from 'ics';
 import { getSeasons } from '@/sanity/lib/client';
 import type { Race } from '@/app/(site)/sesonger/page';
 
-export const revalidate = 60; // Cache revalidation
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export async function GET() {
     try {

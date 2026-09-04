@@ -9,7 +9,7 @@ import { RaceGallery } from "@/components/RaceGallery";
 import { RaceImageUploader } from "@/components/RaceImageUploader";
 import { WeatherWidget } from "@/components/WeatherWidget";
 
-export const revalidate = 60; // Revalidate at most every 60 seconds
+export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export async function generateMetadata(
     { params }: { params: Promise<{ slug: string }> },
