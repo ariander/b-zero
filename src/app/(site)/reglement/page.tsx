@@ -33,6 +33,17 @@ export default function ReglementPage() {
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-4">
+                                    <Link href="/kom-i-gang#sikkerhetsutstyr" className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-green-500 hover:bg-white transition group">
+                                        <ShieldCheck size={24} className="text-slate-400 group-hover:text-green-500 shrink-0 mt-1" weight="fill" />
+                                        <div>
+                                            <div className="flex flex-col items-start gap-1 mb-2">
+                                                <h3 className="font-bold text-slate-900 text-sm">Krav til Sikkerhetsutstyr</h3>
+                                                <span className="bg-green-100 text-green-600 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full inline-block">Byggeguide</span>
+                                            </div>
+                                            <p className="text-xs text-slate-500">Hjelm, sele, dress, stol og HANS/FHR — godkjente standarder og nasjonal gyldighet.</p>
+                                        </div>
+                                    </Link>
+
                                     <a href="https://bilsportboka.no/kapittel/racing/teknisk-reglement-b-zero/" target="_blank" rel="noreferrer" className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-brand-red hover:bg-white transition group">
                                         <LinkIcon size={24} className="text-slate-400 group-hover:text-brand-red shrink-0 mt-1" />
                                         <div>
