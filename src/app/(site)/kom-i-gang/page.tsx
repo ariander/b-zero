@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, ShoppingCart } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, ShoppingCart, WarningIcon } from '@phosphor-icons/react/dist/ssr'
 import BuildGuideTabs from '@/components/BuildGuideTabs'
 
 export const metadata = {
@@ -340,6 +340,27 @@ export default function KomIGangPage() {
                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">Krav til fester</p>
                                     <p className="text-slate-600 font-light text-sm">Hjelmen må ha fabrikkmonterte M6-terminaler for FHR (merket FIA 8858-2002 eller FIA 8858-2010).</p>
                                 </div>
+                            </div>
+
+                            <div className="mt-6 bg-red-50 border border-red-200 rounded-2xl p-6">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <WarningIcon size={22} weight="fill" className="text-red-600 shrink-0" />
+                                    <h5 className="font-bold text-red-800 uppercase tracking-wider text-sm">Typiske bruktfeller</h5>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-600 mt-2 shrink-0" />
+                                        <span className="text-red-900 font-light text-sm"><strong>Britisk standard (BS 6658-85 Type A/FR):</strong> Kjennetegnes av et rødt, rundt merke (BSI Kitemark) på baksiden av hjelmen. Denne standarden er utgått, strøket av FIA og strengt forbudt. Hjelmen gir startnekt.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-600 mt-2 shrink-0" />
+                                        <span className="text-red-900 font-light text-sm"><strong>Snell SA2005 og SA2010:</strong> Hjelmer merket SA2010 (oransje/brun etikett inni fôret) eller SA2005 er ikke lenger tillatt. Kun Snell SA2015 og SA2020 er godkjente Snell-standarder.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-600 mt-2 shrink-0" />
+                                        <span className="text-red-900 font-light text-sm"><strong>MC- og karthjelmer:</strong> Hjelmer merket ECE 22.05 / 22.06 (MC), Snell M (motorsykkel) eller Snell K / CMR (karting) er ikke godkjente for racing med bil, da de mangler krav til brannsikkerhet og FHR/HANS-forankring.</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
