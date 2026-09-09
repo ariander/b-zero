@@ -178,7 +178,7 @@ export default function KomIGangPage() {
                             </a>.
                         </p>
                         <p className="text-slate-600 leading-relaxed font-light">
-                            Nasjonale klasser har enkelte særnorske lempinger på utløpsdato for stol og sele for å holde kostnadene nede, mens kravene til hjelm og brannsikkerhet er absolutte. Sikkerhetsutstyret ditt må være homologert (sertifisert) av FIA — datostemplingen er avgjørende, og her finnes det ingen logiske argumenter for å spare penger.
+                            Nasjonale klasser har enkelte særnorske lempinger på utløpsdato for stol for å holde kostnadene nede, mens kravene til hjelm, sikkerhetssele og brannsikkerhet er absolutte. Sikkerhetsutstyret ditt må være homologert (sertifisert) av FIA — datostemplingen er avgjørende, og her finnes det ingen logiske argumenter for å spare penger.
                         </p>
                     </div>
 
@@ -205,8 +205,8 @@ export default function KomIGangPage() {
                                     <tr>
                                         <td className="px-2 py-4 font-bold text-slate-900 text-sm align-top">Sikkerhetssele</td>
                                         <td className="px-2 py-4 text-slate-600 font-light text-sm align-top">FIA 8853-2016<br />FIA 8853/98</td>
-                                        <td className="px-2 py-4 text-slate-600 font-light text-sm align-top">+5 år utover «Not valid after» (kun 6-punktsbelte)</td>
-                                        <td className="px-2 py-4 text-slate-600 font-light text-sm align-top">Ja (men 8853-2016 anbefales pga. levetid)</td>
+                                        <td className="px-2 py-4 text-slate-600 font-light text-sm align-top">Følger påtrykt utløpsdato («Not valid after»). B-Zero har IKKE utvidet gyldighet.</td>
+                                        <td className="px-2 py-4 text-slate-600 font-light text-sm align-top">Nei (hvis utgått på dato). Ja (hvis innenfor dato).</td>
                                     </tr>
                                     <tr>
                                         <td className="px-2 py-4 font-bold text-slate-900 text-sm align-top">Kjøredress</td>
@@ -283,7 +283,7 @@ export default function KomIGangPage() {
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">Gyldighet i praksis</p>
-                                    <p className="text-slate-600 font-light text-sm">NBF tillater bruk i inntil 5 år etter påtrykt utløpsdato («Not valid after»). Et belte merket utløp 2022 er gyldig ut 2027 i nasjonale løp.</p>
+                                    <p className="text-slate-600 font-light text-sm">Følger påtrykt utløpsdato («Not valid after»). Merk at B-Zero <strong>ikke</strong> omfattes av unntaket for 5 års forlenget gyldighet på seler (slik som enkelte rallyklasser jf. Bilsportboka § 305q).</p>
                                 </div>
                                 <div className="md:col-span-2">
                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">Viktig ved innkjøp</p>
