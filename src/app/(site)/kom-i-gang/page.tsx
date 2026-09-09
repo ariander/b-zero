@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import { ArrowRight, Wrench, IdentificationBadge, ShieldCheck, Lightning, CalendarPlus, Link as LinkIcon, ShoppingCart, WarningIcon } from '@phosphor-icons/react/dist/ssr'
-import BuildGuideTabs from '@/components/BuildGuideTabs'
-
 export const metadata = {
     title: 'Kom i gang - B-Zero Racing',
     description: 'Hvordan bygge bil, ta lisens, og skaffe riktig utstyr for å kjøre B-Zero Racing og Rally.',
@@ -105,11 +103,17 @@ export default function KomIGangPage() {
                         <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Bygge en B-Zero</h2>
                     </div>
 
-                    <p className="text-lg text-slate-600 leading-relaxed font-light mb-8 max-w-3xl">
-                        Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg ut i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
-                    </p>
-
-                    <BuildGuideTabs />
+                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                        <p className="text-lg text-slate-600 leading-relaxed font-light mb-6 max-w-3xl">
+                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg ut i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
+                        </p>
+                        <p className="text-lg text-slate-600 leading-relaxed font-light mb-8 max-w-3xl">
+                            Byggeprosessen er overkommelig for de fleste med litt skruerfaring, men det er strenge krav til sikkerhetsutstyr og oppsett. Vi har samlet alt du trenger å vite om demontering, sveising av bur, understell og særregler i en egen byggeguide.
+                        </p>
+                        <a href="/byggeguide" className="inline-flex items-center gap-2 bg-brand-red hover:bg-red-700 text-white font-conthrax text-sm uppercase tracking-wider py-4 px-8 rounded-xl transition-colors shadow-sm">
+                            Gå til byggeguiden <ArrowRight size={20} weight="bold" />
+                        </a>
+                    </div>
                 </section>
 
                 {/* Section: Lisenser */}
@@ -146,7 +150,7 @@ export default function KomIGangPage() {
                             <div className="space-y-6">
                                 <div>
                                     <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-2">Hvordan</h4>
-                                    <p className="text-slate-600 font-light text-sm">Bilen må inspiseres av en autorisert teknisk årskontrollør. De utsteder en vognbok (bilens &quot;pass&quot;) som dokumenterer at veltebur, stoler og seler er montert i henhold til regelverket (B-Zero/FIA).</p>
+                                    <p className="text-slate-600 font-light text-sm">En autorisert teknisk årskontrollør må inspisere og godkjenne bilen. Kontrolløren utsteder en vognbok (bilens &quot;pass&quot;) som dokumenterer at veltebur, stoler og seler er montert riktig og trygt iht. regelverket (B-Zero/FIA).</p>
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-900 text-sm uppercase tracking-wider mb-2">Hvorfor</h4>
@@ -400,33 +404,39 @@ export default function KomIGangPage() {
                     </div>
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-8">
-                            Bilsport krever at papirene er i orden. Slik ser den byråkratiske rutinen ut år for år:
+                            Bilsport krever at papirene er i orden. Her er den årlige sjekklisten din:
                         </p>
 
                         <div className="relative border-l-2 border-slate-200 ml-4 space-y-12">
 
                             <div className="relative pl-8">
                                 <div className="absolute w-4 h-4 bg-amber-500 rounded-full -left-[9px] top-1 outline-4 outline-white" />
-                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Januar / Februar</h3>
-                                <p className="text-slate-600 font-light text-sm">
-                                    Forny medlemskap i din lokale bilsportklubb og betal årskontingenten for den personlige lisensen din direkte hos NBF. Husk også å bestille eller fornye startnummeret ditt for klassen.
-                                </p>
+                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Januar / Februar: Papirarbeid</h3>
+                                <ul className="space-y-2 text-slate-600 font-light text-sm list-disc list-inside">
+                                    <li>Betal årskontingenten til bilsportklubben din (f.eks. NMK, KNA).</li>
+                                    <li>Forny den personlige lisensen din direkte hos NBF.</li>
+                                    <li>Bestill eller forny startnummeret ditt for klassen.</li>
+                                </ul>
                             </div>
 
                             <div className="relative pl-8">
                                 <div className="absolute w-4 h-4 bg-brand-red rounded-full -left-[9px] top-1 outline-4 outline-white" />
-                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Mars / April</h3>
-                                <p className="text-slate-600 font-light text-sm">
-                                    Gjennomfør &quot;Årskontroll&quot; av bilen. Bilen må sjekkes av en godkjent teknisk kontrollør <strong>hvert eneste år</strong> før du kan stille i ditt første løp for å få utstedt et riktig årskontrollmerke.
-                                </p>
+                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Mars / April: Årskontroll</h3>
+                                <ul className="space-y-2 text-slate-600 font-light text-sm list-disc list-inside">
+                                    <li>Få bilen godkjent av en teknisk årskontrollør for å få årets merke (påkrevd!).</li>
+                                    <li>Gjennomfør EU-kontroll hvis bilen også skal brukes på veien.</li>
+                                    <li>Sjekk om legeattesten din må fornyes (intervall avhenger av alder).</li>
+                                </ul>
                             </div>
 
                             <div className="relative pl-8">
                                 <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1 outline-4 outline-white" />
-                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Løpshelg!</h3>
-                                <p className="text-slate-600 font-light text-sm">
-                                    Du må alltid gjennom &quot;Teknisk kontroll&quot; på selve banen, hvor de dobbeltsjekker at utstyr og bil er greit før du slipper utpå asfalten. Merk: Legeattesten din må også fornyes med jevne mellomrom, avhengig av alderen din (sjekk NBFs tabell for intervaller).
-                                </p>
+                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide">Løpshelg: Teknisk kontroll</h3>
+                                <ul className="space-y-2 text-slate-600 font-light text-sm list-disc list-inside">
+                                    <li>Møt opp til Teknisk kontroll på banen før du kjører utpå.</li>
+                                    <li>Vis frem gyldig personlig lisens og vognlisens.</li>
+                                    <li>Få sikkerhetsutstyret ditt sjekket av kontrollørene.</li>
+                                </ul>
                             </div>
 
                         </div>

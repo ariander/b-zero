@@ -30,6 +30,7 @@ export function Navigation() {
         { name: 'Nyheter', href: '/nyheter' },
         { name: 'Terminliste', href: '/sesonger' },
         { name: 'Kom i gang', href: '/kom-i-gang' },
+        { name: 'Byggeguide', href: '/byggeguide' },
         { name: 'Sjåfører', href: '/sjaforer' },
         { name: 'Reglement', href: '/reglement' },
         { name: 'Om Oss', href: '/om-oss' },

@@ -95,11 +95,12 @@ export default function BuildGuideTabs() {
                                 {/* 1. Demontering */}
                                 <div>
                                     <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span className="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> Demontering og Forberedelser</h3>
-                                    <p>Det første steget er å fjerne alt unødvendig interiør fra bilen. Dette sparer vekt og klargjør kupeen for sveising av veltebur.</p>
-                                    <ul>
-                                        <li>Fjern seter, matter, taktrekk og plastdeksler. Dashboard-plasten taes ut før montering av sikkerhetsbur, og må tilpasses noe ved montering, etter at sikkerhetsburet er ferdig installert.</li>
-                                        <li>Fjern lydisolering/asfaltmatter fra gulvet (bruk feks tørris og hammer, eller varmepistol og skrape).</li>
-                                        <li>Sørg for at områdene der buret skal sveises inn i karosseriet er skrapt helt rene for lakk og tektyl.</li>
+                                    <p className="mb-4">Det første steget er å fjerne alt unødvendig interiør for å spare vekt og klargjøre for bur.</p>
+                                    <ul className="list-none space-y-3 pl-0">
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Fjern interiør:</strong> Seter, matter, taktrekk og all løs plast skal ut.</span></li>
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Demonter dashboard:</strong> Taes ut før montering av bur, og tilpasses/kappes før det settes inn igjen.</span></li>
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Fjern asfaltmatter:</strong> Skrap gulvet rent for lyddemping (bruk tørris/hammer eller varmepistol).</span></li>
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Klargjør for sveising:</strong> Skrap sveisepunktene 100% frie for lakk og tektyl.</span></li>
                                     </ul>
                                 </div>
 
@@ -139,14 +140,40 @@ export default function BuildGuideTabs() {
                                 {/* 3. Norske særregler */}
                                 <div>
                                     <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span className="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span> Norske særregler</h3>
-                                    <p>Regelverket vårt i Norge (B-Zero) er basert på det britiske C1-reglementet, men vi har noen praktiske tilpasninger for våre forhold. Følgende gjelder i Norge:</p>
-                                    <ul>
-                                        <li><strong>Brannslukker:</strong> Ikke påkrevd! (Men hvis du først velger å montere en, <em>må</em> den være FIA-godkjent og montert iht. reglement).</li>
-                                        <li><strong>&quot;C1 Racing radio receiver&quot;:</strong> Ikke påkrevd hos oss.</li>
-                                        <li><strong>Katalysator:</strong> Denne kan du lovlig tømme (fjerne innmaten i).</li>
-                                        <li><strong>Ekstra tåkelys bak (Rear fog light):</strong> Ikke påkrevd. Vi bruker det originale tåkelyset bilen er utstyrt med.</li>
-                                        <li><strong>Bremseklosser:</strong> I Norge har vi fritt valg av bremseklosser! (I f.eks. UK må man benytte en spesifikk type).</li>
-                                    </ul>
+                                    <p className="mb-4">Regelverket vårt i Norge er basert på det britiske C1-reglementet, men vi har noen praktiske og kostnadsbesparende tilpasninger:</p>
+                                    
+                                    <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                                        <table className="w-full text-left text-sm">
+                                            <thead className="bg-slate-50 border-b border-slate-200">
+                                                <tr>
+                                                    <th className="px-6 py-3 font-bold text-slate-900">Komponent</th>
+                                                    <th className="px-6 py-3 font-bold text-slate-900">Norsk særregel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="divide-y divide-slate-100">
+                                                <tr>
+                                                    <td className="px-6 py-4 font-semibold text-slate-900">Brannslukker</td>
+                                                    <td className="px-6 py-4 text-slate-600"><span className="inline-block bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-xs font-bold uppercase mr-2">Ikke påkrevd</span> Hvis du likevel monterer, <em>må</em> den være FIA-godkjent.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 font-semibold text-slate-900">Radiomottaker</td>
+                                                    <td className="px-6 py-4 text-slate-600"><span className="inline-block bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-xs font-bold uppercase mr-2">Ikke påkrevd</span> (&quot;C1 Racing radio receiver&quot; trengs ikke).</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 font-semibold text-slate-900">Katalysator</td>
+                                                    <td className="px-6 py-4 text-slate-600"><span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-bold uppercase mr-2">Valgfritt</span> Lov å tømme (fjerne innmaten i).</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 font-semibold text-slate-900">Ekstra tåkelys bak</td>
+                                                    <td className="px-6 py-4 text-slate-600"><span className="inline-block bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-xs font-bold uppercase mr-2">Ikke påkrevd</span> Bruk det originale som følger med bilen.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-6 py-4 font-semibold text-slate-900">Bremseklosser</td>
+                                                    <td className="px-6 py-4 text-slate-600"><span className="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-bold uppercase mr-2">Fritt valg</span> I motsetning til UK har vi fritt valg av klosser.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
                                 {/* 4. Spesialdetaljer */}
