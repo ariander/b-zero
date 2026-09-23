@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, FacebookLogo, YoutubeLogo } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, DownloadSimple, FacebookLogo, YoutubeLogo } from '@phosphor-icons/react/dist/ssr'
 import { Navigation } from '@/components/Navigation'
 // import { MerchBanner } from '@/components/MerchBanner'  // midlertidig skjult
 
@@ -86,6 +86,15 @@ export default function SiteLayout({
                 <a href="https://www.youtube.com/@bzeroracing" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
                   <YoutubeLogo size={20} weight="fill" />
                   Følg oss på YouTube
+                </a>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-neutral-800">
+                <a href="/b-zero-logo.zip" download className="group inline-flex items-center gap-3 border border-neutral-700 hover:border-brand-red bg-neutral-800/50 hover:bg-neutral-800 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                  <DownloadSimple size={20} weight="bold" className="text-brand-red group-hover:translate-y-0.5 transition-transform" />
+                  <span className="flex flex-col leading-tight">
+                    Last ned logo
+                  </span>
                 </a>
               </div>
             </div>
