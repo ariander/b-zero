@@ -17,7 +17,33 @@ export interface Race {
 }
 
 export default function YearTimeline({ races, year, title, hideSubheadings }: { races: Race[], year: number, title?: string, hideSubheadings?: boolean }) {
-    if (!races || races.length === 0) return null;
+    if (!races || races.length === 0) {
+        if (!title) return null;
+        const isRally = title.toLowerCase().includes('rally');
+        return (
+            <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-slate-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+                <div>
+                    <h2 className="text-xl font-conthrax text-white mb-6 border-b border-slate-700 pb-3 relative z-10 flex items-center justify-between">
+                        <span>{title}</span>
+                        <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-wider font-conthrax">
+                            Planlegges
+                        </span>
+                    </h2>
+                    <div className="py-12 px-6 text-center rounded-2xl bg-slate-800/40 border border-slate-700/50 relative z-10 my-4">
+                        <p className="text-white font-conthrax text-base mb-2">
+                            {isRally ? 'Nye løp planlegges' : 'Vi jobber med neste års program'}
+                        </p>
+                        <p className="text-sm text-slate-400 max-w-sm mx-auto leading-relaxed">
+                            {isRally 
+                                ? `Terminlisten for B-Zero Rally ${year} publiseres så snart løpsdatoene er bekreftet.`
+                                : `Terminlisten for B-Zero Racing ${year} publiseres så snart løpsdatoene er klare.`}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     const racingRaces = races.filter(r => r.raceCategory === 'racing' || !r.raceCategory);
     const rallyRaces = races.filter(r => r.raceCategory === 'rally');

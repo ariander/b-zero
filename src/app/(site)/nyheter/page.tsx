@@ -1,4 +1,4 @@
-import { getPosts, getCurrentYearRaces } from "@/sanity/lib/client";
+import { getPosts, getCurrentYearRaces, getCalendarYear } from "@/sanity/lib/client";
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Image as ImageIcon } from '@phosphor-icons/react/dist/ssr'
@@ -26,8 +26,9 @@ interface Post {
 
 export default async function NyheterPage() {
     const posts: Post[] = await getPosts();
+    const currentYear = await getCalendarYear();
     // Use the Race interface for upcomingRaces to satisfy YearTimeline props
-    const upcomingRaces: Race[] = await getCurrentYearRaces();
+    const upcomingRaces: Race[] = await getCurrentYearRaces(currentYear);
 
     // Group posts by year
     const groupedPosts = posts.reduce((acc: { [year: string]: Post[] }, post) => {
@@ -41,7 +42,6 @@ export default async function NyheterPage() {
 
     // Get sorted years (descending)
     const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parseInt(a));
-    const currentYear = new Date().getFullYear();
 
     return (
         <div className="bg-neutral-950 min-h-screen">

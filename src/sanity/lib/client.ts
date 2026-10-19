@@ -145,11 +145,16 @@ export async function getUpcomingRaces() {
   `, { today }, { next: { tags: ['race'] } });
 }
 
-// Henter ALLE løp for inneværende år
-export async function getCurrentYearRaces() {
-  const currentYear = new Date().getFullYear();
+// Henter gjeldende sesongår for løpskalenderen (finner nyeste sesong med løp, standard 2027)
+export async function getCalendarYear(): Promise<number> {
+  const latestSeason = await client.fetch(`*[_type == "season"] | order(year desc)[0].year`, {}, { next: { tags: ['season'] } });
+  return latestSeason || 2027;
+}
+
+// Henter ALLE løp for angitt sesongår (eller nyeste sesong / 2027)
+export async function getCurrentYearRaces(targetYear?: number) {
   return client.fetch(`
-    *[_type == "race" && season == $currentYear] | order(date asc) {
+    *[_type == "race" && season == coalesce($targetYear, *[_type == "season"] | order(year desc)[0].year, 2027)] | order(date asc) {
       _id,
       title,
       slug,
@@ -158,7 +163,7 @@ export async function getCurrentYearRaces() {
       raceCategory,
       isNM
     }
-  `, { currentYear }, { next: { tags: ['race'] } });
+  `, { targetYear: targetYear ?? null }, { next: { tags: ['race'] } });
 }
 
 // Henter et spesifikt løp (inklusive galleri og referat) basert på slug

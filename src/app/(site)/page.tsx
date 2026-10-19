@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Info, RocketLaunch, CalendarCheck } from '@phosphor-icons/react/dist/ssr'
 import { HomeHero } from '@/components/HomeHero'
-import { getLatestPost, getUpcomingRaces, getCurrentYearRaces } from '@/sanity/lib/client'
+import { getLatestPost, getUpcomingRaces, getCurrentYearRaces, getCalendarYear } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import YearTimeline from '@/components/YearTimeline'
@@ -12,8 +12,9 @@ export default async function Home() {
   const latestPost = await getLatestPost()
   const upcomingRaces = await getUpcomingRaces()
 
-  // Fetch and split current year's races
-  const currentYearRaces = await getCurrentYearRaces()
+  // Fetch and split target year's races (2027)
+  const calendarYear = await getCalendarYear()
+  const currentYearRaces = await getCurrentYearRaces(calendarYear)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const racingRaces = currentYearRaces.filter((r: any) => r.raceCategory === 'racing' || !r.raceCategory)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -130,13 +131,13 @@ export default async function Home() {
       <section className="bg-slate-900 py-12 md:py-20 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10 text-center">
-            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {new Date().getFullYear()}</h2>
+            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {calendarYear}</h2>
             <p className="text-slate-400 mt-3 max-w-2xl mx-auto">Hold av datoene! Her er oversikten over årets gjeveste oppgjør på asfalt og grus.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <YearTimeline races={racingRaces} year={new Date().getFullYear()} title={`Racing ${new Date().getFullYear()}`} hideSubheadings={true} />
-            <YearTimeline races={rallyRaces} year={new Date().getFullYear()} title={`Rally ${new Date().getFullYear()}`} hideSubheadings={true} />
+            <YearTimeline races={racingRaces} year={calendarYear} title={`Racing ${calendarYear}`} hideSubheadings={true} />
+            <YearTimeline races={rallyRaces} year={calendarYear} title={`Rally ${calendarYear}`} hideSubheadings={true} />
           </div>
         </div>
       </section>
