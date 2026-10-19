@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Info, RocketLaunch, CalendarCheck } from '@phosphor-icons/react/dist/ssr'
 import { HomeHero } from '@/components/HomeHero'
 import { getLatestPost, getUpcomingRaces, getCurrentYearRaces } from '@/sanity/lib/client'
+import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import YearTimeline from '@/components/YearTimeline'
 
@@ -79,10 +80,13 @@ export default async function Home() {
                 {latestPost.mainImage?.asset?.url ? (
                   <div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden">
                     <Image
-                      src={latestPost.mainImage.asset.url}
+                      src={urlFor(latestPost.mainImage).width(1200).auto('format').url()}
                       alt={latestPost.title}
                       fill
                       className="object-cover group-hover:scale-105 transition duration-700"
+                      style={latestPost.mainImage?.hotspot ? {
+                        objectPosition: `${latestPost.mainImage.hotspot.x * 100}% ${latestPost.mainImage.hotspot.y * 100}%`
+                      } : undefined}
                     />
                   </div>
                 ) : (

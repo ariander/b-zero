@@ -1,4 +1,5 @@
 import { getPostBySlug } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export async function generateMetadata(
     const description = post.body?.filter((block: any) => block._type === 'block' && block.children).map((block: any) => block.children.map((child: any) => child.text).join('')).join(' ').substring(0, 160) || 'Les nyheten på B-Zero Racing.';
 
     const previousImages = (await parent).openGraph?.images || []
-    const imageUrl = post.mainImage?.asset?.url
+    const imageUrl = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined
 
     return {
         title: `${post.title} | B-Zero Racing`,
@@ -56,7 +57,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 {post.mainImage?.asset?.url ? (
                     <div className="absolute inset-0">
                         <Image
-                            src={post.mainImage.asset.url}
+                            src={urlFor(post.mainImage).width(1600).auto('format').url()}
                             alt={post.title}
                             fill
                             priority
@@ -99,7 +100,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 <section className="bg-white px-6 py-6 md:px-10 md:py-8 rounded-2xl shadow-sm border border-slate-200">
-                    <div className="prose prose-slate max-w-none prose-headings:font-conthrax prose-headings:uppercase prose-p:text-lg prose-p:leading-relaxed mb-10">
+                    <div className="mb-10">
                         <CustomPortableText value={post.body} />
                     </div>
 
