@@ -44,16 +44,31 @@ function calculateDaysRemaining(dateString: string) {
 
 const RaceCard = ({ race, label, badgeClass }: { race: UpcomingRace | null, label: string, badgeClass: string }) => {
     if (!race) {
+        const isRace = label.toLowerCase().includes('race');
         return (
-            <div className="bg-black/40 backdrop-blur-md border border-white/10 p-5 rounded-2xl text-left flex-1 flex flex-col justify-center border-dashed">
-                <div className="flex justify-between items-start mb-2 opacity-50">
+            <a
+                href="/sesonger"
+                className="bg-black/60 backdrop-blur-sm border border-white/20 hover:border-white/40 p-5 rounded-2xl text-left transition duration-300 group flex-1 flex flex-col justify-between"
+            >
+                <div className="flex justify-between items-center mb-3">
                     <span className={`text-[10px] font-conthrax uppercase tracking-wider px-3 py-1 rounded-full ${badgeClass}`}>
                         Neste {label}
                     </span>
+                    <span className="text-[11px] font-conthrax uppercase tracking-wider text-slate-400">
+                        Kommer snart
+                    </span>
                 </div>
-                <p className="text-slate-400 font-medium italic text-sm">Ikke fastsatt enda.</p>
-                <p className="text-slate-500 text-xs mt-1">Følg med for oppdateringer!</p>
-            </div>
+                <div>
+                    <h3 className="text-white font-conthrax group-hover:text-brand-red transition-colors text-base md:text-lg mb-1">
+                        {isRace ? 'Vi jobber med neste års program' : 'Nye løp planlegges'}
+                    </h3>
+                    <p className="text-slate-400 text-xs md:text-sm font-normal">
+                        {isRace
+                            ? 'Terminlisten publiseres så fort datoene er klare.'
+                            : 'Publiseres fortløpende så snart datoer er bekreftet.'}
+                    </p>
+                </div>
+            </a>
         );
     }
 
@@ -141,8 +156,8 @@ export function HomeHero({ upcomingRacing, upcomingRally }: HomeHeroProps) {
                         src="/b-zero racing rally hero heading.svg"
                         alt="B-Zero Racing / Rally"
                         width={800}
-                        height={200}
-                        className="w-[90%] max-w-3xl drop-shadow-lg"
+                        height={212}
+                        className="w-[90%] max-w-3xl h-auto drop-shadow-lg"
                         priority
                     />
                 </h1>

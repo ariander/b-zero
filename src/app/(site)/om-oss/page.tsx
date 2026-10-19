@@ -101,6 +101,26 @@ export default function OmOssPage() {
                                 </div>
                             </div>
 
+                            {/* Lars Brenna */}
+                            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition duration-300 group">
+                                <div className="w-20 h-20 bg-slate-100 rounded-full mb-4 flex items-center justify-center overflow-hidden border-2 border-slate-200">
+                                    <Image src="/lars.jpg" alt="Lars Brenna" width={200} height={200} className="object-cover w-full h-full" />
+                                </div>
+                                <h3 className="text-xl font-conthrax text-slate-900 mb-1 transition-colors">Lars Brenna</h3>
+                                <p className="text-slate-400 font-bold uppercase tracking-wider text-xs mb-4">Kontakt Rally</p>
+
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
+                                        <EnvelopeSimple size={20} className="text-slate-400 shrink-0" />
+                                        <ObfuscatedEmail user="lars" domain="vtkl.no" className="truncate" />
+                                    </div>
+                                    <a href="tel:+4746171707" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition text-sm">
+                                        <Phone size={20} className="text-slate-400" />
+                                        <span>+47 46 17 17 07</span>
+                                    </a>
+                                </div>
+                            </div>
+
                             {/* Facebook-link */}
                             <div className="pt-4">
                                 <a href="https://www.facebook.com/bzeroracing" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-[#1877F2] hover:bg-[#1864D9] text-white p-4 rounded-xl font-bold uppercase tracking-wider transition shadow-md hover:shadow-lg text-sm w-full">
