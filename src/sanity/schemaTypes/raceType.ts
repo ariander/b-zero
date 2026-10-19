@@ -1,5 +1,11 @@
 import { defineField, defineType } from 'sanity'
 
+const currentYear = new Date().getFullYear();
+const seasonList = Array.from(
+    { length: Math.max(2032, currentYear + 4) - 2019 + 1 },
+    (_, i) => Math.max(2032, currentYear + 4) - i
+);
+
 export const raceType = defineType({
     name: 'race',
     title: 'Løp',
@@ -47,12 +53,10 @@ export const raceType = defineType({
             type: 'number',
             description: 'Året dette løpet ble kjørt.',
             options: {
-                list: [
-                    2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019
-                ],
+                list: seasonList,
                 layout: 'dropdown'
             },
-            initialValue: 2026,
+            initialValue: currentYear,
             validation: (rule) => rule.required().min(2000).max(2100),
         }),
         defineField({
