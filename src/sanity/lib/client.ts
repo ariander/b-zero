@@ -127,6 +127,7 @@ export async function getUpcomingRaces() {
     {
       "racing": *[_type == "race" && raceCategory == "racing" && (date >= $today || (defined(endDate) && endDate >= $today))] | order(date asc)[0] {
         _id, title, slug, date, endDate, raceCategory, isNM,
+        "trackName": track->name,
         links[] {
           title,
           url,
@@ -135,6 +136,7 @@ export async function getUpcomingRaces() {
       },
       "rally": *[_type == "race" && raceCategory == "rally" && (date >= $today || (defined(endDate) && endDate >= $today))] | order(date asc)[0] {
         _id, title, slug, date, endDate, raceCategory, isNM,
+        "trackName": track->name,
         links[] {
           title,
           url,

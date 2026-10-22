@@ -10,6 +10,7 @@ export interface UpcomingRace {
     date: string;
     endDate?: string;
     raceCategory: 'racing' | 'rally';
+    trackName?: string;
     links?: { title: string, url: string, fileUrl?: string }[];
 }
 
@@ -96,7 +97,12 @@ const RaceCard = ({ race, label, badgeClass }: { race: UpcomingRace | null, labe
                     {countdownText}
                 </span>
             </div>
-            <h3 className="text-white font-conthrax group-hover:text-brand-red transition-colors text-base md:text-lg line-clamp-1 mb-1">{race.title}</h3>
+            <h3 className="text-white font-conthrax group-hover:text-brand-red transition-colors text-base md:text-lg line-clamp-1 mb-0.5">{race.title}</h3>
+            {race.trackName && (
+                <div className="text-slate-300 text-xs md:text-sm font-semibold uppercase tracking-wider line-clamp-1 mb-1">
+                    {race.trackName}
+                </div>
+            )}
             <div className="text-slate-400 text-sm font-medium">
                 {new Date(race.date).toLocaleDateString('no-NB', { month: 'long', day: 'numeric', year: 'numeric' })}
             </div>

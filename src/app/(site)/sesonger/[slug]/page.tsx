@@ -2,7 +2,7 @@ import { getRaceBySlug } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Images, Notebook, Link as LinkIcon, CaretRight, CalendarBlank } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, Images, Notebook, Link as LinkIcon, CaretRight, CalendarBlank, MapPin } from "@phosphor-icons/react/dist/ssr";
 import { CustomPortableText } from "@/components/CustomPortableText";
 import type { Metadata, ResolvingMetadata } from 'next';
 import { RaceGallery } from "@/components/RaceGallery";
@@ -65,7 +65,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
     ].filter(Boolean);
 
     return (
-        <article className="pb-24">
+        <article className="bg-neutral-950 min-h-screen pb-24">
             {/* Header / Hero Section */}
             <div className="relative w-full h-[50vh] min-h-[400px] flex items-end justify-center -mb-12 z-0">
                 {race.mainImage?.asset?.url ? (
@@ -148,6 +148,12 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-conthrax text-white uppercase tracking-wider drop-shadow-lg">
                         {race.title}
                     </h1>
+                    {race.track?.name && (
+                        <p className="flex items-center gap-2 mt-3 text-lg md:text-2xl font-conthrax text-neutral-300 uppercase tracking-wider drop-shadow-md">
+                            <MapPin size={22} weight="fill" className="text-brand-red shrink-0" />
+                            {race.track.name}
+                        </p>
+                    )}
                 </div>
             </div>
 
