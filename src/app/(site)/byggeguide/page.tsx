@@ -25,7 +25,7 @@ export default function ByggeguidePage() {
                     <Wrench size={64} className="text-brand-red mx-auto mb-6" />
                     <h1 className="text-2xl md:text-4xl font-conthrax uppercase tracking-wider mb-6">Byggeguide</h1>
                     <p className="text-xl text-slate-300 font-light leading-relaxed mb-6">
-                        Slik forvandler du en hverdagshelt til en fullblods racerbil. Følg stegene for oppsett av veltebur, understell og sikkerhetsutstyr.
+                        Slik forvandler du bestemors bruksbil til en fullblods racerbil. Følg stegene for oppsett av veltebur, understell og sikkerhetsutstyr.
                     </p>
                 </div>
             </section>

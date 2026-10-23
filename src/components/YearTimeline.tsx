@@ -9,6 +9,7 @@ export interface Race {
     date: string;
     endDate?: string;
     raceCategory?: 'racing' | 'rally';
+    trackName?: string;
     mainImage: {
         asset: {
             url: string;
@@ -16,21 +17,21 @@ export interface Race {
     } | null;
 }
 
-export default function YearTimeline({ races, year, title, hideSubheadings }: { races: Race[], year: number, title?: string, hideSubheadings?: boolean }) {
+export default function YearTimeline({ races, year, title, hideSubheadings, compact }: { races: Race[], year: number, title?: string, hideSubheadings?: boolean, compact?: boolean }) {
     if (!races || races.length === 0) {
         if (!title) return null;
         const isRally = title.toLowerCase().includes('rally');
         return (
-            <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <div className={`bg-slate-900 border border-slate-700 rounded-3xl ${compact ? 'p-5' : 'p-6'} shadow-xl relative overflow-hidden flex flex-col justify-between`}>
                 <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-slate-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
                 <div>
-                    <h2 className="text-xl font-conthrax text-white mb-6 border-b border-slate-700 pb-3 relative z-10 flex items-center justify-between">
+                    <h2 className={`${compact ? 'text-lg mb-4 pb-2' : 'text-xl mb-6 pb-3'} font-conthrax text-white border-b border-slate-700 relative z-10 flex items-center justify-between`}>
                         <span>{title}</span>
                         <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-wider font-conthrax">
                             Planlegges
                         </span>
                     </h2>
-                    <div className="py-12 px-6 text-center rounded-2xl bg-slate-800/40 border border-slate-700/50 relative z-10 my-4">
+                    <div className={`${compact ? 'py-6' : 'py-12'} px-6 text-center rounded-2xl bg-slate-800/40 border border-slate-700/50 relative z-10 ${compact ? 'my-2' : 'my-4'}`}>
                         <p className="text-white font-conthrax text-base mb-2">
                             {isRally ? 'Nye løp planlegges' : 'Vi jobber med neste års program'}
                         </p>
@@ -61,7 +62,7 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
                         </span>
                     </h3>
                 )}
-                <div className="relative border-l-2 border-slate-700 ml-2 pl-6 space-y-5 pb-2">
+                <div className={`relative border-l-2 border-slate-700 ml-2 pl-6 ${compact ? 'space-y-2.5 pb-1' : 'space-y-5 pb-2'}`}>
                     {trackRaces.map((race) => {
                         const start = new Date(race.date);
                         start.setHours(0, 0, 0, 0);
@@ -79,10 +80,10 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
 
                         return (
                             <div key={race._id} className="relative group">
-                                <Link href={`/sesonger/${race.slug.current}`} className="block">
+                                <Link href={`/sesonger/${race.slug.current}`} className={compact ? 'flex items-baseline gap-3' : 'block'}>
                                     {/* Dot / Checkmark */}
                                     {isPast ? (
-                                        <div className="absolute -left-[35px] top-[2px] bg-slate-900 z-10 text-emerald-500 transition-transform group-hover:scale-125 rounded-full">
+                                        <div className={`absolute -left-[35px] ${compact ? 'top-0' : 'top-[2px]'} bg-slate-900 z-10 text-emerald-500 transition-transform group-hover:scale-125 rounded-full`}>
                                             <CheckCircle size={20} weight="fill" />
                                         </div>
                                     ) : isOngoing ? (
@@ -96,7 +97,7 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
                                         <div className={`absolute -left-[33px] top-1 w-4 h-4 rounded-full border-2 z-10 transition-transform group-hover:scale-125 ${dotColor}`}></div>
                                     )}
 
-                                    <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${textColor}`}>
+                                    <div className={`text-xs font-bold uppercase tracking-wider ${compact ? 'w-24 shrink-0 whitespace-nowrap' : 'mb-1'} ${textColor}`}>
                                         {(() => {
                                             const startVal = new Date(race.date);
                                             const startStr = `${startVal.getDate()}. ${startVal.toLocaleDateString('no-NB', { month: 'short' })}`;
@@ -110,8 +111,13 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
                                             return startStr;
                                         })()}
                                     </div>
-                                    <div className={`text-sm font-conthrax line-clamp-2 ${isPast ? 'text-slate-600' : 'text-slate-400 group-hover:text-white'} transition-colors flex items-center gap-1.5 flex-wrap`}>
+                                    <div className={`text-sm font-conthrax ${compact ? 'min-w-0' : 'line-clamp-2'} ${isPast ? 'text-slate-600' : 'text-slate-400 group-hover:text-white'} transition-colors flex items-center gap-1.5 flex-wrap`}>
                                         <span>{race.title}</span>
+                                        {compact && race.trackName && (
+                                            <span className={`font-sans text-xs font-normal ${isPast ? 'text-slate-600' : 'text-slate-500'}`}>
+                                                {race.trackName}
+                                            </span>
+                                        )}
                                         {isOngoing && (
                                             <span className="text-emerald-400 text-[10px] font-bold font-sans animate-pulse shrink-0 whitespace-nowrap bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-800 uppercase tracking-wider">
                                                 Pågår nå
@@ -128,9 +134,9 @@ export default function YearTimeline({ races, year, title, hideSubheadings }: { 
     };
 
     return (
-        <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-xl relative overflow-hidden">
+        <div className={`bg-slate-900 border border-slate-700 rounded-3xl ${compact ? 'p-5' : 'p-6'} shadow-xl relative overflow-hidden`}>
             <div className="absolute top-[-50px] right-[-50px] w-64 h-64 bg-slate-800 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-            <h2 className="text-xl font-conthrax text-white mb-6 border-b border-slate-700 pb-3 relative z-10">
+            <h2 className={`${compact ? 'text-lg mb-4 pb-2' : 'text-xl mb-6 pb-3'} font-conthrax text-white border-b border-slate-700 relative z-10`}>
                 {title || `Løpskalender ${year}`}
             </h2>
             <div className="relative z-10">

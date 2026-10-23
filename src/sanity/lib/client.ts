@@ -48,6 +48,28 @@ export async function getLatestPost() {
   `, {}, { next: { tags: ['post'] } });
 }
 
+export async function getLatestPosts(limit = 3) {
+  const n = Math.max(1, Math.floor(Number(limit) || 3));
+  return client.fetch(`
+    *[_type == "post"] | order(publishedAt desc)[0...${n}] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      mainImage {
+        asset->{
+          _id,
+          url
+        },
+        hotspot,
+        crop
+      },
+      "excerpt": array::join(string::split((pt::text(body)), "")[0..120], "") + "..."
+    }
+  `, {}, { next: { tags: ['post'] } });
+}
+
+
 
 export async function getPostBySlug(slug: string) {
   return client.fetch(
@@ -163,9 +185,10 @@ export async function getCurrentYearRaces(targetYear?: number) {
       date,
       endDate,
       raceCategory,
-      isNM
+      isNM,
+      "trackName": track->name
     }
-  `, { targetYear: targetYear ?? null }, { next: { tags: ['race'] } });
+  `, { targetYear: targetYear ?? null }, { next: { tags: ['race', 'track'] } });
 }
 
 // Henter et spesifikt løp (inklusive galleri og referat) basert på slug

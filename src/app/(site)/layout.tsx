@@ -78,6 +78,10 @@ export default function SiteLayout({
               <p className="mb-4 text-neutral-200">
                 Spørsmål om klassen eller regelverket?
               </p>
+              <Link href="/om-oss" className="group mb-6 inline-flex items-center gap-2 font-semibold text-white hover:text-brand-red transition">
+                <ArrowRight size={14} className="text-brand-red group-hover:translate-x-1 transition-transform" />
+                Kontaktpersoner &amp; om oss
+              </Link>
               <div className="flex flex-col gap-3 items-start">
                 <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">
                   <FacebookLogo size={20} weight="fill" />
@@ -93,7 +97,7 @@ export default function SiteLayout({
                 <a href="/b-zero-logo.zip" download className="group inline-flex items-center gap-3 border border-neutral-700 hover:border-brand-red bg-neutral-800/50 hover:bg-neutral-800 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                   <DownloadSimple size={20} weight="bold" className="text-brand-red group-hover:translate-y-0.5 transition-transform" />
                   <span className="flex flex-col leading-tight">
-                    Last ned logo
+                    Last ned B-ZERO logo
                   </span>
                 </a>
               </div>

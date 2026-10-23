@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Info, RocketLaunch, CalendarCheck } from '@phosphor-icons/react/dist/ssr'
 import { HomeHero } from '@/components/HomeHero'
-import { getLatestPost, getUpcomingRaces, getCurrentYearRaces, getCalendarYear } from '@/sanity/lib/client'
+import { getLatestPosts, getUpcomingRaces, getCurrentYearRaces, getCalendarYear } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import YearTimeline from '@/components/YearTimeline'
@@ -9,7 +9,7 @@ import YearTimeline from '@/components/YearTimeline'
 export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
 export default async function Home() {
-  const latestPost = await getLatestPost()
+  const latestPosts = await getLatestPosts(4)
   const upcomingRaces = await getUpcomingRaces()
 
   // Fetch and split target year's races (2027)
@@ -65,79 +65,90 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Latest News Section */}
-      <section className="bg-slate-200 py-12 md:py-20 border-y border-slate-300">
+      {/* Race Calendars Section */}
+      <section className="bg-slate-900 py-10 md:py-14 border-y border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-10">
-            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-800">Siste Nytt fra Depotet</h2>
-            <Link href="/nyheter" className="hidden sm:flex text-slate-600 font-bold items-center gap-2 hover:text-slate-800 transition group uppercase tracking-wider text-sm">
-              Se alle nyheter <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+          <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {calendarYear}</h2>
+            <Link href="/sesonger" className="text-slate-400 font-bold flex items-center gap-2 hover:text-white transition group uppercase tracking-wider text-sm">
+              Full terminliste <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {latestPost ? (
-            <Link href={`/nyheter/${latestPost.slug.current}`} className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500 border border-slate-200">
-              <div className="flex flex-col md:flex-row">
-                {latestPost.mainImage?.asset?.url ? (
-                  <div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden">
-                    <Image
-                      src={urlFor(latestPost.mainImage).width(1200).auto('format').url()}
-                      alt={latestPost.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition duration-700"
-                      style={latestPost.mainImage?.hotspot ? {
-                        objectPosition: `${latestPost.mainImage.hotspot.x * 100}% ${latestPost.mainImage.hotspot.y * 100}%`
-                      } : undefined}
-                    />
-                  </div>
-                ) : (
-                  <div className="w-full md:w-1/2 bg-slate-800 flex items-center justify-center p-12">
-                    <Image src="/B-ZERO-logo.svg" alt="B-Zero" width={200} height={60} className="opacity-20" unoptimized />
-                  </div>
-                )}
-                <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
-                  <time dateTime={latestPost.publishedAt} className="text-sm font-bold text-slate-500 tracking-widest uppercase mb-4 block">
-                    {new Date(latestPost.publishedAt).toLocaleDateString('no-NB', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </time>
-                  <h3 className="text-2xl md:text-3xl font-conthrax text-slate-800 mb-6 transition-colors">
-                    {latestPost.title}
-                  </h3>
-                  <p className="text-slate-600 text-lg mb-8 line-clamp-3">
-                    {latestPost.excerpt}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-slate-600 font-bold uppercase tracking-wider group-hover:text-brand-red transition">
-                    Les saken <ArrowRight weight="bold" className="group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </div>
-              </div>
-            </Link>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+            <YearTimeline races={racingRaces} year={calendarYear} title={`Racing ${calendarYear}`} hideSubheadings={true} compact />
+            <YearTimeline races={rallyRaces} year={calendarYear} title={`Rally ${calendarYear}`} hideSubheadings={true} compact />
+          </div>
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="bg-slate-200 py-12 md:py-20 border-b border-slate-300">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-800 mb-8 md:mb-10">Siste Nytt fra Depotet</h2>
+
+          {latestPosts && latestPosts.length > 0 ? (
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {latestPosts.map((post: any, i: number) => {
+                const featured = i === 0
+                return (
+                  <Link
+                    key={post._id}
+                    href={`/nyheter/${post.slug.current}`}
+                    className={`group flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-200 ${featured ? 'md:col-span-3 md:flex-row' : ''}`}
+                  >
+                    {post.mainImage?.asset?.url ? (
+                      <div className={`relative w-full aspect-[16/10] overflow-hidden ${featured ? 'md:w-1/2 md:aspect-auto md:min-h-[360px]' : ''}`}>
+                        <Image
+                          src={urlFor(post.mainImage).width(featured ? 1200 : 800).auto('format').url()}
+                          alt={post.title}
+                          fill
+                          sizes={featured ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
+                          priority={featured}
+                          className="object-cover group-hover:scale-105 transition duration-700"
+                          style={post.mainImage?.hotspot ? {
+                            objectPosition: `${post.mainImage.hotspot.x * 100}% ${post.mainImage.hotspot.y * 100}%`
+                          } : undefined}
+                        />
+                      </div>
+                    ) : (
+                      <div className={`w-full aspect-[16/10] bg-slate-800 flex items-center justify-center p-8 ${featured ? 'md:w-1/2 md:aspect-auto md:min-h-[360px]' : ''}`}>
+                        <Image src="/B-ZERO-logo.svg" alt="B-Zero" width={featured ? 200 : 160} height={featured ? 60 : 48} className="opacity-20" unoptimized />
+                      </div>
+                    )}
+                    <div className={`flex flex-col flex-1 ${featured ? 'p-6 md:p-12 md:w-1/2 md:justify-center' : 'p-6'}`}>
+                      <time dateTime={post.publishedAt} className={`font-bold text-slate-500 tracking-widest uppercase block ${featured ? 'text-xs md:text-sm mb-3 md:mb-4' : 'text-xs mb-3'}`}>
+                        {new Date(post.publishedAt).toLocaleDateString('no-NB', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </time>
+                      <h3 className={`font-conthrax text-slate-800 transition-colors ${featured ? 'text-lg md:text-3xl mb-3 md:mb-6' : 'text-lg mb-3 line-clamp-3'}`}>
+                        {post.title}
+                      </h3>
+                      <p className={`text-slate-600 line-clamp-3 ${featured ? 'mb-6 md:text-lg md:mb-8' : 'mb-6'}`}>
+                        {post.excerpt}
+                      </p>
+                      <span className={`inline-flex items-center gap-2 text-slate-600 font-bold uppercase tracking-wider text-sm group-hover:text-brand-red transition ${featured ? 'mt-auto md:mt-0' : 'mt-auto'}`}>
+                        Les saken <ArrowRight weight="bold" className="group-hover:translate-x-2 transition-transform" />
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
           ) : (
             <div className="bg-white p-12 rounded-3xl text-center shadow-sm border border-slate-200">
               <p className="text-slate-500 italic text-lg">Akkurat nå er det stille i garasjen...</p>
             </div>
           )}
 
-          <Link href="/nyheter" className="sm:hidden mt-8 text-blue-600 font-bold flex items-center justify-center gap-2 hover:text-blue-800 transition uppercase tracking-wider text-sm">
-            Se alle nyheter <ArrowRight />
-          </Link>
-        </div>
-      </section>
-
-      {/* Race Calendars Section */}
-      <section className="bg-slate-900 py-12 md:py-20 border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-10 text-center">
-            <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-white">Løpskalender {calendarYear}</h2>
-            <p className="text-slate-400 mt-3 max-w-2xl mx-auto">Hold av datoene! Her er oversikten over årets gjeveste oppgjør på asfalt og grus.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <YearTimeline races={racingRaces} year={calendarYear} title={`Racing ${calendarYear}`} hideSubheadings={true} />
-            <YearTimeline races={rallyRaces} year={calendarYear} title={`Rally ${calendarYear}`} hideSubheadings={true} />
+          <div className="mt-8 flex justify-center md:justify-end">
+            <Link href="/nyheter" className="text-slate-600 font-bold flex items-center gap-2 hover:text-brand-red transition group uppercase tracking-wider text-sm">
+              Se alle nyheter <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
