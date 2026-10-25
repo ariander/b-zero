@@ -117,7 +117,7 @@ export default function KomIGangPage() {
                             </div>
                             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                                 <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Samhold i Depotet</h4>
-                                <p className="text-slate-600 font-light text-sm">I B-Zero konkurrerer vi beintøft ute på banen eller etappen, men i depoet er vi én stor familie. Vi låner hverandre verktøy, deler tips og hjelper til hvis noen får problemer – fordi vi vil at alle skal stå på startstreken i neste heat.</p>
+                                <p className="text-slate-600 font-light text-sm">I B-Zero konkurrerer vi beintøft ute på banen eller etappen, men i depotet er vi én stor familie. Vi låner hverandre verktøy, deler tips og hjelper til hvis noen får problemer – fordi vi vil at alle skal stå på startstreken i neste heat.</p>
                             </div>
                         </div>
                     </div>
@@ -134,8 +134,24 @@ export default function KomIGangPage() {
 
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-6 max-w-3xl">
-                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg ut i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005-2014.
+                            Selve navet i klassen er bilene våre. Enten du kjører racing på asfalt eller kaster deg ut i grusen på rally, bygger alt på de enkle og lette &quot;trillingene&quot; – Citroën C1, Peugeot 107 og Toyota Aygo fra 2005–2014.
                         </p>
+
+                        {/* Callout: Donorbil & Girkasse */}
+                        <div className="bg-slate-50 border-l-4 border-brand-red p-6 rounded-2xl mb-8 max-w-3xl">
+                            <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">
+                                💡 Før du kjøper bil på Finn.no:
+                            </h3>
+                            <ul className="space-y-2 text-slate-600 font-light text-sm mb-4 list-disc list-inside">
+                                <li><strong>Anbefalt girkasse:</strong> Sikt etter biler fra 2005–2011 med C550 eller C551 (20TT01 / 20TT05). Vær obs på at 2009–2011 er en gråsone der enkelte biler fikk C553 / 20TT55 tidlig (sjekk alltid koden). Styr unna 2012–2014 med LED-lys.</li>
+                                <li><strong>5-dørs vs. 3-dørs:</strong> 5-dørs er marginalt tyngre, men har langt bedre tilgang på deler i Norge. Er føreren lett, slipper man kanskje ballast.</li>
+                                <li><strong>Rustfelle:</strong> Sjekk spesielt innfestingen der bakakselen er boltet til karosseriet før du handler.</li>
+                            </ul>
+                            <a href="/byggeguide#donorbil-og-girkasse" className="text-xs font-bold uppercase tracking-wider text-brand-red hover:underline inline-flex items-center gap-1">
+                                Les hele girkasse- og donorbilguiden i Byggeguiden <ArrowRight size={14} weight="bold" />
+                            </a>
+                        </div>
+
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-8 max-w-3xl">
                             Byggeprosessen er overkommelig for de fleste med litt skruerfaring, men det er strenge krav til sikkerhetsutstyr og oppsett. Vi har samlet alt du trenger å vite om demontering, sveising av bur, understell og særregler i en egen byggeguide.
                         </p>

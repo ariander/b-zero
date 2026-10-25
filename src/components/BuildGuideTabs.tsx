@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { WarningCircle, Link as LinkIcon, ArrowRight, CheckCircle } from '@phosphor-icons/react';
+import { WarningCircle, Link as LinkIcon, ArrowRight, CheckCircle, Gear, Car, Sparkle, Wrench } from '@phosphor-icons/react';
 
 export default function BuildGuideTabs() {
     // Add logic to read from URL hash (e.g., #bygge-bil?type=rally) or query param
@@ -43,13 +43,183 @@ export default function BuildGuideTabs() {
         }
     };
 
-    if (!isMounted) {
-        return <div className="animate-pulse h-96 bg-slate-200 rounded-3xl w-full"></div>;
-    }
 
     return (
         <>
             <div id="bygge-guide-tabs" className="space-y-8 scroll-mt-24">
+                {/* Guide: Kjøp av donorbil & Girkasse */}
+                <div id="donorbil-og-girkasse" className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 scroll-mt-24">
+                    <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
+                        <div className="p-2.5 rounded-xl bg-slate-900 text-white shrink-0">
+                            <Car size={26} weight="fill" className="text-brand-red" />
+                        </div>
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Før du bygger</span>
+                            <h2 className="text-xl md:text-2xl font-conthrax text-slate-900 uppercase tracking-wide">
+                                Kjøp av donorbil &amp; Girkasseguide
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p className="text-slate-600 leading-relaxed font-light mb-8">
+                        Lovlige biler (pr. 2026) er første generasjon av <strong>Toyota Aygo, Citroën C1 og Peugeot 107</strong> fra årsmodellene 2005 t.o.m. 2014. Før du slår til på en bil på Finn.no eller hos en privat selger, er det spesielt to områder du må undersøke nøye: bilens karosseri/tilstand, og hvilken girkasse som sitter montert.
+                    </p>
+
+                    {/* Del 1: Sjekkliste for donorbil */}
+                    <div className="mb-10">
+                        <h3 className="text-lg md:text-xl font-conthrax text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">
+                            <Wrench size={22} className="text-brand-red" />
+                            1. Sjekkliste for valg av donorbil
+                        </h3>
+
+                        <div className="grid md:grid-cols-3 gap-5">
+                            {/* 3-dørs vs 5-dørs */}
+                            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                                <div>
+                                    <h4 className="font-bold text-slate-900 mb-2.5 uppercase tracking-wide text-xs">
+                                        3-dørs vs. 5-dørs
+                                    </h4>
+                                    <p className="text-slate-700 text-sm leading-relaxed mb-4">
+                                        5-dørs er marginalt tyngre, men har <strong>langt bedre tilgang på karosserideler</strong> (spesielt dører) i Norge.
+                                    </p>
+                                </div>
+                                <div className="bg-white p-3.5 rounded-xl border border-slate-200 text-sm text-slate-800">
+                                    💡 <strong>Tips:</strong> Er sjåføren lett i vekt, er 5-dørs topp – da slipper man ofte å montere ekstra ballast for å nå minstevekten.
+                                </div>
+                            </div>
+
+                            {/* Rust */}
+                            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                                <div>
+                                    <h4 className="font-bold text-red-600 mb-2.5 uppercase tracking-wide text-xs">
+                                        Rust – Kritisk sjekkpunkt!
+                                    </h4>
+                                    <p className="text-slate-700 text-sm leading-relaxed mb-4">
+                                        Sjekk bilen grundig. Legg heller noen kroner ekstra i en rustfri donorbil enn å kaste bort tid og penger på rustsveising.
+                                    </p>
+                                </div>
+                                <div className="bg-red-50 p-3.5 rounded-xl border border-red-200 text-sm text-red-900">
+                                    ⚠️ <strong>Sjekk spesielt:</strong> Innfestingen der bakakselen er boltet til karosseriet. Dette er den store rustfellen!
+                                </div>
+                            </div>
+
+                            {/* Slitedeler vs kilometerstand */}
+                            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                                <div>
+                                    <h4 className="font-bold text-slate-900 mb-2.5 uppercase tracking-wide text-xs">
+                                        Kilometerstand &amp; Slitedeler
+                                    </h4>
+                                    <p className="text-slate-700 text-sm leading-relaxed mb-4">
+                                        Kilometerstand betyr lite, da de sentrale slitedelene uansett bør fornyes før løp.
+                                    </p>
+                                </div>
+                                <div className="bg-white p-3.5 rounded-xl border border-slate-200 text-sm text-slate-800">
+                                    🔧 <strong>Bytt uansett:</strong> Hjullager, vannpumpe, clutch, multireim og tennplugger under byggingen.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Del 2: Girkasseguiden */}
+                    <div>
+                        <div className="flex items-center gap-2 mb-3">
+                            <Gear size={24} className="text-brand-red" weight="fill" />
+                            <h3 className="text-lg md:text-xl font-conthrax text-slate-900 uppercase tracking-wide">
+                                2. Girkasseguiden: Finn riktig utveksling
+                            </h3>
+                        </div>
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 font-light">
+                            Girkassens utveksling er avgjørende for akselerasjonen ut av svingene. Modellene skiller seg markant etter produksjonsår:
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {/* Anbefalt: C550 & C551 */}
+                            <div className="bg-emerald-50/70 border-2 border-emerald-500/40 rounded-2xl p-6 relative flex flex-col justify-between">
+                                <div>
+                                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-600 text-white whitespace-nowrap">
+                                            ✅ Anbefalt valg
+                                        </span>
+                                        <span className="text-xs sm:text-sm font-semibold text-emerald-800 whitespace-nowrap">
+                                            2005–2011 (Fase 1 &amp; 2)
+                                        </span>
+                                    </div>
+                                    <h4 className="text-2xl font-bold font-sans text-slate-900 tracking-tight mb-2">
+                                        C550 og C551
+                                    </h4>
+                                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                                        <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
+                                        <span className="font-mono text-sm font-bold bg-white text-emerald-950 px-2.5 py-0.5 rounded-md border border-emerald-300 shadow-xs" title="C550 manuell (Fase 1)">20TT01</span>
+                                        <span className="font-mono text-sm font-bold bg-white text-emerald-950 px-2.5 py-0.5 rounded-md border border-emerald-300 shadow-xs" title="C551 manuell (Fase 2)">20TT05</span>
+                                    </div>
+
+                                    <div className="space-y-3 text-sm text-slate-800 leading-relaxed mb-4">
+                                        <p>
+                                            <strong>Kjennetegn:</strong> Biler fra 2005–2011 <em>uten</em> originale LED-kjørelys i fangeren.
+                                        </p>
+                                        <p>
+                                            <strong>Hvorfor velge disse:</strong> Begge gir den riktige, tette utvekslingen som gir best akselerasjon. <strong>C550</strong> (PSA-kode 20TT01) er mest vanlig og et trygt valg. <strong>C551</strong> (PSA-kode 20TT05) er en sjeldnere utgave med marginalt tettere 4. gir og forsterket innmat. Begge fungerer topp i klassen!
+                                        </p>
+                                    </div>
+
+                                    {/* Gråsone-advarsel for 2009-2011 */}
+                                    <div className="bg-amber-50/90 p-3.5 rounded-xl border border-amber-300 text-sm text-amber-950 leading-relaxed">
+                                        ⚠️ <strong>Vær obs (2009–2011):</strong> Enkelte biler (f.eks. Eco/Blue Lion) fikk C553 / 20TT55-girkassen før faceliften. Sjekk derfor alltid koden på kassen for disse årsmodellene!
+                                    </div>
+                                </div>
+                                <div className="mt-4 pt-3 border-t border-emerald-200 text-xs sm:text-sm text-emerald-900 font-medium">
+                                    🔍 2005–2008 er tryggest «blindkjøp». På 2009–2011 må koden sjekkes.
+                                </div>
+                            </div>
+
+                            {/* Styr unna: C553 */}
+                            <div className="bg-red-50/70 border-2 border-red-500/40 rounded-2xl p-6 relative flex flex-col justify-between">
+                                <div>
+                                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-red-600 text-white whitespace-nowrap">
+                                            ⚠️ Styr unna!
+                                        </span>
+                                        <span className="text-xs sm:text-sm font-semibold text-red-800 whitespace-nowrap">
+                                            2012–2014 (Fase 3)
+                                        </span>
+                                    </div>
+                                    <h4 className="text-2xl font-bold font-sans text-slate-900 tracking-tight mb-2">
+                                        C553
+                                    </h4>
+                                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                                        <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
+                                        <span className="font-mono text-sm font-bold bg-white text-red-950 px-2.5 py-0.5 rounded-md border border-red-300 shadow-xs" title="C553 manuell (Fase 3 / Eco)">20TT55</span>
+                                        <span className="text-xs text-slate-500 font-medium self-center">(el. 20TT56 / 57)</span>
+                                    </div>
+
+                                    <div className="space-y-3 text-sm text-slate-800 leading-relaxed mb-4">
+                                        <p>
+                                            <strong>Kjennetegn:</strong> Siste facelift med originale LED-kjørelys i frontfangeren.
+                                        </p>
+                                        <p>
+                                            <strong>Hvorfor styre unna:</strong> Har en svært høy (treg) utveksling, spesielt på 3. gir – laget for å presse CO₂-utslippet under 100 g/km i EU-testsyklusen.
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-white/80 p-3.5 rounded-xl border border-red-200 text-sm text-red-950 leading-relaxed">
+                                        🛑 <strong>På banen:</strong> Turtallet faller for lavt ut av svingene, akselerasjonen kveles og du taper mye tid på langstrekkene. Bør unngås!
+                                    </div>
+                                </div>
+                                <div className="mt-4 pt-3 border-t border-red-200 text-xs sm:text-sm text-red-900 font-medium">
+                                    🛑 Unngå biler med originale LED-kjørelys i fangeren.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
+                            <WarningCircle size={22} className="text-slate-500 shrink-0 mt-0.5" />
+                            <span>
+                                <strong>Hvor finner du girkassekoden?</strong> Koden (f.eks. <em>20TT05</em>) er stemplet inn på oversiden av girkassehuset ved clutcharmen. Tørk over med litt bremserens for å lese den av.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Segment Controller */}
                 <div className="flex justify-center mb-8">
                     <div className="grid grid-cols-2 bg-slate-200 p-1.5 rounded-2xl relative w-full max-w-sm">
@@ -98,9 +268,9 @@ export default function BuildGuideTabs() {
                                     <p className="mb-4">Det første steget er å fjerne alt unødvendig interiør for å spare vekt og klargjøre for bur.</p>
                                     <ul className="list-none space-y-3 pl-0">
                                         <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Fjern interiør:</strong> Seter, matter, taktrekk og all løs plast skal ut.</span></li>
-                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Demonter dashboard:</strong> Taes ut før montering av bur, og tilpasses/kappes før det settes inn igjen.</span></li>
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Demonter dashboard:</strong> Tas ut før montering av bur, og tilpasses/kappes før det settes inn igjen.</span></li>
                                         <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Fjern asfaltmatter:</strong> Skrap gulvet rent for lyddemping (bruk tørris/hammer eller varmepistol).</span></li>
-                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Klargjør for sveising:</strong> Skrap sveisepunktene 100% frie for lakk og tektyl.</span></li>
+                                        <li className="flex gap-3 items-start"><CheckCircle size={24} className="text-brand-red shrink-0 mt-0.5" weight="fill" /> <span className="text-slate-700"><strong>Klargjør for sveising:</strong> Skrap sveisepunktene 100% frie for lakk og tectyl.</span></li>
                                     </ul>
                                 </div>
 
@@ -133,7 +303,7 @@ export default function BuildGuideTabs() {
                                     </ul>
                                     <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded mb-4 mt-6">
                                         <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-1 mt-0">Merk!</h4>
-                                        <p className="text-slate-700 text-sm mb-0">Tilpassing og montering av sikkerhetsbur er viktig for sikkerhet. Det er mye jobb, og krever både utstyr og erfaring også om man kjøper sett med ferdig bøyde rør. Alt skal kappes, tilpasses og sveises. Ta gjerne kontakt med en av oss for å høre erfaringer før man bestemmer seg for hvordan man ønsker å gå frem.</p>
+                                        <p className="text-slate-700 text-sm mb-0">Tilpassing og montering av sikkerhetsbur er viktig for sikkerhet. Det er mye jobb, og krever både utstyr og erfaring også om man kjøper sett med ferdigbøyde rør. Alt skal kappes, tilpasses og sveises. Ta gjerne kontakt med en av oss for å høre erfaringer før man bestemmer seg for hvordan man ønsker å gå frem.</p>
                                     </div>
                                 </div>
 
@@ -183,7 +353,7 @@ export default function BuildGuideTabs() {
 
                                     <h4 className="font-bold text-slate-900 mt-6 mb-2">Hovedstrømbryter / Kill Switch</h4>
                                     <p>Det må monteres en hovedstrømbryter som kobler ut batteriet og stopper motoren (kutter tenning). Denne skal kunne opereres fra både innsiden (av fører i stolen) og utsiden av bilen via wire-trekk ved frontruta.</p>
-                                    <p><em>Tips for montering (Left Hand Drive):</em> Siden bilene våre er venstrerattede, er wire-trekket typisk plassert på venstre side foran frontruten. Sjekk PDF-en under for nøyaktig koblingsskjema for hvilke ledninger som skal kuttes og kobles mot motstanderen.</p>
+                                    <p><em>Tips for montering (Left Hand Drive):</em> Siden bilene våre er venstrerattede, er wire-trekket typisk plassert på venstre side foran frontruten. Sjekk PDF-en under for nøyaktig koblingsskjema for hvilke ledninger som skal kuttes og kobles mot motstanden.</p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div className="cursor-pointer overflow-hidden rounded-xl border border-slate-200" onClick={() => setZoomedImage('/External-Master-Switch-Pulls-450x450.jpg')}>
                                             <Image src="/External-Master-Switch-Pulls-450x450.jpg" alt="Master Switch Pull" width={450} height={450} className="w-full object-cover hover:scale-105 transition-transform" />
@@ -194,12 +364,12 @@ export default function BuildGuideTabs() {
                                     </a>
 
                                     <h4 className="font-bold text-slate-900 mt-8 mb-2">Slepekroker (Tow hooks)</h4>
-                                    <p>Bilen må utstyres med tydelig markerte slepeløkker/kroker både foran og bak, slik at funksjonærene raskt kan trekke deg sikkerhet hvis du havner av banen. Plaststrips duger ikke her.</p>
+                                    <p>Bilen må utstyres med tydelig markerte slepeløkker/kroker både foran og bak, slik at funksjonærene raskt kan trekke deg i sikkerhet hvis du havner av banen. Plaststrips duger ikke her.</p>
 
                                     <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bensintank (Fuel tank guard)</h4>
                                     <p>I asfaltløp (racing) <em>skal</em> det monteres beskyttelsesplate for bensintanken.</p>
                                     <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2 text-slate-800">
-                                        <strong>Installasjon:</strong> Plasser beskyttelsen slik at den ligger over de langsgående skinnene. Du må kanskje justere litt på karosserikitten og brette ut kantene for å få den til å smette over skinnene. Den bakre kanten skal ligge tett inntil gummipluggen for reservehjulsbrønnen, men ikke dekke over den. Borr opp 2 x 6.3mm hull gjennom brønnhullet ved bruke beskytteren som guide. Fest med 2x M6 button head skruer og nyloc-muttere. Bor deretter 2 x 3.5mm hull inn i de langsgående skinnene (bruk igjen beskytteren som guide) og fest med de medfølgende selvborrende skruene.
+                                        <strong>Installasjon:</strong> Plasser beskyttelsen slik at den ligger over de langsgående skinnene. Du må kanskje justere litt på karosserikittet og brette ut kantene for å få den til å smette over skinnene. Den bakre kanten skal ligge tett inntil gummipluggen for reservehjulsbrønnen, men ikke dekke over den. Bor opp 2 x 6.3mm hull gjennom brønnhullet ved å bruke beskytteren som guide. Fest med 2 x M6 button head skruer og nyloc-muttere. Bor deretter 2 x 3.5mm hull inn i de langsgående skinnene (bruk igjen beskytteren som guide) og fest med de medfølgende selvborende skruene.
                                     </div>
                                     <div className="cursor-pointer overflow-hidden rounded-xl border border-slate-200 w-fit" onClick={() => setZoomedImage('/Fuel Tank Protector.jpg')}>
                                         <Image src="/Fuel Tank Protector.jpg" alt="Fuel Tank Protector" width={800} height={400} className="hover:scale-105 transition-transform" />
@@ -208,7 +378,7 @@ export default function BuildGuideTabs() {
                                     <h4 className="font-bold text-slate-900 mt-8 mb-2">Beskyttelsesplate for bremse- og bensinrør (Brake & fuel pipe guard)</h4>
                                     <p>Påkrevd på asfalt! For Rally skal det i tillegg være plate i <em>hele</em> bilens lengde pluss beskyttelse under motor.</p>
                                     <div className="bg-slate-50 p-4 rounded mb-4 text-sm mt-2 text-slate-800">
-                                        <strong>Installasjon (Racing):</strong> Plasser beskytteren slik at den dekker rørene rett etter de kommer ut fra motorrommet rett bak den fremre subframen. Fronten på beskytteren skrus i subframen med 2 gjenngeskruer (6mm self tappers). Bakparten skrus inn i den langsgående avstiveren på chassis med 2 skruer. Merk opp det første hullet nøye og bor med 4.8mm borr. Monter platen lett med den første skruen, og bruk deretter beskytteren som guide for å bore de tre siste hullene. Skru inn resten, og gå og ta deg en øl!
+                                        <strong>Installasjon (Racing):</strong> Plasser beskytteren slik at den dekker rørene rett etter de kommer ut fra motorrommet rett bak den fremre subframen. Fronten på beskytteren skrus i subframen med 2 gjengeskruer (6mm self tappers). Bakparten skrus inn i den langsgående avstiveren på chassis med 2 skruer. Merk opp det første hullet nøye og bor med 4.8mm bor. Monter platen lett med den første skruen, og bruk deretter beskytteren som guide for å bore de tre siste hullene. Skru inn resten, og ta deg en velfortjent pause!
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="cursor-pointer overflow-hidden rounded-xl border border-slate-200" onClick={() => setZoomedImage('/Brake Pipe Guard 1.jpg')}>
@@ -279,14 +449,14 @@ export default function BuildGuideTabs() {
                                     <ol className="list-decimal pl-5 space-y-2 mt-2 mb-6 text-slate-700">
                                         <li>Tapp ut girkasseoljen.</li>
                                         <li>Fjern originale bærebruer og drivaksler. Vær veldig forsiktig så du ikke skader pakningene/simringene (seals) inn mot girkassehuset.</li>
-                                        <li>Fjern den originale låsemutteren og ende-leddet på styrestaget (track rod). Skru den medfølgende tynne låsemutteren helt inn på gjengene. Kapp gjengepartiet på styrestaget slik at det står igjen nøyaktig <strong>18mm</strong> med gjenger (målt fra låsemutteren). En vinkelsliper med 1mm kutteskive er ypperlig til dette. Fjern låsemutteren igjen etter kappingen.</li>
+                                        <li>Fjern den originale låsemutteren og endeleddet på styrestaget (track rod). Skru den medfølgende tynne låsemutteren helt inn på gjengene. Kapp gjengepartiet på styrestaget slik at det står igjen nøyaktig <strong>18mm</strong> med gjenger (målt fra låsemutteren). En vinkelsliper med 1mm kutteskive er ypperlig til dette. Fjern låsemutteren igjen etter kappingen.</li>
                                         <li>Avfett styrestagsgjengene, de 2 tynne mutterne og de innvendige gjengene på &quot;forlengeren&quot; (extender). Skru den tynne låsemutteren inn til det gjenstår 10mm. Bruk Loctite gjengelåsing (Stud Lock) <em>foran og bak</em> den tynne mutteren. Skru mutteren nå helt inn. Skru styrestagsforlengeren helt inn mot bunn og stram låsemutteren hardt mot forlengeren. Målet er at denne forlengeren blir en permanent del av styrestaget ditt.</li>
                                         <li><strong>VIKTIG:</strong> Sjekk at du har riktige KYB (anbefalt) eller originale støtdempere (sjekk <a href="https://c1racing.club/wp-content/uploads/2025/03/2025-C1-Racing-Series-Sporting-Technical-Regulations-PUBLISHED-09MAR2025-signed.pdf" target="_blank" rel="noreferrer">reglement for produktnummer</a>).</li>
                                         <li>Monter de nye senkefjærene på demperbeina.</li>
                                         <li>Sett inn de nye <strong>forlengede drivakslene</strong> i girkassen. Pass spesielt godt på kopp-siden så ikke den innvendige pakningen rives i stykker under montering.</li>
                                         <li>Monter de nye forlengede bærebruene. Trekk til fremre pivot-bolt og de bakre festeboltene med <strong>100Nm</strong> moment.</li>
                                         <li>Styr enden av drivakselen inn i hjulnavet, og sentrer deretter bærekulens tap opp i navet. Sett på bærekulemutteren og trekk til med <strong>98Nm</strong> moment.</li>
-                                        <li>Fest den store nav-mutteren for drivakselen, trekk denne til med massive <strong>216Nm</strong>, og slå inn kanten av mutteren inn i sporet på drivleddet for å låse den mekanisk.</li>
+                                        <li>Fest den store nav-mutteren for drivakselen, trekk denne til med massive <strong>216Nm</strong>, og slå kanten av mutteren inn i sporet på drivleddet for å låse den mekanisk.</li>
                                     </ol>
 
                                     <p className="text-sm mb-6">
@@ -330,7 +500,7 @@ export default function BuildGuideTabs() {
                                 {/* Innkjøp av bil */}
                                 <div>
                                     <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">Innkjøp av bil</h3>
-                                    <p>Lovlige biler (pr. 2026) er første generasjon av Toyota Aygo, Citroen C1 og Peugeot 107 t.o.m. årsmodell 2014, frem til overgang neste generasjon som skjedde i 2014. Prisene på aktuelle donorbiler kan variere fra ca 8-25 000 kr, avhengig av tilstand. Både to- og firedørs biler er tillatte.</p>
+                                    <p>Lovlige biler (pr. 2026) er første generasjon av Toyota Aygo, Citroën C1 og Peugeot 107 t.o.m. årsmodell 2014, frem til overgang til neste generasjon som skjedde i 2014. Prisene på aktuelle donorbiler kan variere fra ca. 8–25 000 kr, avhengig av tilstand. Både to- og firedørs biler er tillatte.</p>
                                     <p>Erfaring viser at alle tre bilmodeller fungerer godt, inkludert både to- og firedørs. Selv i baneracing, med svært små tidsmarginer, har de beste sjåførene kunnet vinne med alle biltyper. Merk at tilgangen på brukte karosserideler (særlig dører) er langt bedre på firedørs enn todørs. Så ikke nøl med å velge en fire-dørs bil.</p>
                                     <p>Bil kjøpes vanligvis privat via annonser på finn.no. Det viktigste er normalt å se etter rust. Let videre om den du vurderte hadde mye rust. Legg heller noen tusenlapper ekstra i innkjøpet, fremfor å velge en opprustet donorbil. Lang kjørelengde er normalt mindre viktig bl.a. fordi mye slitedeler uansett bør byttes.</p>
                                 </div>
@@ -356,7 +526,7 @@ export default function BuildGuideTabs() {
                                                     <td className="px-4 py-3 font-medium text-slate-900">Sikkerhetsbur<br /><span className="text-xs text-slate-500 font-normal">Merk! Enhetlig utførelse både ift. rør/design og innfestninger</span></td>
                                                     <td className="px-4 py-3 text-right whitespace-nowrap">9 900,-<br /><span className="text-xs text-slate-500">opp mot 25 000,-<br />ferdig fra spesialist</span></td>
                                                     <td className="px-4 py-3 text-center"><CheckCircle size={20} className="text-emerald-500 mx-auto" /></td>
-                                                    <td className="px-4 py-3 text-xs">Rørsett fra RPCwebshop til 9900,- skal en sveise selv. Sterkt anbefalt å ikke spare penger her, kjøp kanskje et komplett ferdigmontert bur (fra feks Linnerud, ca 25 000kr).</td>
+                                                    <td className="px-4 py-3 text-xs">Rørsett fra RPCwebshop til 9900,- må du sveise selv. Sterkt anbefalt å ikke spare penger her, kjøp kanskje et komplett ferdigmontert bur (fra feks Linnerud, ca 25 000kr).</td>
                                                 </tr>
                                                 <tr className="bg-slate-50 border-b border-slate-100">
                                                     <td className="px-4 py-3 font-medium text-slate-900">Årskontroll og godkjenning</td>
@@ -628,8 +798,8 @@ export default function BuildGuideTabs() {
                                         </table>
                                     </div>
                                     <div className="mt-6 p-6 bg-slate-50 rounded-xl border border-slate-200">
-                                        <p className="text-sm text-slate-700 leading-relaxed mb-4">Kravene til kjøredress, undertøy, hjelm og HANS-krave er like for fører og kartleser. Kartleser kan imidlertid ha vanlige sko/støvler av skinn el tilsvarende (velg brannhemmende materiale). Skoene må gå over ankelhøyde. Det er ingen krav til hansker for kartleser (pga. bla i papirer osv.) På vinteren anbefales skotrekk til å bruke over kjøresko når man er ute av bilen. Disse tas også med ut på etappene, i tilfelle man får stopp (det kan være minus 20, og bli en stund å vente uten varmekilder!). Husk i tillegg alltid varmt tøy (jakke og lue, og gjerne også noe mat/drikke) hele tiden i bilen på vinterløp!</p>
-                                        <p className="text-sm text-slate-700 leading-relaxed m-0">Mye bra utstyr kan kjøpes brukt, ofte for halvparten av nypris eller lavere. Man kan også undersøke om noen har f.eks. kjøredress, hjelmer, HANS-Krage og/eller intercomsentral el. Man kan låne i startfasen, slik at man slipper å legge ut alle kostnader samtidig ved oppstart.</p>
+                                        <p className="text-sm text-slate-700 leading-relaxed mb-4">Kravene til kjøredress, undertøy, hjelm og HANS-krage er like for fører og kartleser. Kartleser kan imidlertid ha vanlige sko/støvler av skinn eller tilsvarende (velg brannhemmende materiale). Skoene må gå over ankelhøyde. Det er ingen krav til hansker for kartleser (pga. å bla i noter/papirer). På vinteren anbefales skotrekk til å bruke over kjøresko når man er ute av bilen. Disse tas også med ut på etappene, i tilfelle man får stopp (det kan være minus 20, og bli en stund å vente uten varmekilder!). Husk i tillegg alltid varmt tøy (jakke og lue, og gjerne også noe mat/drikke) hele tiden i bilen på vinterløp!</p>
+                                        <p className="text-sm text-slate-700 leading-relaxed m-0">Mye bra utstyr kan kjøpes brukt, ofte for halvparten av nypris eller lavere. Man kan også undersøke om noen har f.eks. kjøredress, hjelmer, HANS-krage eller intercomsentral man kan låne i startfasen, slik at man slipper å legge ut alle kostnader samtidig ved oppstart.</p>
                                     </div>
                                 </div>
 
@@ -653,7 +823,7 @@ export default function BuildGuideTabs() {
                                     <h3 className="font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Kontaktpersoner B-Zero Rally</h3>
                                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                                         <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                                            <p className="font-bold text-slate-900 mb-1 text-sm">Dan Rene Larsen</p>
+                                            <p className="font-bold text-slate-900 mb-1 text-sm">Dan René Larsen</p>
                                             <p className="text-xs text-slate-600 mb-1">Tlf: 938 17 745</p>
                                             <a href="mailto:dan.rene.larsen@live.no" className="text-xs text-blue-600 hover:underline">dan.rene.larsen@live.no</a>
                                         </div>
