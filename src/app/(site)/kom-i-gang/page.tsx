@@ -58,7 +58,7 @@ export default function KomIGangPage() {
 
                 {/* Quick Navigation Links */}
                 <nav className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 sm:gap-4 border-b border-slate-200 pb-12 -mt-4">
-                    <a href="#filosofi" className="w-full sm:w-auto text-center bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Filosofi</a>
+                    <a href="#filosofi" className="w-full sm:w-auto text-center bg-white hover:border-purple-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-purple-500 transition">Historie & filosofi</a>
                     <a href="#bygge-bil" className="w-full sm:w-auto text-center bg-white hover:border-brand-red border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-brand-red transition">Bygge bil</a>
                     <a href="#lisenser" className="w-full sm:w-auto text-center bg-white hover:border-blue-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-blue-500 transition">Lisenser</a>
                     <a href="#sikkerhetsutstyr" className="w-full sm:w-auto text-center bg-white hover:border-green-500 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-green-500 transition">Utstyr</a>
@@ -66,29 +66,58 @@ export default function KomIGangPage() {
                     <a href="#linker" className="w-full sm:w-auto text-center bg-white hover:border-slate-400 border border-transparent shadow-sm px-5 py-2.5 md:py-3 rounded-full text-sm font-conthrax uppercase tracking-wide text-slate-700 hover:text-slate-900 transition">Linker</a>
                 </nav>
 
-                {/* Section: Filosofi */}
+                {/* Section: Historie & Filosofi */}
                 <section id="filosofi" className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-8">
                         <div className="bg-slate-900 p-3 rounded-xl shadow-md">
                             <Lightning size={32} weight="fill" className="text-purple-500" />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Klassens Filosofi</h2>
+                        <h2 className="text-2xl md:text-3xl font-conthrax uppercase tracking-wider text-slate-900">Historien & Filosofien</h2>
                     </div>
-                    <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
-                        <p className="text-xl text-slate-700 leading-relaxed font-semibold mb-6">
+                    <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 prose prose-slate max-w-none">
+                        <p className="text-xl md:text-2xl text-slate-800 leading-relaxed font-semibold mb-6">
                             &quot;Minst mulig skruing, mest mulig kjøring, og et fantastisk miljø i depotet.&quot;
                         </p>
+
                         <p className="text-lg text-slate-600 leading-relaxed font-light mb-6">
                             Fundamentet i B-Zero er bygget på ideen om ekstremt lave bygge- og driftskostnader. Ved å benytte biler som er mekanisk identiske, eliminerer vi utstyrsjaget som ofte preger annen bilsport. Fokuset flyttes rett tilbake på føreren. Det er ferdighetene bak rattet, evnen til å holde farten gjennom svingene og strategien på banen som avgjør hvem som vinner.
                         </p>
+
+                        {/* Historien bak B-Zero */}
+                        <div className="my-8 pt-8 border-t border-slate-200">
+                            <h3 className="text-xl md:text-2xl font-conthrax text-slate-900 mb-4 uppercase tracking-wide">
+                                Hvorfor heter klassen «B-Zero»?
+                            </h3>
+                            <p className="text-slate-600 leading-relaxed font-light mb-5">
+                                Den nye skandinaviske innstegsklassen for asfalt- og rallykjøring har et ganske spesielt navn – og det er en fascinerende industrihistorie bak det.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed font-light mb-5">
+                                Avgjørelsen om å bygge disse &quot;trillingene&quot; ble tatt 12. juli 2001, da topplederne for Toyota og PSA (Peugeot/Citroën) drakk kaffe sammen og ble enige om å gå sammen om et fellesprosjekt for en ny, smart småbil. Kodenavnet for dette historiske samarbeidet var nettopp <strong>&quot;B-Zero&quot;</strong>.
+                            </p>
+                            <p className="text-slate-600 leading-relaxed font-light mb-5">
+                                Resultatet ble <strong>Toyota Aygo</strong>, <strong>Citroën C1</strong> og <strong>Peugeot 107</strong>. Tre biler, men under skallet er de nøyaktig samme bil! Selv navnet &quot;Aygo&quot; spilte på &quot;i-go&quot; – for å symbolisere frihet og mobilitet. Hver eneste bil, uansett hvilket emblem som sto på panseret, ble skrudd sammen på samme fabrikk i Kolin i Tsjekkia. Da den første bilen rullet ut i 2005, kostet en ny Aygo fra rundt 70.000 kroner, og fabrikken pumpet ut svimlende 300.000 biler i året – 100.000 av hvert merke.
+                            </p>
+
+                            <div className="bg-slate-50 border-l-4 border-brand-red p-6 rounded-2xl mt-6 mb-6">
+                                <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Fra britisk suksess til skandinavisk modell</h4>
+                                <p className="text-slate-600 font-light text-sm mb-3 leading-relaxed">
+                                    I Storbritannia har de kjørt &quot;C1 Racing Series&quot; med braksuksess i mange år, og ambisjonen vår er å ta med oss mye av den gode kulturen derfra.
+                                </p>
+                                <p className="text-slate-600 font-light text-sm leading-relaxed">
+                                    Men i motsetning til britene, som kun kjører 3-dørs Citroën C1, gjør vi det på skandinavisk vis: Siden bilene er identiske, tillater vi både Toyota Aygo, Peugeot 107 og Citroën C1 – og vi tillater 5-dørsutgavene, som det finnes mange flere av her hjemme! Vi bruker den første generasjonen bygget mellom 2005 og 2014, og har tilpasset regelverket optimalt for både asfaltracing og rally under nordiske forhold.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* De tre pilarene */}
                         <div className="grid md:grid-cols-2 gap-6 mt-8">
                             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Identiske Forutsetninger</h3>
+                                <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Identiske Forutsetninger</h4>
                                 <p className="text-slate-600 font-light text-sm">Bilen, motoren, dekkene og vekten er strengt regulert. Trimming er forbudt. Når utstyret er likt, er det marginene på banen som teller. Resultatet er Norges kanskje tetteste og jevneste racing.</p>
                             </div>
                             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                                <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Samhold i Depotet</h3>
-                                <p className="text-slate-600 font-light text-sm">I B-Zero konkurrerer vi beintøft ute på banen, men i depoet er vi én stor familie. Vi låner hverandre verktøy, deler tips og hjelper til hvis noen får problemer – fordi vi vil at alle skal stå på startstreken i neste heat.</p>
+                                <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-sm">Samhold i Depotet</h4>
+                                <p className="text-slate-600 font-light text-sm">I B-Zero konkurrerer vi beintøft ute på banen eller etappen, men i depoet er vi én stor familie. Vi låner hverandre verktøy, deler tips og hjelper til hvis noen får problemer – fordi vi vil at alle skal stå på startstreken i neste heat.</p>
                             </div>
                         </div>
                     </div>

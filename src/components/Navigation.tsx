@@ -33,7 +33,7 @@ export function Navigation() {
         { name: 'Byggeguide', href: '/byggeguide' },
         { name: 'Sjåfører', href: '/sjaforer' },
         { name: 'Reglement', href: '/reglement' },
-        { name: 'Om Oss', href: '/om-oss' },
+        { name: 'Kontakt', href: '/kontakt' },
     ]
 
     const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

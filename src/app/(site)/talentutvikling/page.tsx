@@ -191,7 +191,7 @@ export default function TalentutviklingPage() {
                                     </div>
                                 </div>
                                 <Link
-                                    href="/om-oss"
+                                    href="/kontakt"
                                     className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-full transition-colors flex items-center gap-2 whitespace-nowrap shadow-md focus:outline-hidden"
                                 >
                                     Gå til kontakt <ArrowRight weight="bold" />
