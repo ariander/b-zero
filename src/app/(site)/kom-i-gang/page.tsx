@@ -143,7 +143,7 @@ export default function KomIGangPage() {
                                 💡 Før du kjøper bil på Finn.no:
                             </h3>
                             <ul className="space-y-2 text-slate-600 font-light text-sm mb-4 list-disc list-inside">
-                                <li><strong>Anbefalt girkasse:</strong> Sikt etter biler fra 2005–2011 med C550 eller C551 (20TT01 / 20TT05). Vær obs på at 2009–2011 er en gråsone der enkelte biler fikk C553 / 20TT55 tidlig. Kjøper du en nyere bil (2012–2014), kan du fritt bytte til en girkasse fra en eldre modell (bolt-on).</li>
+                                <li><strong>Anbefalt girkasse:</strong> Sikt etter biler fra 2005–2011 med C550 eller C551 (20TT01 / 20TT05) for optimal utveksling. Biler fra 2012–2014 har lengre utveksling (C553) – helt fint for nybegynnere, og man kan fritt bytte til eldre kasse (bolt-on) om man vil kjempe i toppen.</li>
                                 <li><strong>5-dørs vs. 3-dørs:</strong> 5-dørs er marginalt tyngre, men har langt bedre tilgang på deler i Norge. Er føreren lett, slipper man kanskje ballast.</li>
                                 <li><strong>Rustfelle:</strong> Sjekk spesielt innfestingen der bakakselen er boltet til karosseriet før du handler.</li>
                             </ul>

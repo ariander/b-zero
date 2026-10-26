@@ -138,7 +138,7 @@ export default function BuildGuideTabs() {
                                 <div>
                                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                                         <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-600 text-white whitespace-nowrap">
-                                            ✅ Anbefalt valg
+                                            Anbefalt
                                         </span>
                                         <span className="text-xs sm:text-sm font-semibold text-emerald-800 whitespace-nowrap">
                                             2005–2011 (Fase 1 &amp; 2)
@@ -164,22 +164,22 @@ export default function BuildGuideTabs() {
 
                                     {/* Gråsone-advarsel for 2009-2011 */}
                                     <div className="bg-amber-50/90 p-3.5 rounded-xl border border-amber-300 text-sm text-amber-950 leading-relaxed">
-                                        ⚠️ <strong>Vær obs (2009–2011):</strong> Enkelte biler (f.eks. Eco/Blue Lion) fikk C553 / 20TT55-girkassen før faceliften. Sjekk derfor alltid koden på kassen for disse årsmodellene!
+                                        ⚠️ <strong>Vær obs (2009–2011):</strong> Enkelte modeller (f.eks. Eco/Blue Lion) fikk den lengre C553 / 20TT55-girkassen før faceliften. Sjekk koden om du ønsker optimal utveksling for toppen fra start.
                                     </div>
                                 </div>
                                 <div className="mt-4 pt-3 border-t border-emerald-200 text-xs sm:text-sm text-emerald-900 font-medium">
-                                    🔍 2005–2008 er tryggest «blindkjøp». På 2009–2011 må koden sjekkes.
+                                    🔍 2005–2008 er tryggest «blindkjøp». På 2009–2011 bør koden sjekkes for optimal utveksling.
                                 </div>
                             </div>
 
-                            {/* Styr unna: C553 */}
-                            <div className="bg-red-50/70 border-2 border-red-500/40 rounded-2xl p-6 relative flex flex-col justify-between">
+                            {/* C553: Lengre utveksling */}
+                            <div className="bg-amber-50/30 border-2 border-amber-400/50 rounded-2xl p-6 relative flex flex-col justify-between">
                                 <div>
                                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-red-600 text-white whitespace-nowrap">
-                                            ⚠️ Styr unna!
+                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-600 text-white whitespace-nowrap">
+                                            Ikke optimal
                                         </span>
-                                        <span className="text-xs sm:text-sm font-semibold text-red-800 whitespace-nowrap">
+                                        <span className="text-xs sm:text-sm font-semibold text-amber-900 whitespace-nowrap">
                                             2012–2014 (Fase 3)
                                         </span>
                                     </div>
@@ -188,7 +188,7 @@ export default function BuildGuideTabs() {
                                     </h4>
                                     <div className="flex flex-wrap items-center gap-2 mb-4">
                                         <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
-                                        <span className="font-mono text-sm font-bold bg-white text-red-950 px-2.5 py-0.5 rounded-md border border-red-300 shadow-xs" title="C553 manuell (Fase 3 / Eco)">20TT55</span>
+                                        <span className="font-mono text-sm font-bold bg-white text-slate-900 px-2.5 py-0.5 rounded-md border border-amber-300 shadow-xs" title="C553 manuell (Fase 3 / Eco)">20TT55</span>
                                         <span className="text-xs text-slate-500 font-medium self-center">(eller 20TT56 / 57)</span>
                                     </div>
 
@@ -197,20 +197,20 @@ export default function BuildGuideTabs() {
                                             <strong>Kjennetegn:</strong> Siste facelift med originale LED-kjørelys i frontfangeren.
                                         </p>
                                         <p>
-                                            <strong>Hvorfor styre unna:</strong> Har en svært høy (treg) utveksling, spesielt på 3. gir – laget for å presse CO₂-utslippet under 100 g/km i EU-testsyklusen.
+                                            <strong>Utveksling:</strong> Har en lengre utveksling – spesielt på 3. gir – laget fra fabrikk for å presse det oppgitte CO₂-utslippet under 100 g/km i EU-testsyklusen.
                                         </p>
                                     </div>
 
-                                    <div className="bg-white/80 p-3.5 rounded-xl border border-red-200 text-sm text-red-950 leading-relaxed mb-3">
-                                        🛑 <strong>På banen:</strong> Turtallet faller for lavt ut av svingene, akselerasjonen kveles og du taper mye tid på langstrekkene. Bør unngås!
+                                    <div className="bg-amber-50/90 p-3.5 rounded-xl border border-amber-200 text-sm text-amber-950 leading-relaxed mb-3">
+                                        ⏱️ <strong>Betydning på banen:</strong> Helt ok for en nybegynner som vil komme i gang og ha det gøy! Men fordi turtallet faller litt lavere ut av svingene, mister man litt akselerasjon som gjør det vanskeligere å henge med helt i toppen av feltet.
                                     </div>
 
-                                    <div className="bg-emerald-50/80 p-3 rounded-xl border border-emerald-300 text-sm text-emerald-950 leading-relaxed">
-                                        💡 <strong>Kjøpt nyere bil?</strong> Du kan fritt bytte til en C550/C551-kasse fra en eldre modell – alle kassene passer rett på motoren (bolt-on).
+                                    <div className="bg-white/90 p-3.5 rounded-xl border border-slate-200 text-sm text-slate-700 leading-relaxed">
+                                        💡 <strong>Kjøpt nyere bil?</strong> Finner du en pen og rustfri bil fra 2012–2014, er det bare å handle. Du kan fint kjøre med denne i starten, og eventuelt bytte til en C550/C551-kasse fra en eldre bil senere når du vil ta ut det siste potensialet (bolt-on).
                                     </div>
                                 </div>
-                                <div className="mt-4 pt-3 border-t border-red-200 text-xs sm:text-sm text-red-900 font-medium">
-                                    🛑 Unngå kassen på bane – eller bytt til kasse fra eldre modell.
+                                <div className="mt-4 pt-3 border-t border-amber-200 text-xs sm:text-sm text-amber-900 font-medium">
+                                    💡 Fin for å komme i gang – oppgrader til C550/C551 når du vil kjempe i toppen.
                                 </div>
                             </div>
                         </div>
@@ -225,7 +225,7 @@ export default function BuildGuideTabs() {
                             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
                                 <Sparkle size={22} className="text-brand-red shrink-0 mt-0.5" weight="fill" />
                                 <span>
-                                    <strong>Fritt bytte i reglementet:</strong> Kjøper du en nyere bil (2012–2014) eller en bil med feil utveksling, står du fritt til å hente og montere en C550/C551-kasse fra en tidligere årsmodell.
+                                    <strong>Fritt bytte i reglementet:</strong> Har du en bil med C553-kassen, står du fritt til å hente og montere en C550/C551-kasse fra en tidligere årsmodell når du vil ha optimal utveksling for tetstriden.
                                 </span>
                             </div>
                         </div>
