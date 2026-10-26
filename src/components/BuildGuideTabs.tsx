@@ -107,7 +107,7 @@ export default function BuildGuideTabs() {
                             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
                                 <div>
                                     <h4 className="font-bold text-slate-900 mb-2.5 uppercase tracking-wide text-xs">
-                                        Kilometerstand &amp; Slitedeler
+                                        Kilometerstand og Slitedeler
                                     </h4>
                                     <p className="text-slate-700 text-sm leading-relaxed mb-4">
                                         Kilometerstand betyr lite, da de sentrale slitedelene uansett bør fornyes før løp.
@@ -189,7 +189,7 @@ export default function BuildGuideTabs() {
                                     <div className="flex flex-wrap items-center gap-2 mb-4">
                                         <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
                                         <span className="font-mono text-sm font-bold bg-white text-red-950 px-2.5 py-0.5 rounded-md border border-red-300 shadow-xs" title="C553 manuell (Fase 3 / Eco)">20TT55</span>
-                                        <span className="text-xs text-slate-500 font-medium self-center">(el. 20TT56 / 57)</span>
+                                        <span className="text-xs text-slate-500 font-medium self-center">(eller 20TT56 / 57)</span>
                                     </div>
 
                                     <div className="space-y-3 text-sm text-slate-800 leading-relaxed mb-4">
@@ -201,21 +201,33 @@ export default function BuildGuideTabs() {
                                         </p>
                                     </div>
 
-                                    <div className="bg-white/80 p-3.5 rounded-xl border border-red-200 text-sm text-red-950 leading-relaxed">
+                                    <div className="bg-white/80 p-3.5 rounded-xl border border-red-200 text-sm text-red-950 leading-relaxed mb-3">
                                         🛑 <strong>På banen:</strong> Turtallet faller for lavt ut av svingene, akselerasjonen kveles og du taper mye tid på langstrekkene. Bør unngås!
+                                    </div>
+
+                                    <div className="bg-emerald-50/80 p-3 rounded-xl border border-emerald-300 text-sm text-emerald-950 leading-relaxed">
+                                        💡 <strong>Kjøpt nyere bil?</strong> Du kan fritt bytte til en C550/C551-kasse fra en eldre modell – alle kassene passer rett på motoren (bolt-on).
                                     </div>
                                 </div>
                                 <div className="mt-4 pt-3 border-t border-red-200 text-xs sm:text-sm text-red-900 font-medium">
-                                    🛑 Unngå biler med originale LED-kjørelys i fangeren.
+                                    🛑 Unngå kassen på bane – eller bytt til kasse fra eldre modell.
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-6 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
-                            <WarningCircle size={22} className="text-slate-500 shrink-0 mt-0.5" />
-                            <span>
-                                <strong>Hvor finner du girkassekoden?</strong> Koden (f.eks. <em>20TT05</em>) er stemplet inn på oversiden av girkassehuset ved clutcharmen. Tørk over med litt bremserens for å lese den av.
-                            </span>
+                        <div className="mt-6 grid sm:grid-cols-2 gap-4">
+                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
+                                <WarningCircle size={22} className="text-slate-500 shrink-0 mt-0.5" />
+                                <span>
+                                    <strong>Hvor finner du girkassekoden?</strong> Koden (f.eks. <em>20TT05</em>) er stemplet inn på oversiden av girkassehuset ved clutcharmen. Tørk over med litt bremserens for å lese den av.
+                                </span>
+                            </div>
+                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
+                                <Sparkle size={22} className="text-brand-red shrink-0 mt-0.5" weight="fill" />
+                                <span>
+                                    <strong>Fritt bytte i reglementet:</strong> Kjøper du en nyere bil (2012–2014) eller en bil med feil utveksling, står du fritt til å hente og montere en C550/C551-kasse fra en tidligere årsmodell.
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,7 +323,7 @@ export default function BuildGuideTabs() {
                                 <div>
                                     <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"><span className="bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span> Norske særregler</h3>
                                     <p className="mb-4">Regelverket vårt i Norge er basert på det britiske C1-reglementet, men vi har noen praktiske og kostnadsbesparende tilpasninger:</p>
-                                    
+
                                     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
                                         <table className="w-full text-left text-sm">
                                             <thead className="bg-slate-50 border-b border-slate-200">
