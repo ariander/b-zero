@@ -35,15 +35,15 @@ interface ContactCategory {
 
 const contactCategories: ContactCategory[] = [
     {
-        title: 'B-Zero Generelt & Teknisk',
+        title: 'Ledelse, Teknisk ogGenerelt',
         subtitle: 'Overordnet ledelse, klasseadministrasjon og teknisk reglement',
         icon: <UsersThree size={24} weight="fill" className="text-brand-red" />,
         badgeColor: 'border-brand-red/30 bg-brand-red/10 text-brand-red',
         persons: [
             {
                 name: 'Dan René Larsen',
-                role: 'Leder & Generell kontakt',
-                description: 'Klassens drift, administrasjon, organisering og generelle spørsmål om B-Zero.',
+                role: 'Klasseleder og generell kontakt',
+                description: 'Klassens drift, administrasjon, organisering og generelle spørsmål.',
                 phone: '+4793817745',
                 phoneDisplay: '+47 93 81 77 45',
                 emailUser: 'dan.rene.larsen',
@@ -53,7 +53,7 @@ const contactCategories: ContactCategory[] = [
             {
                 name: 'Jon Renstrøm',
                 role: 'Teknisk Leder',
-                description: 'Teknisk reglement, tolkninger, sikkerhetsbur, byggespørsmål og vognlisens.',
+                description: 'Teknisk reglement, sikkerhetsbur og bil.',
                 phone: '+4793048706',
                 phoneDisplay: '+47 93 04 87 06',
                 emailUser: 'jon.renstrom',
@@ -71,8 +71,8 @@ const contactCategories: ContactCategory[] = [
         persons: [
             {
                 name: 'Roger Iversen',
-                role: 'Førerkontakt & Racing',
-                description: 'Førerkontakt for deltagere, oppfølging i depotet, baneløp på asfalt og sportslig veiledning.',
+                role: 'Førerkontakt racing',
+                description: 'Kontaktperson mellom ledelse og utdøver, sportslig veiledning på og utenfor banen.',
                 phone: '+4795060401',
                 phoneDisplay: '+47 95 06 04 01',
                 emailUser: 'roger.iversen007',
@@ -81,9 +81,9 @@ const contactCategories: ContactCategory[] = [
                 fallbackImage: '/roger.png',
             },
             {
-                name: 'Kontaktperson Racing',
-                role: 'Bane & Racingkoordinator',
-                description: 'Supplerende kontaktperson for baneracing. Navn og kontaktinfo oppdateres om kort tid.',
+                name: 'Fornavn Etternavn',
+                role: 'Assisterende førerkontakt racing',
+                description: 'Kontaktperson mellom ledelse og utdøver, sportslig veiledning på og utenfor banen..',
                 isPlaceholder: true,
             },
         ],
@@ -119,15 +119,15 @@ const contactCategories: ContactCategory[] = [
         ],
     },
     {
-        title: 'Nettside & Merkevare',
+        title: 'Nettside og Merkevare',
         subtitle: 'Digital plattform, profilering, leiebørs, sponsorer og media',
         icon: <Globe size={24} weight="fill" className="text-emerald-400" />,
         badgeColor: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
         persons: [
             {
                 name: 'Arild Andersen',
-                role: 'Nettside & Merkevare',
-                description: 'Spørsmål om nettsiden, digital profilering, logoer og mediehenvendelser.',
+                role: 'Nettside og merkevare',
+                description: 'Spørsmål om nettsiden, profilering og mediehenvendelser.',
                 phone: '+4795126802',
                 phoneDisplay: '+47 95 12 68 02',
                 emailUser: 'arild.andersen',
