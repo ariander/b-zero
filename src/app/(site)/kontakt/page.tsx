@@ -72,7 +72,7 @@ const contactCategories: ContactCategory[] = [
             {
                 name: 'Roger Iversen',
                 role: 'Førerkontakt racing',
-                description: 'Kontaktperson mellom ledelse og utdøver, sportslig veiledning på og utenfor banen.',
+                description: 'Kontaktperson mellom ledelse og utøver, sportslig veiledning på og utenfor banen.',
                 phone: '+4795060401',
                 phoneDisplay: '+47 95 06 04 01',
                 emailUser: 'roger.iversen007',
@@ -83,7 +83,7 @@ const contactCategories: ContactCategory[] = [
             {
                 name: 'Fornavn Etternavn',
                 role: 'Assisterende førerkontakt racing',
-                description: 'Kontaktperson mellom ledelse og utdøver, sportslig veiledning på og utenfor banen..',
+                description: 'Kontaktperson mellom ledelse og utøver, sportslig veiledning på og utenfor banen.',
                 isPlaceholder: true,
             },
         ],

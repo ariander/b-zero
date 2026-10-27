@@ -47,8 +47,9 @@ export default function BuildGuideTabs() {
     return (
         <>
             <div id="bygge-guide-tabs" className="space-y-8 scroll-mt-24">
-                {/* Guide: Kjøp av donorbil & Girkasse */}
-                <div id="donorbil-og-girkasse" className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 scroll-mt-24">
+                {/* Guide: Kjøp av donorbil */}
+                <div id="donorbil" className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 scroll-mt-24 relative">
+                    <span id="donorbil-og-girkasse" className="absolute -top-24" />
                     <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
                         <div className="p-2.5 rounded-xl bg-slate-900 text-white shrink-0">
                             <Car size={26} weight="fill" className="text-brand-red" />
@@ -56,20 +57,20 @@ export default function BuildGuideTabs() {
                         <div>
                             <span className="text-xs font-bold uppercase tracking-widest text-brand-red">Før du bygger</span>
                             <h2 className="text-xl md:text-2xl font-conthrax text-slate-900 uppercase tracking-wide">
-                                Kjøp av donorbil &amp; Girkasseguide
+                                Kjøp av donorbil
                             </h2>
                         </div>
                     </div>
 
                     <p className="text-slate-600 leading-relaxed font-light mb-8">
-                        Lovlige biler (pr. 2026) er første generasjon av <strong>Toyota Aygo, Citroën C1 og Peugeot 107</strong> fra årsmodellene 2005 t.o.m. 2014. Før du slår til på en bil på Finn.no eller hos en privat selger, er det spesielt to områder du må undersøke nøye: bilens karosseri/tilstand, og hvilken girkasse som sitter montert.
+                        Lovlige biler (pr. 2026) er første generasjon av <strong>Toyota Aygo, Citroën C1 og Peugeot 107</strong> fra årsmodellene 2005 t.o.m. 2014. Før du slår til på en bil på Finn.no eller hos en privat selger, er det spesielt karosseriets tilstand og rust du bør undersøke nøye.
                     </p>
 
-                    {/* Del 1: Sjekkliste for donorbil */}
-                    <div className="mb-10">
+                    {/* Sjekkliste for donorbil */}
+                    <div className="mb-6">
                         <h3 className="text-lg md:text-xl font-conthrax text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">
                             <Wrench size={22} className="text-brand-red" />
-                            1. Sjekkliste for valg av donorbil
+                            Sjekkliste for valg av donorbil
                         </h3>
 
                         <div className="grid md:grid-cols-3 gap-5">
@@ -120,112 +121,22 @@ export default function BuildGuideTabs() {
                         </div>
                     </div>
 
-                    {/* Del 2: Girkasseguiden */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-3">
-                            <Gear size={24} className="text-brand-red" weight="fill" />
-                            <h3 className="text-lg md:text-xl font-conthrax text-slate-900 uppercase tracking-wide">
-                                2. Girkasseguiden: Finn riktig utveksling
-                            </h3>
-                        </div>
-                        <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 font-light">
-                            Girkassens utveksling er avgjørende for akselerasjonen ut av svingene. Modellene skiller seg markant etter produksjonsår:
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {/* Anbefalt: C550 & C551 */}
-                            <div className="bg-emerald-50/70 border-2 border-emerald-500/40 rounded-2xl p-6 relative flex flex-col justify-between">
-                                <div>
-                                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-600 text-white whitespace-nowrap">
-                                            Anbefalt
-                                        </span>
-                                        <span className="text-xs sm:text-sm font-semibold text-emerald-800 whitespace-nowrap">
-                                            2005–2011 (Fase 1 &amp; 2)
-                                        </span>
-                                    </div>
-                                    <h4 className="text-2xl font-bold font-sans text-slate-900 tracking-tight mb-2">
-                                        C550 og C551
-                                    </h4>
-                                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                                        <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
-                                        <span className="font-mono text-sm font-bold bg-white text-emerald-950 px-2.5 py-0.5 rounded-md border border-emerald-300 shadow-xs" title="C550 manuell (Fase 1)">20TT01</span>
-                                        <span className="font-mono text-sm font-bold bg-white text-emerald-950 px-2.5 py-0.5 rounded-md border border-emerald-300 shadow-xs" title="C551 manuell (Fase 2)">20TT05</span>
-                                    </div>
-
-                                    <div className="space-y-3 text-sm text-slate-800 leading-relaxed mb-4">
-                                        <p>
-                                            <strong>Kjennetegn:</strong> Biler fra 2005–2011 <em>uten</em> originale LED-kjørelys i fangeren.
-                                        </p>
-                                        <p>
-                                            <strong>Hvorfor velge disse:</strong> Begge gir den riktige, tette utvekslingen som gir best akselerasjon. <strong>C550</strong> (PSA-kode 20TT01) er mest vanlig og et trygt valg. <strong>C551</strong> (PSA-kode 20TT05) er en sjeldnere utgave med marginalt tettere 4. gir og forsterket innmat. Begge fungerer topp i klassen!
-                                        </p>
-                                    </div>
-
-                                    {/* Gråsone-advarsel for 2009-2011 */}
-                                    <div className="bg-amber-50/90 p-3.5 rounded-xl border border-amber-300 text-sm text-amber-950 leading-relaxed">
-                                        ⚠️ <strong>Vær obs (2009–2011):</strong> Enkelte modeller (f.eks. Eco/Blue Lion) fikk den lengre C553 / 20TT55-girkassen før faceliften. Sjekk koden om du ønsker optimal utveksling for toppen fra start.
-                                    </div>
-                                </div>
-                                <div className="mt-4 pt-3 border-t border-emerald-200 text-xs sm:text-sm text-emerald-900 font-medium">
-                                    🔍 2005–2008 er tryggest «blindkjøp». På 2009–2011 bør koden sjekkes for optimal utveksling.
-                                </div>
-                            </div>
-
-                            {/* C553: Lengre utveksling */}
-                            <div className="bg-amber-50/30 border-2 border-amber-400/50 rounded-2xl p-6 relative flex flex-col justify-between">
-                                <div>
-                                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                                        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-600 text-white whitespace-nowrap">
-                                            Ikke optimal
-                                        </span>
-                                        <span className="text-xs sm:text-sm font-semibold text-amber-900 whitespace-nowrap">
-                                            2012–2014 (Fase 3)
-                                        </span>
-                                    </div>
-                                    <h4 className="text-2xl font-bold font-sans text-slate-900 tracking-tight mb-2">
-                                        C553
-                                    </h4>
-                                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                                        <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider">Koder:</span>
-                                        <span className="font-mono text-sm font-bold bg-white text-slate-900 px-2.5 py-0.5 rounded-md border border-amber-300 shadow-xs" title="C553 manuell (Fase 3 / Eco)">20TT55</span>
-                                        <span className="text-xs text-slate-500 font-medium self-center">(eller 20TT56 / 57)</span>
-                                    </div>
-
-                                    <div className="space-y-3 text-sm text-slate-800 leading-relaxed mb-4">
-                                        <p>
-                                            <strong>Kjennetegn:</strong> Siste facelift med originale LED-kjørelys i frontfangeren.
-                                        </p>
-                                        <p>
-                                            <strong>Utveksling:</strong> Har en lengre utveksling – spesielt på 3. gir – laget fra fabrikk for å presse det oppgitte CO₂-utslippet under 100 g/km i EU-testsyklusen.
-                                        </p>
-                                    </div>
-
-                                    <div className="bg-amber-50/90 p-3.5 rounded-xl border border-amber-200 text-sm text-amber-950 leading-relaxed mb-3">
-                                        ⏱️ <strong>Betydning på banen:</strong> Helt ok for en nybegynner som vil komme i gang og ha det gøy! Men fordi turtallet faller litt lavere ut av svingene, mister man litt akselerasjon som gjør det vanskeligere å henge med helt i toppen av feltet.
-                                    </div>
-
-                                    <div className="bg-white/90 p-3.5 rounded-xl border border-slate-200 text-sm text-slate-700 leading-relaxed">
-                                        💡 <strong>Kjøpt nyere bil?</strong> Finner du en pen og rustfri bil fra 2012–2014, er det bare å handle. Du kan fint kjøre med denne i starten, og eventuelt bytte til en C550/C551-kasse fra en eldre bil senere når du vil ta ut det siste potensialet (bolt-on).
-                                    </div>
-                                </div>
-                                <div className="mt-4 pt-3 border-t border-amber-200 text-xs sm:text-sm text-amber-900 font-medium">
-                                    💡 Fin for å komme i gang – oppgrader til C550/C551 når du vil kjempe i toppen.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
-                                <WarningCircle size={22} className="text-slate-500 shrink-0 mt-0.5" />
+                    {/* Kort og nøktern notis om girkasse */}
+                    <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3.5">
+                        <Gear size={24} className="text-slate-500 shrink-0 mt-0.5" weight="fill" />
+                        <div>
+                            <h4 className="font-bold text-slate-900 uppercase tracking-wide text-xs mb-1">
+                                Girkasse
+                            </h4>
+                            <p className="text-slate-600 leading-relaxed font-light mb-2">
+                                Alle originale girkasser er godkjente i klassen. Biler fra <strong>2005–2008</strong> er helt trygge og har den foretrukne girkassen med tettest utveksling (spesielt i 3. gir). På modeller fra <strong>2008–2012</strong> må koden sjekkes da noen fikk den nyere utgaven, mens biler <strong>etter 2012</strong> mest sannsynlig har den nye typen. Alle fungerer fint å kjøre med, og kjøper du en nyere bil står du uansett fritt til å bytte til en eldre kasse senere (bolt-on).
+                            </p>
+                            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-600 pt-2 border-t border-slate-200">
                                 <span>
-                                    <strong>Hvor finner du girkassekoden?</strong> Koden (f.eks. <em>20TT05</em>) er stemplet inn på oversiden av girkassehuset ved clutcharmen. Tørk over med litt bremserens for å lese den av.
+                                    <strong>Foretrukket (tettest utveksling):</strong> <span className="font-mono font-semibold text-slate-900">C550</span> / <span className="font-mono font-semibold text-slate-900">C551</span> (stemplet <span className="font-mono font-semibold text-slate-900">20TT01</span> / <span className="font-mono font-semibold text-slate-900">20TT05</span> ved clutcharmen).
                                 </span>
-                            </div>
-                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 flex items-start gap-3">
-                                <Sparkle size={22} className="text-brand-red shrink-0 mt-0.5" weight="fill" />
                                 <span>
-                                    <strong>Fritt bytte i reglementet:</strong> Har du en bil med C553-kassen, står du fritt til å hente og montere en C550/C551-kasse fra en tidligere årsmodell når du vil ha optimal utveksling for tetstriden.
+                                    <strong>Nyere type:</strong> <span className="font-mono font-semibold text-slate-900">C553</span> (stemplet <span className="font-mono font-semibold text-slate-900">20TT55</span>).
                                 </span>
                             </div>
                         </div>

@@ -143,12 +143,12 @@ export default function KomIGangPage() {
                                 💡 Før du kjøper bil på Finn.no:
                             </h3>
                             <ul className="space-y-2 text-slate-600 font-light text-sm mb-4 list-disc list-inside">
-                                <li><strong>Anbefalt girkasse:</strong> Sikt etter biler fra 2005–2011 med C550 eller C551 (20TT01 / 20TT05) for optimal utveksling. Biler fra 2012–2014 har lengre utveksling (C553) – helt fint for nybegynnere, og man kan fritt bytte til eldre kasse (bolt-on) om man vil kjempe i toppen.</li>
+                                <li><strong>Girkasse:</strong> Alle girkassene fungerer. 2005–2008 er helt trygge for tettest utveksling, 2008–2012 må sjekkes, og etter 2012 er det som regel den nye typen (fritt bytte er uansett tillatt).</li>
                                 <li><strong>5-dørs vs. 3-dørs:</strong> 5-dørs er marginalt tyngre, men har langt bedre tilgang på deler i Norge. Er føreren lett, slipper man kanskje ballast.</li>
                                 <li><strong>Rustfelle:</strong> Sjekk spesielt innfestingen der bakakselen er boltet til karosseriet før du handler.</li>
                             </ul>
-                            <a href="/byggeguide#donorbil-og-girkasse" className="text-xs font-bold uppercase tracking-wider text-brand-red hover:underline inline-flex items-center gap-1">
-                                Les hele girkasse- og donorbilguiden i Byggeguiden <ArrowRight size={14} weight="bold" />
+                            <a href="/byggeguide#donorbil" className="text-xs font-bold uppercase tracking-wider text-brand-red hover:underline inline-flex items-center gap-1">
+                                Les råd om valg av donorbil i Byggeguiden <ArrowRight size={14} weight="bold" />
                             </a>
                         </div>
 
