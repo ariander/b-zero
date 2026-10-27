@@ -35,7 +35,7 @@ interface ContactCategory {
 
 const contactCategories: ContactCategory[] = [
     {
-        title: 'Ledelse, Teknisk ogGenerelt',
+        title: 'Ledelse, teknisk og generelt',
         subtitle: 'Overordnet ledelse, klasseadministrasjon og teknisk reglement',
         icon: <UsersThree size={24} weight="fill" className="text-brand-red" />,
         badgeColor: 'border-brand-red/30 bg-brand-red/10 text-brand-red',
@@ -119,8 +119,8 @@ const contactCategories: ContactCategory[] = [
         ],
     },
     {
-        title: 'Nettside og Merkevare',
-        subtitle: 'Digital plattform, profilering, leiebørs, sponsorer og media',
+        title: 'Nettside og merkevare',
+        subtitle: 'Digital plattform, profilering, sponsorer og media',
         icon: <Globe size={24} weight="fill" className="text-emerald-400" />,
         badgeColor: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
         persons: [
