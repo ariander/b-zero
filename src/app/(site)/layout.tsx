@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, DownloadSimple, FacebookLogo, YoutubeLogo } from '@phosphor-icons/react/dist/ssr'
 import { Navigation } from '@/components/Navigation'
-// import { MerchBanner } from '@/components/MerchBanner'  // midlertidig skjult
+import { MerchBanner } from '@/components/MerchBanner'
 
 export default function SiteLayout({
   children,
@@ -29,7 +29,7 @@ export default function SiteLayout({
         <main className="flex-1">
           {children}
         </main>
-        {/* <MerchBanner /> */}{/* midlertidig skjult */}
+        <MerchBanner />
         <footer className="bg-neutral-900 text-neutral-400 py-16 mt-auto border-t border-neutral-800">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm">
             <div className="md:col-span-2">
@@ -69,7 +69,7 @@ export default function SiteLayout({
                 <li><Link href="/baerekraft" className="hover:text-green-500 transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Bærekraftig Racing</Link></li>
                 <li><Link href="/sesonger" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> Terminliste</Link></li>
                 <li><a href="https://rpcwebshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> RPC Webshop</a></li>
-                {/* <li><a href="https://bzero.myspreadshop.no" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> B-Zero Merchandise</a></li> */}{/* midlertidig skjult */}
+                <li><a href="https://bzero.myspreadshop.no/" target="_blank" rel="noreferrer" className="hover:text-brand-red transition flex items-center gap-2"><ArrowRight size={14} className="text-neutral-600" /> B-Zero Merchandise</a></li>
               </ul>
             </div>
 
@@ -117,7 +117,7 @@ export default function SiteLayout({
           </div>
 
           <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-600 font-medium">
-            <p>© {new Date().getFullYear()} B-Zero Racing Norge. Med forbehold om feil.</p>
+            <p>© {new Date().getFullYear()} B-Zero Norge. Med forbehold om feil.</p>
             <Link href="/studio" className="hover:text-neutral-400 transition mt-4 md:mt-0">Sanity Login</Link>
           </div>
         </footer>
