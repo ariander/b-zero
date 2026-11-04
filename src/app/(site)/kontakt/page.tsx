@@ -42,7 +42,7 @@ const contactCategories: ContactCategory[] = [
         persons: [
             {
                 name: 'Dan René Larsen',
-                role: 'Klasseleder og generell kontakt',
+                role: 'Daglig leder og klasseleder',
                 description: 'Klassens drift, administrasjon, organisering og generelle spørsmål.',
                 phone: '+4793817745',
                 phoneDisplay: '+47 93 81 77 45',
@@ -53,7 +53,7 @@ const contactCategories: ContactCategory[] = [
             {
                 name: 'Jon Renstrøm',
                 role: 'Teknisk Leder',
-                description: 'Teknisk reglement, sikkerhetsbur og bil.',
+                description: 'Teknisk reglement, råd om bygging av bil, innkjøp av deler, ECU og sikkerhet.',
                 phone: '+4793048706',
                 phoneDisplay: '+47 93 04 87 06',
                 emailUser: 'jon.renstrom',
@@ -72,7 +72,7 @@ const contactCategories: ContactCategory[] = [
             {
                 name: 'Roger Iversen',
                 role: 'Førerkontakt racing',
-                description: 'Kontaktperson mellom ledelse og utøver, sportslig veiledning på og utenfor banen.',
+                description: 'Kontaktperson mellom ledelse og utøvere, førermøter, depotplassering og sportslig veiledning på og utenfor banen.',
                 phone: '+4795060401',
                 phoneDisplay: '+47 95 06 04 01',
                 emailUser: 'roger.iversen007',
@@ -81,10 +81,15 @@ const contactCategories: ContactCategory[] = [
                 fallbackImage: '/roger.png',
             },
             {
-                name: 'Fornavn Etternavn',
+                name: 'Kristian Svendsen',
                 role: 'Assisterende førerkontakt racing',
-                description: 'Kontaktperson mellom ledelse og utøver, sportslig veiledning på og utenfor banen.',
-                isPlaceholder: true,
+                description: 'Assisterende kontaktperson mellom ledelse og utøvere som trer inn når Roger selv kjører, samt koordinering av depotplass og sportslig veiledning.',
+                phone: '+4790959674',
+                phoneDisplay: '+47 90 95 96 74',
+                emailUser: 'kristian_svendsen',
+                emailDomain: 'hotmail.no',
+                driverSlug: 'kristian',
+                fallbackImage: '/kristian.jpg',
             },
         ],
     },
@@ -96,8 +101,8 @@ const contactCategories: ContactCategory[] = [
         persons: [
             {
                 name: 'Lars Brænna',
-                role: 'Kontaktperson Rally',
-                description: 'Rallyerfaring, førerutvikling, lisenser og deltakelse på grus og snø.',
+                role: 'Styreleder og kontaktperson Rally',
+                description: 'Rallyerfaring, førerutvikling, lisenser, arrangørkontakt og deltakelse på grus og snø.',
                 phone: '+4746171707',
                 phoneDisplay: '+47 46 17 17 07',
                 emailUser: 'lars',
@@ -107,14 +112,24 @@ const contactCategories: ContactCategory[] = [
             },
             {
                 name: 'Ståle Hovda',
-                role: 'Kontaktperson Rally',
-                description: 'Rallyerfaring, bygging og preparering av rallybil og bil- og kjøretekniske tips.',
+                role: 'Teknisk og sportslig kontakt Rally',
+                description: 'Rallyerfaring, bygging og preparering av rallybil, sikkerhet og bil- og kjøretekniske tips.',
                 phone: '+4791627880',
                 phoneDisplay: '+47 91 62 78 80',
                 emailUser: 'stale.hovda',
                 emailDomain: 'gmail.com',
                 driverSlug: 'stale',
                 fallbackImage: '/stale.png',
+            },
+            {
+                name: 'Joakim Jevne Sveen',
+                role: 'Førerkontakt rally',
+                description: 'Kontaktperson mellom ledelse og rallyutøvere, førermøter, depotplassering og oppfølging mot løp og terminliste.',
+                phone: '+4796012572',
+                phoneDisplay: '+47 96 01 25 72',
+                emailUser: 'jevnemotorsport',
+                emailDomain: 'outlook.com',
+                driverSlug: 'joakim-jevne-sveen',
             },
         ],
     },
@@ -205,9 +220,6 @@ export default async function KontaktPage() {
                                     </p>
                                 </div>
                             </div>
-                            <span className={`self-start md:self-auto text-xs font-semibold px-3 py-1 rounded-full border ${category.badgeColor}`}>
-                                {category.persons.length} {category.persons.length === 1 ? 'kontaktperson' : 'kontaktpersoner'}
-                            </span>
                         </div>
 
                         {/* Persons Grid */}
