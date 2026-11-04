@@ -17,6 +17,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/om-oss',
+        destination: '/kontakt',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

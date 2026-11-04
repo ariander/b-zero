@@ -78,9 +78,9 @@ export default function SiteLayout({
               <p className="mb-4 text-neutral-200">
                 Spørsmål om klassen eller regelverket?
               </p>
-              <Link href="/om-oss" className="group mb-6 inline-flex items-center gap-2 font-semibold text-white hover:text-brand-red transition">
+              <Link href="/kontakt" className="group mb-6 inline-flex items-center gap-2 font-semibold text-white hover:text-brand-red transition">
                 <ArrowRight size={14} className="text-brand-red group-hover:translate-x-1 transition-transform" />
-                Kontaktpersoner &amp; om oss
+                Kontaktpersoner &amp; henvendelser
               </Link>
               <div className="flex flex-col gap-3 items-start">
                 <a href="https://www.facebook.com/groups/bzermotorsport/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1864c9] text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-sm">

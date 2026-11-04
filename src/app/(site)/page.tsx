@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Info, RocketLaunch, CalendarCheck } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, Wrench, RocketLaunch, FileText } from '@phosphor-icons/react/dist/ssr'
 import { HomeHero } from '@/components/HomeHero'
 import { getLatestPosts, getUpcomingRaces, getCurrentYearRaces, getCalendarYear } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
@@ -27,39 +27,39 @@ export default async function Home() {
       {/* Intro Cards Section */}
       <section className="max-w-6xl mx-auto px-6 py-6 md:py-20">
         <div className="grid md:grid-cols-3 gap-4 md:gap-8">
-          <div className="group relative bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-lg transition duration-300">
-            <Link href="/reglement" className="absolute inset-0 z-10">
-              <span className="sr-only">Les Reglement: Hva er B-Zero?</span>
-            </Link>
-            <Info size={48} weight="fill" className="text-slate-600 mb-6" />
-            <h2 className="text-2xl text-slate-800 font-conthrax mb-3 transition-colors">Hva er B-Zero?</h2>
-            <p className="text-slate-600 mb-6 relative z-0">Norges garantert billigste bilsportgren. Maksimer kjøregleden og adrenalinet med lette biler og tett racing på asfalt!</p>
-            <span className="text-slate-600 font-bold flex items-center gap-2 group-hover:text-brand-red transition uppercase tracking-wider text-sm relative z-0">
-              Les Reglement <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </span>
-          </div>
-
-          <div className="group relative bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-lg transition duration-300">
-            <Link href="/sesonger" className="absolute inset-0 z-10">
-              <span className="sr-only">Se Terminliste: Løp / Terminliste</span>
-            </Link>
-            <CalendarCheck size={48} weight="fill" className="text-slate-600 mb-6" />
-            <h2 className="text-2xl text-slate-800 font-conthrax mb-3 transition-colors">Løp & Terminliste</h2>
-            <p className="text-slate-600 mb-6 relative z-0">Følg med på når flagget faller neste gang, eller bla deg gjennom historikken og gallerier fra tidligere løp.</p>
-            <span className="text-slate-600 font-bold flex items-center gap-2 group-hover:text-brand-red transition uppercase tracking-wider text-sm relative z-0">
-              Se Terminliste <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </span>
-          </div>
-
           <div className="group relative bg-neutral-900 text-white p-8 rounded-3xl shadow-sm border border-slate-800 hover:-translate-y-1 hover:shadow-lg transition duration-300">
             <Link href="/kom-i-gang" className="absolute inset-0 z-10">
-              <span className="sr-only">Slik gjør du det: Kom i gang</span>
+              <span className="sr-only">Kom i gang: Historie, lisenser og utstyr</span>
             </Link>
             <RocketLaunch size={48} weight="fill" className="text-brand-red mb-6" />
             <h2 className="text-2xl font-conthrax mb-3 text-slate-200 group-hover:text-brand-red transition-colors">Kom i gang</h2>
-            <p className="text-slate-200 mb-6 relative z-0">Alt du trenger å vite om å bygge bil, lisenser, utstyr og hvordan du kaster deg med i karusellen.</p>
+            <p className="text-slate-200 mb-6 relative z-0">Veien til startstreken: historien, lisenser, godkjent sikkerhetsutstyr og årshjul for sesongen.</p>
             <span className="text-white font-bold flex items-center gap-2 group-hover:text-brand-red transition uppercase tracking-wider text-sm relative z-0">
-              Slik gjør du det <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              Slik starter du <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </div>
+
+          <div className="group relative bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-lg transition duration-300">
+            <Link href="/byggeguide" className="absolute inset-0 z-10">
+              <span className="sr-only">Byggeguide: Bygg din egen B-Zero</span>
+            </Link>
+            <Wrench size={48} weight="fill" className="text-slate-600 mb-6 group-hover:text-brand-red transition-colors" />
+            <h2 className="text-2xl text-slate-800 font-conthrax mb-3 transition-colors">Byggeguide</h2>
+            <p className="text-slate-600 mb-6 relative z-0">Komplett byggeveiledning for racing og rally. Sikkerhetsbur, understell, delenumre og montering.</p>
+            <span className="text-slate-600 font-bold flex items-center gap-2 group-hover:text-brand-red transition uppercase tracking-wider text-sm relative z-0">
+              Åpne byggeguiden <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </div>
+
+          <div className="group relative bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:-translate-y-1 hover:shadow-lg transition duration-300">
+            <Link href="/reglement" className="absolute inset-0 z-10">
+              <span className="sr-only">Reglement og dokumenter</span>
+            </Link>
+            <FileText size={48} weight="fill" className="text-slate-600 mb-6 group-hover:text-brand-red transition-colors" />
+            <h2 className="text-2xl text-slate-800 font-conthrax mb-3 transition-colors">Reglement og dokumenter</h2>
+            <p className="text-slate-600 mb-6 relative z-0">Tekniske og sportslige reglementer, vognbokkrav, årskontroller og offisielle dokumenter.</p>
+            <span className="text-slate-600 font-bold flex items-center gap-2 group-hover:text-brand-red transition uppercase tracking-wider text-sm relative z-0">
+              Se reglement <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </div>
         </div>
