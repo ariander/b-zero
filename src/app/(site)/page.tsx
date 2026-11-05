@@ -5,6 +5,7 @@ import { getLatestPosts, getUpcomingRaces, getCurrentYearRaces, getCalendarYear 
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 import YearTimeline from '@/components/YearTimeline'
+import { MerchBanner } from '@/components/MerchBanner'
 
 export const revalidate = 3600; // Safety-net; ekte oppdateringer skjer via Sanity webhook (on-demand revalidation)
 
@@ -177,6 +178,7 @@ export default async function Home() {
         </div>
       </section>
 
+      <MerchBanner />
     </div>
   )
 }
